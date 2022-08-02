@@ -21,7 +21,7 @@ namespace DAL.Repository
         }
         public List<KhachHang> LayDanhSachKhachHang()
         {
-            _lstKhachHang = _DA1context.khachHangs.ToList();
+            //_lstKhachHang = _DA1context.khachHangs.ToList();
             return _lstKhachHang;
         }
         public bool ThemKH(KhachHang kh)
