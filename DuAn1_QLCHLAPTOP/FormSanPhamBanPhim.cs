@@ -16,5 +16,10 @@ namespace Presentation
         {
             InitializeComponent();
         }
+
+        private void comboBox_ketnoi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

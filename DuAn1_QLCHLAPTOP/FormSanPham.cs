@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL.Model;
+using BUS.IServices.IServiceSanPham;
 
 namespace Presentation
 {
@@ -15,6 +16,8 @@ namespace Presentation
     {
         //private DAL.IRepository.INhanVienRepository _repository;
         private BUS.IServices.IServiceSanPham.ISanPhamService _serviceSanPhamService;
+        private IBanPhimService _banPhimService;
+
         public bool IsAdd { get; set; }
 
         public FormSanPham()
@@ -105,6 +108,7 @@ namespace Presentation
                 fspmh.FormBorderStyle = FormBorderStyle.None;
                 fspmh.Show();
             }
+            
         }
 
         private void AddBindings()
@@ -139,6 +143,23 @@ namespace Presentation
         {
             IsAdd = true;
             var result =  _serviceSanPhamService.ThemSP(MatchData());
+            var result2 = true;
+            switch (comboBox_dongsp.SelectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    result2 = _banPhimService.ThemBP(MatchBanPhim());
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
             if (result)
             {
                 MessageBox.Show("Thêm thành công");
@@ -146,6 +167,14 @@ namespace Presentation
             }
             else
                 MessageBox.Show("Thêm thất bại");
+        }
+
+        private BanPhim MatchBanPhim()
+        {
+            var banphim = new BanPhim();
+            banphim.MaSP = tb_masp.Text;
+            
+            return banphim;
         }
 
         private SanPham MatchData()

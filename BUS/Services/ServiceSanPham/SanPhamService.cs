@@ -5,12 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BUS.IServices.IServiceSanPham;
+using DAL.IRepository.IRepositorySanPham;
+using DAL.Repository.RepositorySanPham;
+
 namespace BUS.Services.ServiceSanPham
+    
 {
     public class SanPhamService : ISanPhamService
     {
         private DAL.IRepository.IRepositorySanPham.ISanPhamRepository _servie;
-
+      
         public SanPhamService()
         {
             this._servie = new DAL.Repository.RepositorySanPham.SanPhamRepository();
@@ -23,7 +27,7 @@ namespace BUS.Services.ServiceSanPham
 
         public bool SuaSP(SanPham san)
         {
-            return this._servie.Edit(san);
+            return _servie.Edit(san);
         }
 
         public bool ThemSP(SanPham san)

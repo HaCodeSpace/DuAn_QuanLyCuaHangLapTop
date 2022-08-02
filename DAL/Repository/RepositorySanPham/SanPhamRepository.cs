@@ -57,7 +57,8 @@ namespace DAL.Repository.RepositorySanPham
 
         public ICollection<SanPham> GetAll()
         {
-            return this.context.sanPhams.ToList();
+            //return this.context.sanPhams.ToList();
+            return new List<SanPham>();
         }
     }
 }
