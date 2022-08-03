@@ -37,13 +37,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lb_locvaitro = new System.Windows.Forms.Label();
             this.groupBox_thietlap = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.rdb_nu = new System.Windows.Forms.RadioButton();
-            this.rdb_nam = new System.Windows.Forms.RadioButton();
             this.bt_sua = new System.Windows.Forms.Button();
             this.bt_them = new System.Windows.Forms.Button();
             this.rdb_nghiviec = new System.Windows.Forms.RadioButton();
             this.rdb_danglam = new System.Windows.Forms.RadioButton();
+            this.rdb_nu = new System.Windows.Forms.RadioButton();
+            this.rdb_nam = new System.Windows.Forms.RadioButton();
             this.comboBox_vaitro = new System.Windows.Forms.ComboBox();
             this.tb_ngaysinh = new System.Windows.Forms.TextBox();
             this.tb_dienthoai = new System.Windows.Forms.TextBox();
@@ -62,6 +61,7 @@
             this.lb_matkhau = new System.Windows.Forms.Label();
             this.lb_tennv = new System.Windows.Forms.Label();
             this.lb_manv = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.groupBox_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -102,7 +102,6 @@
             this.textBox1.PlaceholderText = "Tìm Kiếm Theo Tên";
             this.textBox1.Size = new System.Drawing.Size(273, 31);
             this.textBox1.TabIndex = 24;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dataGridView1
             // 
@@ -115,7 +114,6 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1267, 300);
             this.dataGridView1.TabIndex = 27;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // comboBox2
             // 
@@ -128,7 +126,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(193, 31);
             this.comboBox2.TabIndex = 26;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // lb_loctrangthai
             // 
@@ -151,8 +148,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(193, 31);
             this.comboBox1.TabIndex = 24;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // lb_locvaitro
             // 
@@ -196,39 +191,6 @@
             this.groupBox_thietlap.TabStop = false;
             this.groupBox_thietlap.Text = "Thiết Lập Thông Tin Nhân Viên";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rdb_nu);
-            this.panel1.Controls.Add(this.rdb_nam);
-            this.panel1.Location = new System.Drawing.Point(858, 195);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(226, 30);
-            this.panel1.TabIndex = 24;
-            // 
-            // rdb_nu
-            // 
-            this.rdb_nu.AutoSize = true;
-            this.rdb_nu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rdb_nu.Location = new System.Drawing.Point(160, 2);
-            this.rdb_nu.Name = "rdb_nu";
-            this.rdb_nu.Size = new System.Drawing.Size(55, 27);
-            this.rdb_nu.TabIndex = 19;
-            this.rdb_nu.Text = "Nữ";
-            this.rdb_nu.UseVisualStyleBackColor = true;
-            // 
-            // rdb_nam
-            // 
-            this.rdb_nam.AutoSize = true;
-            this.rdb_nam.Checked = true;
-            this.rdb_nam.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rdb_nam.Location = new System.Drawing.Point(15, 2);
-            this.rdb_nam.Name = "rdb_nam";
-            this.rdb_nam.Size = new System.Drawing.Size(73, 27);
-            this.rdb_nam.TabIndex = 18;
-            this.rdb_nam.TabStop = true;
-            this.rdb_nam.Text = "Nam ";
-            this.rdb_nam.UseVisualStyleBackColor = true;
-            // 
             // bt_sua
             // 
             this.bt_sua.BackColor = System.Drawing.Color.Yellow;
@@ -240,7 +202,6 @@
             this.bt_sua.TabIndex = 23;
             this.bt_sua.Text = "Sửa";
             this.bt_sua.UseVisualStyleBackColor = false;
-            this.bt_sua.Click += new System.EventHandler(this.bt_sua_Click);
             // 
             // bt_them
             // 
@@ -263,13 +224,13 @@
             this.rdb_nghiviec.Name = "rdb_nghiviec";
             this.rdb_nghiviec.Size = new System.Drawing.Size(105, 27);
             this.rdb_nghiviec.TabIndex = 21;
+            this.rdb_nghiviec.TabStop = true;
             this.rdb_nghiviec.Text = "Nghỉ Việc";
             this.rdb_nghiviec.UseVisualStyleBackColor = true;
             // 
             // rdb_danglam
             // 
             this.rdb_danglam.AutoSize = true;
-            this.rdb_danglam.Checked = true;
             this.rdb_danglam.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rdb_danglam.Location = new System.Drawing.Point(873, 243);
             this.rdb_danglam.Name = "rdb_danglam";
@@ -278,6 +239,30 @@
             this.rdb_danglam.TabStop = true;
             this.rdb_danglam.Text = "Đang Làm";
             this.rdb_danglam.UseVisualStyleBackColor = true;
+            // 
+            // rdb_nu
+            // 
+            this.rdb_nu.AutoSize = true;
+            this.rdb_nu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rdb_nu.Location = new System.Drawing.Point(160, 2);
+            this.rdb_nu.Name = "rdb_nu";
+            this.rdb_nu.Size = new System.Drawing.Size(55, 27);
+            this.rdb_nu.TabIndex = 19;
+            this.rdb_nu.TabStop = true;
+            this.rdb_nu.Text = "Nữ";
+            this.rdb_nu.UseVisualStyleBackColor = true;
+            // 
+            // rdb_nam
+            // 
+            this.rdb_nam.AutoSize = true;
+            this.rdb_nam.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rdb_nam.Location = new System.Drawing.Point(15, 2);
+            this.rdb_nam.Name = "rdb_nam";
+            this.rdb_nam.Size = new System.Drawing.Size(73, 27);
+            this.rdb_nam.TabIndex = 18;
+            this.rdb_nam.TabStop = true;
+            this.rdb_nam.Text = "Nam ";
+            this.rdb_nam.UseVisualStyleBackColor = true;
             // 
             // comboBox_vaitro
             // 
@@ -446,6 +431,15 @@
             this.lb_manv.Size = new System.Drawing.Size(121, 23);
             this.lb_manv.TabIndex = 0;
             this.lb_manv.Text = "Mã Nhân Viên";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rdb_nu);
+            this.panel1.Controls.Add(this.rdb_nam);
+            this.panel1.Location = new System.Drawing.Point(858, 195);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(226, 30);
+            this.panel1.TabIndex = 24;
             // 
             // FormNhanVien
             // 

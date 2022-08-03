@@ -29,11 +29,5 @@ namespace DAL.Repository
             _DBContext.SaveChanges();
             return true;
         }
-        public bool updateNV(NhanVien nhanVien)
-        {
-            _DBContext.nhanViens.Update(nhanVien);
-            _DBContext.SaveChanges();
-            return true;
-        }
     }
 }
