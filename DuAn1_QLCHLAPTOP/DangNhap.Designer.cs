@@ -52,6 +52,7 @@
             this.button1.TabIndex = 27;
             this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox1
             // 
@@ -75,6 +76,7 @@
             this.bt_dangnhap.TabIndex = 25;
             this.bt_dangnhap.Text = "Đăng Nhập";
             this.bt_dangnhap.UseVisualStyleBackColor = false;
+            this.bt_dangnhap.Click += new System.EventHandler(this.bt_dangnhap_Click);
             // 
             // lb_quenmatkhau
             // 

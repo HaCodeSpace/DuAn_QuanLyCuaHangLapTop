@@ -239,13 +239,6 @@
             // 
             this.comboBox_ketnoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox_ketnoi.FormattingEnabled = true;
-            this.comboBox_ketnoi.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
             this.comboBox_ketnoi.Location = new System.Drawing.Point(94, 3);
             this.comboBox_ketnoi.Name = "comboBox_ketnoi";
             this.comboBox_ketnoi.Size = new System.Drawing.Size(213, 31);
