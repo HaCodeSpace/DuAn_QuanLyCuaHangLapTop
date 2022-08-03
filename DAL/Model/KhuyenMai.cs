@@ -10,7 +10,7 @@ namespace DAL.Model
     {
         public string MaKM { get; set; }
         public string TenKhuyenMai { get; set; }
-        public DateTime NgayTao { get; set; }
+      //  public DateTime NgayTao { get; set; }
         public int ChietKhau { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
