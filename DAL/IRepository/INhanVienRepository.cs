@@ -10,5 +10,6 @@ namespace DAL.IRepository
     {
         List<NhanVien> getlstNVfromDB();
         bool addNV(NhanVien nhanVien);
+        bool updateNV(NhanVien nhanVien);
     }
 }
