@@ -61,6 +61,7 @@ namespace Presentation
             var data = _context.khachHangs.FirstOrDefault(p => p.MaKH == dt.Cells[5].Value.ToString());
             tb_makh.Text = data.MaKH;
             tb_email.Text = data.Email;
+            tb_makh.Enabled = false;
         }
         
         public bool validateThem()
@@ -114,12 +115,7 @@ namespace Presentation
             {
                 MessageBox.Show("Không được để trống thông tin");
                 return false;
-            }         
-            if (tb_makh.Text.StartsWith("KH") == false)
-            {
-                MessageBox.Show("Mã khách hàng phải bắt đầu bằng KH, Ví Dụ: KH01");
-                return false;
-            }
+            }                    
             bool check1 = Double.TryParse(tb_tenkh.Text, out ten);
             if (check1 == true)
             {
@@ -264,8 +260,15 @@ namespace Presentation
                     dataGridView1.Rows.Add(item.TenKH, item.SDT, item.DiaChi, item.GioiTinh, item.TrangThai == true ? "Hoạt Động" : "Không Hoạt Động");
                 }
             }
-
-
+        }
+        private void bt_reset_Click(object sender, EventArgs e)
+        {
+            tb_makh.Enabled = true;
+            tb_makh.Clear();
+            tb_tenkh.Clear();
+            tb_diachi.Clear();
+            tb_dienthoai.Clear();
+            tb_email.Clear();
         }
     }
 }

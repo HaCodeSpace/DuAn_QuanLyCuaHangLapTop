@@ -14,7 +14,7 @@ namespace DAL.DatabaseContext
         DbSet<HoaDon> hoaDons { get; set; }
         public virtual DbSet<KhachHang> khachHangs { get; set; }
         DbSet<HoaDonChiTiet> hoaDonChiTiets { get; set; }
-        DbSet<KhuyenMai> khuyenMais { get; set; }
+        public virtual DbSet<KhuyenMai> khuyenMais { get; set; }
         public virtual DbSet<SanPham> sanPhams { get; set; }
         public virtual DbSet<BanPhim> banPhims { get; set; }
         DbSet<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }

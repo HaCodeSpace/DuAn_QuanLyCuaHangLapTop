@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Thuoctinhcuatungsanpham\**" />
+    <EmbeddedResource Remove="Thuoctinhcuatungsanpham\**" />
+    <None Remove="Thuoctinhcuatungsanpham\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj" />
   </ItemGroup>
 
@@ -25,10 +31,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Thuoctinhcuatungsanpham\" />
   </ItemGroup>
 
 </Project>
