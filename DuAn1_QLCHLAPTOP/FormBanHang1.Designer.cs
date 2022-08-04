@@ -40,6 +40,8 @@
             this.bt_xoatatca = new System.Windows.Forms.Button();
             this.bt_xoasp = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label_mahoadon1 = new System.Windows.Forms.Label();
+            this.tb_ghichu = new System.Windows.Forms.TextBox();
             this.tb_tienkhachtra = new System.Windows.Forms.TextBox();
             this.tb_tienkhachdua = new System.Windows.Forms.TextBox();
             this.tb_thanhtoan = new System.Windows.Forms.TextBox();
@@ -69,8 +71,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView_hoadoncho = new System.Windows.Forms.DataGridView();
-            this.tb_ghichu = new System.Windows.Forms.TextBox();
-            this.label_mahoadon1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_danhsachsp)).BeginInit();
@@ -236,6 +236,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Đơn Hàng";
             // 
+            // label_mahoadon1
+            // 
+            this.label_mahoadon1.AutoSize = true;
+            this.label_mahoadon1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_mahoadon1.Location = new System.Drawing.Point(227, 197);
+            this.label_mahoadon1.Name = "label_mahoadon1";
+            this.label_mahoadon1.Size = new System.Drawing.Size(50, 23);
+            this.label_mahoadon1.TabIndex = 54;
+            this.label_mahoadon1.Text = "..........";
+            // 
+            // tb_ghichu
+            // 
+            this.tb_ghichu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_ghichu.Location = new System.Drawing.Point(227, 640);
+            this.tb_ghichu.Name = "tb_ghichu";
+            this.tb_ghichu.Size = new System.Drawing.Size(198, 30);
+            this.tb_ghichu.TabIndex = 53;
+            // 
             // tb_tienkhachtra
             // 
             this.tb_tienkhachtra.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -267,9 +285,6 @@
             // 
             this.comboBox_giamgia.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox_giamgia.FormattingEnabled = true;
-            this.comboBox_giamgia.Items.AddRange(new object[] {
-            "Tiền Mặt",
-            "Mã Giảm Giá"});
             this.comboBox_giamgia.Location = new System.Drawing.Point(227, 319);
             this.comboBox_giamgia.Name = "comboBox_giamgia";
             this.comboBox_giamgia.Size = new System.Drawing.Size(198, 31);
@@ -536,24 +551,6 @@
             this.dataGridView_hoadoncho.RowTemplate.Height = 29;
             this.dataGridView_hoadoncho.Size = new System.Drawing.Size(495, 133);
             this.dataGridView_hoadoncho.TabIndex = 2;
-            // 
-            // tb_ghichu
-            // 
-            this.tb_ghichu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_ghichu.Location = new System.Drawing.Point(227, 640);
-            this.tb_ghichu.Name = "tb_ghichu";
-            this.tb_ghichu.Size = new System.Drawing.Size(198, 30);
-            this.tb_ghichu.TabIndex = 53;
-            // 
-            // label_mahoadon1
-            // 
-            this.label_mahoadon1.AutoSize = true;
-            this.label_mahoadon1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_mahoadon1.Location = new System.Drawing.Point(227, 197);
-            this.label_mahoadon1.Name = "label_mahoadon1";
-            this.label_mahoadon1.Size = new System.Drawing.Size(50, 23);
-            this.label_mahoadon1.TabIndex = 54;
-            this.label_mahoadon1.Text = "..........";
             // 
             // FormBanHang1
             // 

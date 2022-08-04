@@ -87,7 +87,7 @@ namespace Presentation
             bool check = Double.TryParse(tb_voucher.Text, out vou);
             if (check == false)
             {
-                MessageBox.Show("Voucher không được là chữ");
+                MessageBox.Show("Voucher không được là chữ hoặc kí tự đặc biệt");
                 return false;
             }
             return true;
@@ -105,7 +105,7 @@ namespace Presentation
                     {
                         _khuyenMai.MaKM = tb_makhuyenmai.Text;
                         _khuyenMai.TenKhuyenMai = tb_chuongtrinhkhuyenmai.Text;
-                        _khuyenMai.ChietKhau = Convert.ToInt32(tb_voucher.Text);
+                        _khuyenMai.ChietKhau = Convert.ToDouble(tb_voucher.Text);
                         _khuyenMai.TrangThai = true ? rdb_apdung.Checked : rdb_khongapdung.Checked;
                         _khuyenMai.NgayBatDau = Convert.ToDateTime(dateTimePicker1.Value);
                         _khuyenMai.NgayKetThuc =Convert.ToDateTime(dateTimePicker2.Value);
@@ -138,7 +138,7 @@ namespace Presentation
                         foreach (var item in _iQLKhuyenMaiService.LayDanhSachKhuyenMai().Where(kh => kh.MaKM == tb_makhuyenmai.Text))
                         {                           
                             item.TenKhuyenMai = tb_chuongtrinhkhuyenmai.Text;
-                            item.ChietKhau = Convert.ToInt32(tb_voucher.Text);
+                            item.ChietKhau = Convert.ToDouble(tb_voucher.Text);
                             item.TrangThai = true ? rdb_apdung.Checked : rdb_khongapdung.Checked;
                             item.NgayBatDau = Convert.ToDateTime(dateTimePicker1.Value);
                             item.NgayKetThuc = Convert.ToDateTime(dateTimePicker2.Value);
