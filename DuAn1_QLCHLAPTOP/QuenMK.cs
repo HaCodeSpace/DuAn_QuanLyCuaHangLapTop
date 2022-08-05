@@ -68,7 +68,7 @@ namespace Presentation
             }
             else
             {
-                MessageBox.Show("Gửi mail thất bại");
+                MessageBox.Show("Bạn nhập sai thông tin rồi");
             }
         }
     }
