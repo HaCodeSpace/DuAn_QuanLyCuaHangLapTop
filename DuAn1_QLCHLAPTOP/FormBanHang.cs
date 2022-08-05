@@ -37,9 +37,12 @@ namespace Presentation
             bt_thongke.TabStop = false;
             bt_thongke.FlatStyle = FlatStyle.Flat;
             bt_thongke.FlatAppearance.BorderSize = 0;
+            bt_doimatkhau.TabStop = false;
+            bt_doimatkhau.FlatStyle = FlatStyle.Flat;
+            bt_doimatkhau.FlatAppearance.BorderSize = 0;
             bt_dangxuat.TabStop = false;
             bt_dangxuat.FlatStyle = FlatStyle.Flat;
-            bt_dangxuat.FlatAppearance.BorderSize = 0;
+            bt_dangxuat.FlatAppearance.BorderSize = 0;           
             //Mở form Bán Hàng 1
             panel3.Controls.Clear();
             FormBanHang1 fbh = new FormBanHang1()
@@ -148,6 +151,26 @@ namespace Presentation
             this.panel3.Controls.Add(fbh);
             fbh.FormBorderStyle = FormBorderStyle.None;
             fbh.Show();
+        }
+
+        private void bt_dangxuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new DangNhap().Show();
+        }
+
+        private void bt_doimatkhau_Click(object sender, EventArgs e)
+        {
+            panel3.Controls.Clear();
+            DoiMatKhau dmk = new DoiMatKhau()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+            };
+            this.panel3.Controls.Add(dmk);
+            dmk.FormBorderStyle = FormBorderStyle.None;
+            dmk.Show();
         }
     }
 }

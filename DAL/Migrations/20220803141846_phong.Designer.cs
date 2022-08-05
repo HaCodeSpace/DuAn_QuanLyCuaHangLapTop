@@ -4,6 +4,7 @@ using DAL.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    partial class DA1ContextModelSnapshot : ModelSnapshot
+    [Migration("20220803141846_phong")]
+    partial class phong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,8 +52,11 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("TrongLuong")
-                        .HasColumnType("float");
+                    b.Property<int>("MauSac")
+                        .HasColumnType("int");
+
+                    b.Property<float>("TrongLuong")
+                        .HasColumnType("real");
 
                     b.HasKey("MaSP");
 
@@ -107,6 +112,7 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MaKH")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("MaKM")
@@ -223,8 +229,8 @@ namespace DAL.Migrations
                     b.Property<string>("MaKM")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<double>("ChietKhau")
-                        .HasColumnType("float");
+                    b.Property<int>("ChietKhau")
+                        .HasColumnType("int");
 
                     b.Property<string>("Mota")
                         .IsRequired()
@@ -401,7 +407,9 @@ namespace DAL.Migrations
                 {
                     b.HasOne("DAL.Model.KhachHang", "khachHang")
                         .WithMany("hoaDons")
-                        .HasForeignKey("MaKH");
+                        .HasForeignKey("MaKH")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DAL.Model.KhuyenMai", "khuyenMai")
                         .WithMany("hoaDons")

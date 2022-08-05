@@ -61,6 +61,7 @@
             this.lb_email = new System.Windows.Forms.Label();
             this.lb_tenkh = new System.Windows.Forms.Label();
             this.lb_makh = new System.Windows.Forms.Label();
+            this.bt_reset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -113,7 +114,7 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 143);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 134);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
@@ -204,6 +205,7 @@
             // 
             // groupBox_thietlap
             // 
+            this.groupBox_thietlap.Controls.Add(this.bt_reset);
             this.groupBox_thietlap.Controls.Add(this.panel2);
             this.groupBox_thietlap.Controls.Add(this.tb_diachi);
             this.groupBox_thietlap.Controls.Add(this.bt_sua);
@@ -284,9 +286,9 @@
             this.bt_sua.BackColor = System.Drawing.Color.Yellow;
             this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_sua.ForeColor = System.Drawing.Color.Black;
-            this.bt_sua.Location = new System.Drawing.Point(730, 303);
+            this.bt_sua.Location = new System.Drawing.Point(630, 303);
             this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(101, 37);
+            this.bt_sua.Size = new System.Drawing.Size(167, 37);
             this.bt_sua.TabIndex = 23;
             this.bt_sua.Text = "Sửa";
             this.bt_sua.UseVisualStyleBackColor = false;
@@ -297,9 +299,9 @@
             this.bt_them.BackColor = System.Drawing.Color.Yellow;
             this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_them.ForeColor = System.Drawing.Color.Black;
-            this.bt_them.Location = new System.Drawing.Point(482, 303);
+            this.bt_them.Location = new System.Drawing.Point(320, 303);
             this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(101, 37);
+            this.bt_them.Size = new System.Drawing.Size(167, 37);
             this.bt_them.TabIndex = 22;
             this.bt_them.Text = "Thêm";
             this.bt_them.UseVisualStyleBackColor = false;
@@ -421,6 +423,19 @@
             this.lb_makh.TabIndex = 0;
             this.lb_makh.Text = "Mã Khách Hàng";
             // 
+            // bt_reset
+            // 
+            this.bt_reset.BackColor = System.Drawing.Color.Yellow;
+            this.bt_reset.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_reset.ForeColor = System.Drawing.Color.Black;
+            this.bt_reset.Location = new System.Drawing.Point(934, 303);
+            this.bt_reset.Name = "bt_reset";
+            this.bt_reset.Size = new System.Drawing.Size(167, 37);
+            this.bt_reset.TabIndex = 49;
+            this.bt_reset.Text = "Reset";
+            this.bt_reset.UseVisualStyleBackColor = false;
+            this.bt_reset.Click += new System.EventHandler(this.bt_reset_Click);
+            // 
             // FormKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -477,5 +492,6 @@
         private RadioButton rdb_khd;
         private RadioButton rdb_hd;
         private Label lb_trangthai;
+        private Button bt_reset;
     }
 }

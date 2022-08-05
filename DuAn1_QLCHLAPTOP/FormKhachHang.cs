@@ -12,6 +12,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+
 
 namespace Presentation
 {
@@ -38,15 +40,17 @@ namespace Presentation
         public void ShowThongTin()
         {
             dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Add("Mã Khách Hàng", "Mã Khách Hàng");
             foreach (var item in _iQuanLyKhachHangService.LayDanhSachKhachHang())
             {
-                dataGridView1.Rows.Add(item.TenKH, item.SDT, item.DiaChi, item.GioiTinh, item.TrangThai == true ? "Hoạt Động" : "Không Hoạt Động");
+                dataGridView1.Rows.Add(item.TenKH, item.SDT, item.DiaChi, item.GioiTinh, item.TrangThai == true ? "Hoạt Động" : "Không Hoạt Động", item.MaKH);
             }
+            dataGridView1.Columns[5].Visible = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow dt = dataGridView1.Rows[e.RowIndex];
+            DataGridViewRow dt = dataGridView1.Rows[e.RowIndex];           
             tb_tenkh.Text = dt.Cells[0].Value.ToString();
             tb_dienthoai.Text = dt.Cells[1].Value.ToString();
             tb_diachi.Text = dt.Cells[2].Value.ToString();
@@ -54,22 +58,27 @@ namespace Presentation
             rdb_nu.Checked = (dt.Cells[3].Value.ToString() == "Nữ" ? true : false);
             rdb_hd.Checked = (dt.Cells[4].Value.ToString() == "Hoạt Động" ? true : false);
             rdb_khd.Checked = (dt.Cells[4].Value.ToString() == "Không Hoạt Động" ? true : false);
-            var data = _context.khachHangs.FirstOrDefault(p => p.SDT == dt.Cells[1].Value.ToString());
+            var data = _context.khachHangs.FirstOrDefault(p => p.MaKH == dt.Cells[5].Value.ToString());
             tb_makh.Text = data.MaKH;
             tb_email.Text = data.Email;
+            tb_makh.Enabled = false;
         }
         
-        public bool validate()
+        public bool validateThem()
         {
             if (tb_tenkh.Text == "" || tb_makh.Text == "" || tb_diachi.Text == "" || tb_email.Text == "" || tb_dienthoai.Text == "")
             {
                 MessageBox.Show("Không được để trống thông tin");
                 return false;
-            }           
-            bool check = Double.TryParse(tb_dienthoai.Text, out sdt);
-            if (check == false)
+            }
+            foreach (var item in _iQuanLyKhachHangService.LayDanhSachKhachHang().Where(p => p.MaKH == tb_makh.Text))
             {
-                MessageBox.Show("Số điện thoại không được là chữ");
+                MessageBox.Show("Mã khách hàng đã tồn tại");
+                return false;
+            }
+            if (tb_makh.Text.StartsWith("KH") == false)
+            {
+                MessageBox.Show("Mã khách hàng phải bắt đầu bằng KH, Ví Dụ: KH01");
                 return false;
             }
             bool check1 = Double.TryParse(tb_tenkh.Text, out ten);
@@ -78,9 +87,62 @@ namespace Presentation
                 MessageBox.Show("Tên khách hàng không được là số");
                 return false;
             }
+            bool check = Double.TryParse(tb_dienthoai.Text, out sdt);
+            if (check == false)
+            {
+                MessageBox.Show("Số điện thoại không được là chữ");
+                return false;
+            }
+            if (tb_dienthoai.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại phải có 10 số");
+                return false;
+            }
+            try
+            {
+                MailAddress m = new MailAddress(tb_email.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Mail không đúng định dạng, Ví Dụ: abc@gmail.com");
+                return false;
+            }
             return true;
-
-            // Validate trùng mã khách hàng, mã khách hàng bắt đầu bằng "KH", validate email theo đúng cú pháp @gmail.com
+        }
+        public bool validateSua()
+        {
+            if (tb_tenkh.Text == "" || tb_makh.Text == "" || tb_diachi.Text == "" || tb_email.Text == "" || tb_dienthoai.Text == "")
+            {
+                MessageBox.Show("Không được để trống thông tin");
+                return false;
+            }                    
+            bool check1 = Double.TryParse(tb_tenkh.Text, out ten);
+            if (check1 == true)
+            {
+                MessageBox.Show("Tên khách hàng không được là số");
+                return false;
+            }
+            bool check = Double.TryParse(tb_dienthoai.Text, out sdt);
+            if (check == false)
+            {
+                MessageBox.Show("Số điện thoại không được là chữ");
+                return false;
+            }
+            if (tb_dienthoai.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại phải có 10 số");
+                return false;
+            }
+            try
+            {
+                MailAddress m = new MailAddress(tb_email.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Mail không đúng định dạng, Ví Dụ: abc@gmail.com");
+                return false;
+            }
+            return true;
         }
         private void bt_them_Click(object sender, EventArgs e)
         {
@@ -89,7 +151,7 @@ namespace Presentation
             {
                 try
                 {
-                    if (validate())
+                    if (validateThem())
                     {
                         _khachHang.MaKH = tb_makh.Text;
                         _khachHang.TenKH = tb_tenkh.Text;
@@ -122,7 +184,7 @@ namespace Presentation
             {
                 try
                 {
-                    if (validate())
+                    if (validateSua())
                     {
                         foreach (var item in _iQuanLyKhachHangService.LayDanhSachKhachHang().Where(kh => kh.MaKH == tb_makh.Text))
                         {
@@ -198,8 +260,15 @@ namespace Presentation
                     dataGridView1.Rows.Add(item.TenKH, item.SDT, item.DiaChi, item.GioiTinh, item.TrangThai == true ? "Hoạt Động" : "Không Hoạt Động");
                 }
             }
-
-
+        }
+        private void bt_reset_Click(object sender, EventArgs e)
+        {
+            tb_makh.Enabled = true;
+            tb_makh.Clear();
+            tb_tenkh.Clear();
+            tb_diachi.Clear();
+            tb_dienthoai.Clear();
+            tb_email.Clear();
         }
     }
 }

@@ -29,5 +29,10 @@ namespace BUS.Services
             _IQLnv.addNV(nhanVien);
             return true;
         }
+        public bool updateNV(NhanVien nhanVien)
+        {
+            _IQLnv.updateNV(nhanVien);
+            return true;
+        }
     }
 }

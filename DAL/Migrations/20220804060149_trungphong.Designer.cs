@@ -4,6 +4,7 @@ using DAL.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    partial class DA1ContextModelSnapshot : ModelSnapshot
+    [Migration("20220804060149_trungphong")]
+    partial class trungphong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,8 +52,11 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("TrongLuong")
-                        .HasColumnType("float");
+                    b.Property<int>("MauSac")
+                        .HasColumnType("int");
+
+                    b.Property<float>("TrongLuong")
+                        .HasColumnType("real");
 
                     b.HasKey("MaSP");
 

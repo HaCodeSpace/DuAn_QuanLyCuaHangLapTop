@@ -30,19 +30,17 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tb_mausac = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tb_kichthuoc = new System.Windows.Forms.TextBox();
-            this.tb_keycaps = new System.Windows.Forms.TextBox();
-            this.tb_switch = new System.Windows.Forms.TextBox();
-            this.tb_layout = new System.Windows.Forms.TextBox();
-            this.tb_trongluong = new System.Windows.Forms.TextBox();
-            this.tb_led = new System.Windows.Forms.TextBox();
-            this.tb_kieubanPhim = new System.Windows.Forms.TextBox();
-            this.tb_hangsx = new System.Windows.Forms.TextBox();
-            this.tb_ketnoi = new System.Windows.Forms.TextBox();
+            this.comboBox_kichthuoc = new System.Windows.Forms.ComboBox();
+            this.comboBox_trongluong = new System.Windows.Forms.ComboBox();
             this.lb_kichthuoc = new System.Windows.Forms.Label();
             this.lb_trongluong = new System.Windows.Forms.Label();
+            this.comboBox_keycaps = new System.Windows.Forms.ComboBox();
+            this.comboBox_switch = new System.Windows.Forms.ComboBox();
+            this.comboBox_layout = new System.Windows.Forms.ComboBox();
+            this.comboBox_denled = new System.Windows.Forms.ComboBox();
+            this.comboBox_kieubanphim = new System.Windows.Forms.ComboBox();
+            this.comboBox_marco = new System.Windows.Forms.ComboBox();
+            this.comboBox_ketnoi = new System.Windows.Forms.ComboBox();
             this.lb_layout = new System.Windows.Forms.Label();
             this.lb_denled = new System.Windows.Forms.Label();
             this.lb_keycaps = new System.Windows.Forms.Label();
@@ -59,27 +57,24 @@
             // 
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(8, 8);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(9, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1232, 656);
+            this.panel1.Size = new System.Drawing.Size(1408, 875);
             this.panel1.TabIndex = 4;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.tb_mausac);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.tb_kichthuoc);
-            this.panel2.Controls.Add(this.tb_keycaps);
-            this.panel2.Controls.Add(this.tb_switch);
-            this.panel2.Controls.Add(this.tb_layout);
-            this.panel2.Controls.Add(this.tb_trongluong);
-            this.panel2.Controls.Add(this.tb_led);
-            this.panel2.Controls.Add(this.tb_kieubanPhim);
-            this.panel2.Controls.Add(this.tb_hangsx);
-            this.panel2.Controls.Add(this.tb_ketnoi);
+            this.panel2.Controls.Add(this.comboBox_kichthuoc);
+            this.panel2.Controls.Add(this.comboBox_trongluong);
             this.panel2.Controls.Add(this.lb_kichthuoc);
             this.panel2.Controls.Add(this.lb_trongluong);
+            this.panel2.Controls.Add(this.comboBox_keycaps);
+            this.panel2.Controls.Add(this.comboBox_switch);
+            this.panel2.Controls.Add(this.comboBox_layout);
+            this.panel2.Controls.Add(this.comboBox_denled);
+            this.panel2.Controls.Add(this.comboBox_kieubanphim);
+            this.panel2.Controls.Add(this.comboBox_marco);
+            this.panel2.Controls.Add(this.comboBox_ketnoi);
             this.panel2.Controls.Add(this.lb_layout);
             this.panel2.Controls.Add(this.lb_denled);
             this.panel2.Controls.Add(this.lb_keycaps);
@@ -87,109 +82,36 @@
             this.panel2.Controls.Add(this.lb_marco);
             this.panel2.Controls.Add(this.lb_ketnoi);
             this.panel2.Controls.Add(this.lb_switch);
-            this.panel2.Location = new System.Drawing.Point(3, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(568, 292);
+            this.panel2.Size = new System.Drawing.Size(649, 389);
             this.panel2.TabIndex = 31;
             // 
-            // tb_mausac
+            // comboBox_kichthuoc
             // 
-            this.tb_mausac.Location = new System.Drawing.Point(373, 208);
-            this.tb_mausac.Name = "tb_mausac";
-            this.tb_mausac.Size = new System.Drawing.Size(184, 23);
-            this.tb_mausac.TabIndex = 64;
-            this.tb_mausac.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            this.comboBox_kichthuoc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_kichthuoc.FormattingEnabled = true;
+            this.comboBox_kichthuoc.Location = new System.Drawing.Point(434, 215);
+            this.comboBox_kichthuoc.Name = "comboBox_kichthuoc";
+            this.comboBox_kichthuoc.Size = new System.Drawing.Size(213, 31);
+            this.comboBox_kichthuoc.TabIndex = 57;
             // 
-            // label2
+            // comboBox_trongluong
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(306, 208);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 19);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Màu sắc";
-            // 
-            // tb_kichthuoc
-            // 
-            this.tb_kichthuoc.Location = new System.Drawing.Point(369, 167);
-            this.tb_kichthuoc.Name = "tb_kichthuoc";
-            this.tb_kichthuoc.Size = new System.Drawing.Size(188, 23);
-            this.tb_kichthuoc.TabIndex = 62;
-            this.tb_kichthuoc.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_keycaps
-            // 
-            this.tb_keycaps.Location = new System.Drawing.Point(369, 120);
-            this.tb_keycaps.Name = "tb_keycaps";
-            this.tb_keycaps.Size = new System.Drawing.Size(188, 23);
-            this.tb_keycaps.TabIndex = 61;
-            this.tb_keycaps.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_switch
-            // 
-            this.tb_switch.Location = new System.Drawing.Point(369, 67);
-            this.tb_switch.Name = "tb_switch";
-            this.tb_switch.Size = new System.Drawing.Size(188, 23);
-            this.tb_switch.TabIndex = 60;
-            this.tb_switch.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_layout
-            // 
-            this.tb_layout.Location = new System.Drawing.Point(369, 8);
-            this.tb_layout.Name = "tb_layout";
-            this.tb_layout.Size = new System.Drawing.Size(188, 23);
-            this.tb_layout.TabIndex = 59;
-            this.tb_layout.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_trongluong
-            // 
-            this.tb_trongluong.Location = new System.Drawing.Point(115, 208);
-            this.tb_trongluong.Name = "tb_trongluong";
-            this.tb_trongluong.Size = new System.Drawing.Size(155, 23);
-            this.tb_trongluong.TabIndex = 58;
-            this.tb_trongluong.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_led
-            // 
-            this.tb_led.Location = new System.Drawing.Point(82, 167);
-            this.tb_led.Name = "tb_led";
-            this.tb_led.Size = new System.Drawing.Size(188, 23);
-            this.tb_led.TabIndex = 57;
-            this.tb_led.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_kieubanPhim
-            // 
-            this.tb_kieubanPhim.Location = new System.Drawing.Point(125, 120);
-            this.tb_kieubanPhim.Name = "tb_kieubanPhim";
-            this.tb_kieubanPhim.Size = new System.Drawing.Size(145, 23);
-            this.tb_kieubanPhim.TabIndex = 56;
-            this.tb_kieubanPhim.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_hangsx
-            // 
-            this.tb_hangsx.Location = new System.Drawing.Point(115, 67);
-            this.tb_hangsx.Name = "tb_hangsx";
-            this.tb_hangsx.Size = new System.Drawing.Size(155, 23);
-            this.tb_hangsx.TabIndex = 55;
-            this.tb_hangsx.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_ketnoi
-            // 
-            this.tb_ketnoi.Location = new System.Drawing.Point(82, 8);
-            this.tb_ketnoi.Name = "tb_ketnoi";
-            this.tb_ketnoi.Size = new System.Drawing.Size(188, 23);
-            this.tb_ketnoi.TabIndex = 5;
-            this.tb_ketnoi.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            this.comboBox_trongluong.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_trongluong.FormattingEnabled = true;
+            this.comboBox_trongluong.Location = new System.Drawing.Point(147, 269);
+            this.comboBox_trongluong.Name = "comboBox_trongluong";
+            this.comboBox_trongluong.Size = new System.Drawing.Size(161, 31);
+            this.comboBox_trongluong.TabIndex = 56;
             // 
             // lb_kichthuoc
             // 
             this.lb_kichthuoc.AutoSize = true;
             this.lb_kichthuoc.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_kichthuoc.Location = new System.Drawing.Point(291, 167);
+            this.lb_kichthuoc.Location = new System.Drawing.Point(333, 223);
             this.lb_kichthuoc.Name = "lb_kichthuoc";
-            this.lb_kichthuoc.Size = new System.Drawing.Size(82, 19);
+            this.lb_kichthuoc.Size = new System.Drawing.Size(95, 23);
             this.lb_kichthuoc.TabIndex = 54;
             this.lb_kichthuoc.Text = "Kích Thước";
             // 
@@ -197,19 +119,85 @@
             // 
             this.lb_trongluong.AutoSize = true;
             this.lb_trongluong.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_trongluong.Location = new System.Drawing.Point(19, 208);
+            this.lb_trongluong.Location = new System.Drawing.Point(22, 277);
             this.lb_trongluong.Name = "lb_trongluong";
-            this.lb_trongluong.Size = new System.Drawing.Size(90, 19);
+            this.lb_trongluong.Size = new System.Drawing.Size(108, 23);
             this.lb_trongluong.TabIndex = 53;
             this.lb_trongluong.Text = "Trọng Lượng";
+            // 
+            // comboBox_keycaps
+            // 
+            this.comboBox_keycaps.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_keycaps.FormattingEnabled = true;
+            this.comboBox_keycaps.Location = new System.Drawing.Point(434, 152);
+            this.comboBox_keycaps.Name = "comboBox_keycaps";
+            this.comboBox_keycaps.Size = new System.Drawing.Size(213, 31);
+            this.comboBox_keycaps.TabIndex = 50;
+            // 
+            // comboBox_switch
+            // 
+            this.comboBox_switch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_switch.FormattingEnabled = true;
+            this.comboBox_switch.Location = new System.Drawing.Point(434, 81);
+            this.comboBox_switch.Name = "comboBox_switch";
+            this.comboBox_switch.Size = new System.Drawing.Size(213, 31);
+            this.comboBox_switch.TabIndex = 49;
+            // 
+            // comboBox_layout
+            // 
+            this.comboBox_layout.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_layout.FormattingEnabled = true;
+            this.comboBox_layout.Items.AddRange(new object[] {
+            ""});
+            this.comboBox_layout.Location = new System.Drawing.Point(434, 3);
+            this.comboBox_layout.Name = "comboBox_layout";
+            this.comboBox_layout.Size = new System.Drawing.Size(213, 31);
+            this.comboBox_layout.TabIndex = 48;
+            // 
+            // comboBox_denled
+            // 
+            this.comboBox_denled.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_denled.FormattingEnabled = true;
+            this.comboBox_denled.Location = new System.Drawing.Point(126, 215);
+            this.comboBox_denled.Name = "comboBox_denled";
+            this.comboBox_denled.Size = new System.Drawing.Size(182, 31);
+            this.comboBox_denled.TabIndex = 47;
+            // 
+            // comboBox_kieubanphim
+            // 
+            this.comboBox_kieubanphim.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_kieubanphim.FormattingEnabled = true;
+            this.comboBox_kieubanphim.Location = new System.Drawing.Point(160, 152);
+            this.comboBox_kieubanphim.Name = "comboBox_kieubanphim";
+            this.comboBox_kieubanphim.Size = new System.Drawing.Size(148, 31);
+            this.comboBox_kieubanphim.TabIndex = 46;
+            // 
+            // comboBox_marco
+            // 
+            this.comboBox_marco.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_marco.FormattingEnabled = true;
+            this.comboBox_marco.Location = new System.Drawing.Point(95, 81);
+            this.comboBox_marco.Name = "comboBox_marco";
+            this.comboBox_marco.Size = new System.Drawing.Size(213, 31);
+            this.comboBox_marco.TabIndex = 45;
+            // 
+            // comboBox_ketnoi
+            // 
+            this.comboBox_ketnoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_ketnoi.FormattingEnabled = true;
+            this.comboBox_ketnoi.Location = new System.Drawing.Point(95, 3);
+            this.comboBox_ketnoi.Name = "comboBox_ketnoi";
+            this.comboBox_ketnoi.Size = new System.Drawing.Size(213, 31);
+            this.comboBox_ketnoi.TabIndex = 44;
+            this.comboBox_ketnoi.SelectedIndexChanged += new System.EventHandler(this.comboBox_ketnoi_SelectedIndexChanged);
             // 
             // lb_layout
             // 
             this.lb_layout.AutoSize = true;
             this.lb_layout.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_layout.Location = new System.Drawing.Point(312, 8);
+            this.lb_layout.Location = new System.Drawing.Point(357, 11);
             this.lb_layout.Name = "lb_layout";
-            this.lb_layout.Size = new System.Drawing.Size(51, 19);
+            this.lb_layout.Size = new System.Drawing.Size(62, 23);
             this.lb_layout.TabIndex = 35;
             this.lb_layout.Text = "Layout";
             // 
@@ -217,9 +205,9 @@
             // 
             this.lb_denled.AutoSize = true;
             this.lb_denled.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_denled.Location = new System.Drawing.Point(19, 167);
+            this.lb_denled.Location = new System.Drawing.Point(22, 223);
             this.lb_denled.Name = "lb_denled";
-            this.lb_denled.Size = new System.Drawing.Size(60, 19);
+            this.lb_denled.Size = new System.Drawing.Size(73, 23);
             this.lb_denled.TabIndex = 34;
             this.lb_denled.Text = "Đèn Led";
             // 
@@ -227,19 +215,19 @@
             // 
             this.lb_keycaps.AutoSize = true;
             this.lb_keycaps.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_keycaps.Location = new System.Drawing.Point(312, 120);
+            this.lb_keycaps.Location = new System.Drawing.Point(357, 160);
             this.lb_keycaps.Name = "lb_keycaps";
-            this.lb_keycaps.Size = new System.Drawing.Size(58, 19);
+            this.lb_keycaps.Size = new System.Drawing.Size(72, 23);
             this.lb_keycaps.TabIndex = 32;
-            this.lb_keycaps.Text = "keycaps";
+            this.lb_keycaps.Text = "Keycaps";
             // 
             // lb_kieubanphim
             // 
             this.lb_kieubanphim.AutoSize = true;
             this.lb_kieubanphim.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_kieubanphim.Location = new System.Drawing.Point(19, 120);
+            this.lb_kieubanphim.Location = new System.Drawing.Point(22, 160);
             this.lb_kieubanphim.Name = "lb_kieubanphim";
-            this.lb_kieubanphim.Size = new System.Drawing.Size(100, 19);
+            this.lb_kieubanphim.Size = new System.Drawing.Size(121, 23);
             this.lb_kieubanphim.TabIndex = 31;
             this.lb_kieubanphim.Text = "Kiểu Bàn Phím";
             // 
@@ -247,19 +235,19 @@
             // 
             this.lb_marco.AutoSize = true;
             this.lb_marco.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_marco.Location = new System.Drawing.Point(19, 67);
+            this.lb_marco.Location = new System.Drawing.Point(22, 89);
             this.lb_marco.Name = "lb_marco";
-            this.lb_marco.Size = new System.Drawing.Size(98, 19);
+            this.lb_marco.Size = new System.Drawing.Size(59, 23);
             this.lb_marco.TabIndex = 30;
-            this.lb_marco.Text = "Hãng sản xuất";
+            this.lb_marco.Text = "Marco";
             // 
             // lb_ketnoi
             // 
             this.lb_ketnoi.AutoSize = true;
             this.lb_ketnoi.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_ketnoi.Location = new System.Drawing.Point(19, 8);
+            this.lb_ketnoi.Location = new System.Drawing.Point(22, 11);
             this.lb_ketnoi.Name = "lb_ketnoi";
-            this.lb_ketnoi.Size = new System.Drawing.Size(57, 19);
+            this.lb_ketnoi.Size = new System.Drawing.Size(67, 23);
             this.lb_ketnoi.TabIndex = 29;
             this.lb_ketnoi.Text = "Kết Nối";
             // 
@@ -267,9 +255,9 @@
             // 
             this.lb_switch.AutoSize = true;
             this.lb_switch.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_switch.Location = new System.Drawing.Point(312, 67);
+            this.lb_switch.Location = new System.Drawing.Point(357, 89);
             this.lb_switch.Name = "lb_switch";
-            this.lb_switch.Size = new System.Drawing.Size(52, 19);
+            this.lb_switch.Size = new System.Drawing.Size(60, 23);
             this.lb_switch.TabIndex = 28;
             this.lb_switch.Text = "Switch";
             // 
@@ -277,19 +265,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(281, 316);
+            this.label1.Location = new System.Drawing.Point(321, 421);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 51);
+            this.label1.Size = new System.Drawing.Size(0, 62);
             this.label1.TabIndex = 0;
             // 
             // FormSanPhamBanPhim
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1199, 562);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSanPhamBanPhim";
             this.Text = "FormSanPhamBanPhim";
             this.panel1.ResumeLayout(false);
@@ -304,8 +291,17 @@
 
         private Panel panel1;
         private Panel panel2;
+        private ComboBox comboBox_kichthuoc;
+        private ComboBox comboBox_trongluong;
         private Label lb_kichthuoc;
         private Label lb_trongluong;
+        private ComboBox comboBox_keycaps;
+        private ComboBox comboBox_switch;
+        private ComboBox comboBox_layout;
+        private ComboBox comboBox_denled;
+        private ComboBox comboBox_kieubanphim;
+        private ComboBox comboBox_marco;
+        private ComboBox comboBox_ketnoi;
         private Label lb_layout;
         private Label lb_denled;
         private Label lb_keycaps;
@@ -314,16 +310,5 @@
         private Label lb_ketnoi;
         private Label lb_switch;
         private Label label1;
-        private TextBox tb_kichthuoc;
-        private TextBox tb_keycaps;
-        private TextBox tb_switch;
-        private TextBox tb_layout;
-        private TextBox tb_trongluong;
-        private TextBox tb_led;
-        private TextBox tb_kieubanPhim;
-        private TextBox tb_hangsx;
-        private TextBox tb_ketnoi;
-        private TextBox tb_mausac;
-        private Label label2;
     }
 }
