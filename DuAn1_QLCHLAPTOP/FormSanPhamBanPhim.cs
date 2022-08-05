@@ -43,7 +43,7 @@ namespace Presentation
             {
                 kieukn = int.Parse(tb_ketnoi.Text.Trim());
             }
-            String kieubp = tb_kieubanPhim.Text.Trim();
+            String kieubp = tb_kieubp.Text.Trim();
             String led = tb_led.Text.Trim();
             String layout = tb_layout.Text.Trim();
             string kichthuoc = tb_kichthuoc.Text.Trim();
