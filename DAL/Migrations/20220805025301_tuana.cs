@@ -4,20 +4,20 @@
 
 namespace DAL.Migrations
 {
-    public partial class ha3 : Migration
+    public partial class tuana : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "TaiKhoan",
-                table: "nhanViens");
+                name: "MauSac",
+                table: "banPhims");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "TaiKhoan",
-                table: "nhanViens",
+                name: "MauSac",
+                table: "banPhims",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");

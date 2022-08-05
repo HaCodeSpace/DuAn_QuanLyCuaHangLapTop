@@ -39,7 +39,6 @@
             this.groupBox_thietlap = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tb_ghichu = new System.Windows.Forms.TextBox();
-            this.comboBox_mausac = new System.Windows.Forms.ComboBox();
             this.lb_ghichu = new System.Windows.Forms.Label();
             this.lb_mausac = new System.Windows.Forms.Label();
             this.lb_dongsp = new System.Windows.Forms.Label();
@@ -55,6 +54,8 @@
             this.lb_tensp = new System.Windows.Forms.Label();
             this.lb_masp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnclear = new System.Windows.Forms.Button();
+            this.tb_mausac = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -102,11 +103,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(5, 77);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1116, 194);
@@ -162,9 +166,10 @@
             // 
             // groupBox_thietlap
             // 
+            this.groupBox_thietlap.Controls.Add(this.tb_mausac);
+            this.groupBox_thietlap.Controls.Add(this.btnclear);
             this.groupBox_thietlap.Controls.Add(this.panel2);
             this.groupBox_thietlap.Controls.Add(this.tb_ghichu);
-            this.groupBox_thietlap.Controls.Add(this.comboBox_mausac);
             this.groupBox_thietlap.Controls.Add(this.lb_ghichu);
             this.groupBox_thietlap.Controls.Add(this.lb_mausac);
             this.groupBox_thietlap.Controls.Add(this.lb_dongsp);
@@ -204,16 +209,6 @@
             this.tb_ghichu.Name = "tb_ghichu";
             this.tb_ghichu.Size = new System.Drawing.Size(231, 26);
             this.tb_ghichu.TabIndex = 29;
-            // 
-            // comboBox_mausac
-            // 
-            this.comboBox_mausac.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_mausac.FormattingEnabled = true;
-            this.comboBox_mausac.Location = new System.Drawing.Point(196, 188);
-            this.comboBox_mausac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_mausac.Name = "comboBox_mausac";
-            this.comboBox_mausac.Size = new System.Drawing.Size(231, 27);
-            this.comboBox_mausac.TabIndex = 28;
             // 
             // lb_ghichu
             // 
@@ -378,6 +373,28 @@
             this.label1.Size = new System.Drawing.Size(0, 51);
             this.label1.TabIndex = 0;
             // 
+            // btnclear
+            // 
+            this.btnclear.BackColor = System.Drawing.Color.Yellow;
+            this.btnclear.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnclear.ForeColor = System.Drawing.Color.Black;
+            this.btnclear.Location = new System.Drawing.Point(49, 285);
+            this.btnclear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnclear.Name = "btnclear";
+            this.btnclear.Size = new System.Drawing.Size(88, 28);
+            this.btnclear.TabIndex = 31;
+            this.btnclear.Text = "Clear";
+            this.btnclear.UseVisualStyleBackColor = false;
+            // 
+            // tb_mausac
+            // 
+            this.tb_mausac.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_mausac.Location = new System.Drawing.Point(196, 187);
+            this.tb_mausac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_mausac.Name = "tb_mausac";
+            this.tb_mausac.Size = new System.Drawing.Size(231, 26);
+            this.tb_mausac.TabIndex = 32;
+            // 
             // FormSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -406,7 +423,6 @@
         private GroupBox groupBox_thietlap;
         private Panel panel2;
         private TextBox tb_ghichu;
-        private ComboBox comboBox_mausac;
         private Label lb_ghichu;
         private Label lb_mausac;
         private Label lb_dongsp;
@@ -429,5 +445,7 @@
         private Label lb_dongsanpham;
         private ComboBox comboBox_dongspTTSP;
         private Label lb_mau;
+        private Button btnclear;
+        private TextBox tb_mausac;
     }
 }

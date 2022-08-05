@@ -37,7 +37,6 @@ namespace DAL.Repository.RepositorySanPham
                 result.Layout = banPhim.Layout;
                 result.KichThuoc = banPhim.KichThuoc;
                 result.TrongLuong = banPhim.TrongLuong;
-                result.MauSac = banPhim.MauSac;
                 context.banPhims.Update(result);
                 context.SaveChanges();
                 return true;

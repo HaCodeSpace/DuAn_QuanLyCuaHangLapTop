@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL.Model;
 using BUS.IServices.IServiceSanPham;
+using BUS.Services.ServiceSanPham;
+using Presentation;
 
 namespace Presentation
 {
@@ -17,6 +19,8 @@ namespace Presentation
         //private DAL.IRepository.INhanVienRepository _repository;
         private BUS.IServices.IServiceSanPham.ISanPhamService _serviceSanPhamService;
         private IBanPhimService _banPhimService;
+        public BanPhim ban;
+        public string color;
 
         public bool IsAdd { get; set; }
 
@@ -24,6 +28,7 @@ namespace Presentation
         {
             InitializeComponent();
             _serviceSanPhamService = new BUS.Services.ServiceSanPham.SanPhamService();
+            _banPhimService = new BanPhimService();
             LoadFullList();
             AddBindings();
         }
@@ -59,14 +64,17 @@ namespace Presentation
             if (comboBox_dongsp.Text == "Bàn Phím")
             {
                 panel2.Controls.Clear();
+                
                 FormSanPhamBanPhim fspbp = new FormSanPhamBanPhim()
                 {
                     Dock = DockStyle.Fill,
                     TopLevel = false,
                     TopMost = true,
+                    
                 };
                 this.panel2.Controls.Add(fspbp);
                 fspbp.FormBorderStyle = FormBorderStyle.None;
+                fspbp.GetBanPhimEvent +=Fspbp_GetBanPhimEvent;
                 fspbp.Show();
             }
             if (comboBox_dongsp.Text == "Chuột")
@@ -111,6 +119,22 @@ namespace Presentation
             
         }
 
+        private void Fspbp_GetBanPhimEvent(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac)
+        {
+            ban = new BanPhim()
+            {
+                MaSP = "SP" + tb_masp.Text,
+                HangSanXuat = hangsx,
+                KieuKetNoi = kieukn,
+                KieuBanPhim = kieubp,
+                Led = led,
+                Layout = layout,
+                KichThuoc = kichthuoc,
+                TrongLuong = trongluong,
+            };
+            color = UpperCaseFirstLetter(mausac);
+        }
+
         private void AddBindings()
         {
             tb_masp.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "MaSP"));
@@ -130,19 +154,26 @@ namespace Presentation
             dataGridView1.Columns[3].HeaderText = "Đơn giá nhập";
             dataGridView1.Columns[4].HeaderText = "Đơn giá bán";
             dataGridView1.Columns[5].HeaderText = "Ghi chú";
-
-            dataGridView1.DataSource = _serviceSanPhamService.SanPhamList();
         }
 
         private void FormSanPham_Load(object sender, EventArgs e)
         {
-        
+            btnclear.Click += (s, e) =>
+            {
+                tb_masp.Clear();
+                tb_tensp.Clear();
+                comboBox_dongsp.Text = String.Empty;
+                tb_gianhap.Clear();
+                tb_giaban.Clear();
+                tb_mausac.Clear();
+                tb_ghichu.Clear();
+            };
         }
 
         private void bt_them_Click(object sender, EventArgs e)
         {
             IsAdd = true;
-            var result =  _serviceSanPhamService.ThemSP(MatchData());
+            var result = _serviceSanPhamService.ThemSP(MatchData()); 
             var result2 = true;
             switch (comboBox_dongsp.SelectedIndex)
             {
@@ -151,7 +182,8 @@ namespace Presentation
                 case 1:
                     break;
                 case 2:
-                    result2 = _banPhimService.ThemBP(MatchBanPhim());
+                    result2 = _banPhimService.ThemBP(ban);
+                     
                     break;
                 case 3:
                     break;
@@ -160,7 +192,7 @@ namespace Presentation
                 case 5:
                     break;
             }
-            if (result)
+            if (result2 && result)
             {
                 MessageBox.Show("Thêm thành công");
                 LoadFullList();
@@ -169,12 +201,9 @@ namespace Presentation
                 MessageBox.Show("Thêm thất bại");
         }
 
-        private BanPhim MatchBanPhim()
+        private string UpperCaseFirstLetter(string s)
         {
-            var banphim = new BanPhim();
-            banphim.MaSP = tb_masp.Text;
-            
-            return banphim;
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
 
         private SanPham MatchData()

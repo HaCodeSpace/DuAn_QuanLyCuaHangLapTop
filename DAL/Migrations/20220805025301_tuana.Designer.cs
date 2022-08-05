@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220728061307_ha3")]
-    partial class ha3
+    [Migration("20220805025301_tuana")]
+    partial class tuana
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,11 +52,8 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MauSac")
-                        .HasColumnType("int");
-
-                    b.Property<float>("TrongLuong")
-                        .HasColumnType("real");
+                    b.Property<double>("TrongLuong")
+                        .HasColumnType("float");
 
                     b.HasKey("MaSP");
 
