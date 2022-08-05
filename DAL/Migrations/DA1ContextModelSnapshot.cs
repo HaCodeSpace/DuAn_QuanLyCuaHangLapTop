@@ -50,11 +50,8 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MauSac")
-                        .HasColumnType("int");
-
-                    b.Property<float>("TrongLuong")
-                        .HasColumnType("real");
+                    b.Property<double>("TrongLuong")
+                        .HasColumnType("float");
 
                     b.HasKey("MaSP");
 

@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +16,7 @@ namespace DAL.Model
         public string Layout { get; set; }
         //public string Keycaps { get; set; }
         public string KichThuoc { get; set; }
-        public float TrongLuong { get; set; }
-        public int MauSac { get; set; }
+        public double TrongLuong { get; set; }
 
         public SanPham sanPham { get; set; }
 
