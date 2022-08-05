@@ -16,7 +16,7 @@ namespace Presentation
 {
     public partial class FormSanPhamBanPhim : Form
     {
-        public delegate void GetBanPhim(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac);
+        public delegate void GetBanPhim(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac, string keycaps);
         public event GetBanPhim GetBanPhimEvent;
 
         public FormSanPhamBanPhim()
@@ -53,9 +53,10 @@ namespace Presentation
                 trongluong = float.Parse(tb_trongluong.Text.Trim());
             }
             string mausac = tb_mausac.Text.Trim();
+            string keycaps = tb_keycaps.Text.Trim();
 
             if (GetBanPhimEvent != null)
-                GetBanPhimEvent(hangsx, kieukn, kieubp, led, layout, kichthuoc, trongluong, mausac);
+                GetBanPhimEvent(hangsx, kieukn, kieubp, led, layout, kichthuoc, trongluong, mausac, keycaps);
         }
     }
 }

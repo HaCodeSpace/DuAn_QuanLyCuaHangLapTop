@@ -7,9 +7,8 @@ using DAL.Model;
 
 namespace DAL.IRepository.IRepositorySanPham
 {
-    public interface IMauSacRepository
+    public interface ISanPhamMauSacRepository
     {
-        Boolean Add(MauSac mau);
-        int Findid(MauSac mau);
+        Boolean Add(SanPhamMauSac sanPhamMau);
     }
 }

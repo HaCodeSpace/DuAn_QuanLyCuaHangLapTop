@@ -21,14 +21,14 @@ namespace DAL.Model
         public string GhiChu { get; set; }
 
         public string MaNV { get; set; }
-        public NhanVien NhanVien { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
 
         public string? MaKH { get; set; }
-        public KhachHang khachHang { get; set; }
+        public virtual KhachHang khachHang { get; set; }
 
         public string? MaKM { get; set; }
-        public KhuyenMai khuyenMai { get; set; }
+        public virtual KhuyenMai khuyenMai { get; set; }
 
-        public IList<HoaDonChiTiet> hoadonchitiets { get; set; }
+        public  virtual ICollection<HoaDonChiTiet> hoadonchitiets { get; set; }
     }
 }

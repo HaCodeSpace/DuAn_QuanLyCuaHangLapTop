@@ -19,8 +19,17 @@ namespace Presentation
         //private DAL.IRepository.INhanVienRepository _repository;
         private BUS.IServices.IServiceSanPham.ISanPhamService _serviceSanPhamService;
         private IBanPhimService _banPhimService;
+        private IMauSacService _mauSacService;
+        private ISanPhamMauSacService _sanPhamMauSacService;
+        private IKeycapsService _keycapsService;
+        private IBanPhimKeycapsService _banPhimKeycapsService;
         public BanPhim ban;
-        public string color;
+        public BanPhimKeyCaps phimKeyCaps = new BanPhimKeyCaps();
+        public MauSac mau = new MauSac();
+        public SanPhamMauSac sanPhamMau = new SanPhamMauSac();
+        public SanPham sanpham;
+        public KeyCaps Capskey = new KeyCaps();
+
 
         public bool IsAdd { get; set; }
 
@@ -29,6 +38,10 @@ namespace Presentation
             InitializeComponent();
             _serviceSanPhamService = new BUS.Services.ServiceSanPham.SanPhamService();
             _banPhimService = new BanPhimService();
+            _mauSacService = new MauSacService();
+            _sanPhamMauSacService = new SanPhamMauSacService();
+            _keycapsService = new KeyCapsService();
+            _banPhimKeycapsService = new BanPhimKeyCapsService();
             LoadFullList();
             AddBindings();
         }
@@ -74,7 +87,7 @@ namespace Presentation
                 };
                 this.panel2.Controls.Add(fspbp);
                 fspbp.FormBorderStyle = FormBorderStyle.None;
-                fspbp.GetBanPhimEvent +=Fspbp_GetBanPhimEvent;
+                fspbp.GetBanPhimEvent += Fspbp_GetBanPhimEvent;
                 fspbp.Show();
             }
             if (comboBox_dongsp.Text == "Chuột")
@@ -119,7 +132,7 @@ namespace Presentation
             
         }
 
-        private void Fspbp_GetBanPhimEvent(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac)
+        private void Fspbp_GetBanPhimEvent(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac, string keycaps)
         {
             ban = new BanPhim()
             {
@@ -132,7 +145,8 @@ namespace Presentation
                 KichThuoc = kichthuoc,
                 TrongLuong = trongluong,
             };
-            color = UpperCaseFirstLetter(mausac);
+            mau.TenMau = mausac;
+            Capskey.TenKeyCaps = keycaps;
         }
 
         private void AddBindings()
@@ -173,8 +187,13 @@ namespace Presentation
         private void bt_them_Click(object sender, EventArgs e)
         {
             IsAdd = true;
-            var result = _serviceSanPhamService.ThemSP(MatchData()); 
-            var result2 = true;
+            MatchData();
+            var result = _serviceSanPhamService.ThemSP(sanpham);
+            var result2 = false;
+            var result3 = true;
+            var result4 = false;
+            var result5 = false;
+            var result6 = true;
             switch (comboBox_dongsp.SelectedIndex)
             {
                 case 0:
@@ -183,7 +202,16 @@ namespace Presentation
                     break;
                 case 2:
                     result2 = _banPhimService.ThemBP(ban);
-                     
+                    mau.MaMau = "12xd31đss";
+                    mau.TenMau = UpperCaseFirstLetter(mau.TenMau);
+                    result3 = _mauSacService.ThemMau(mau);
+                    sanPhamMau.Idmau = _mauSacService.Timid(mau);
+                    sanPhamMau.Masp = sanpham.MaSP;
+                    result4 = _sanPhamMauSacService.ThemSPMS(sanPhamMau);
+                    result5 = _keycapsService.ThemKeycaps(Capskey);
+                    phimKeyCaps.IdKeyCaps = _keycapsService.TimId(Capskey);
+                    phimKeyCaps.MaSP = sanpham.MaSP;
+                    result6 = _banPhimKeycapsService.ThemBPKCS(phimKeyCaps);
                     break;
                 case 3:
                     break;
@@ -192,7 +220,7 @@ namespace Presentation
                 case 5:
                     break;
             }
-            if (result2 && result)
+            if (result && result2 && result3 && result4 && result5 &&  result6)
             {
                 MessageBox.Show("Thêm thành công");
                 LoadFullList();
@@ -206,17 +234,17 @@ namespace Presentation
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
-        private SanPham MatchData()
+        private void MatchData()
         {
-            SanPham currentSP = new SanPham();
-            currentSP.MaSP = IsAdd ? "SP" + tb_masp.Text : tb_masp.Text;
-            currentSP.TenSP = tb_tensp.Text;
-            currentSP.DongSP = comboBox_dongsp.SelectedIndex;
-            currentSP.DonGiaBan = float.Parse(tb_giaban.Text);
-            currentSP.DonGiaNhap = float.Parse(tb_gianhap.Text);
-            currentSP.GhiChu = tb_ghichu.Text;
-
-            return currentSP;
+            sanpham = new SanPham()
+            {
+                MaSP = IsAdd ? "SP" + tb_masp.Text : tb_masp.Text,
+                TenSP = tb_tensp.Text.Trim(),
+                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
+                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
+                DongSP = comboBox_dongsp.SelectedIndex,
+                GhiChu = tb_ghichu.Text
+            };    
         }
 
         
@@ -229,7 +257,8 @@ namespace Presentation
         private void bt_sua_Click(object sender, EventArgs e)
         {
             IsAdd = false;
-            var result = _serviceSanPhamService.SuaSP(MatchData());
+            MatchData();
+            var result = _serviceSanPhamService.SuaSP(sanpham);
             
             if (result)
             {

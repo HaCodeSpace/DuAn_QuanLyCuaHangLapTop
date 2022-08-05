@@ -343,15 +343,15 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
                 {
-                    b.Property<string>("MaSP")
+                    b.Property<string>("Masp")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("IdMau")
+                    b.Property<int>("Idmau")
                         .HasColumnType("int");
 
-                    b.HasKey("MaSP", "IdMau");
+                    b.HasKey("Masp", "Idmau");
 
-                    b.HasIndex("IdMau");
+                    b.HasIndex("Idmau");
 
                     b.ToTable("sanPhamMauSacs");
                 });
@@ -450,21 +450,21 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
                 {
-                    b.HasOne("DAL.Model.MauSac", "mauSac")
+                    b.HasOne("DAL.Model.MauSac", "mausac")
                         .WithMany("sanPhamMauSacs")
-                        .HasForeignKey("IdMau")
+                        .HasForeignKey("Idmau")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DAL.Model.BanPhim", "banPhim")
+                    b.HasOne("DAL.Model.BanPhim", "banphim")
                         .WithMany("sanPhamMauSacs")
-                        .HasForeignKey("MaSP")
+                        .HasForeignKey("Masp")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("banPhim");
+                    b.Navigation("banphim");
 
-                    b.Navigation("mauSac");
+                    b.Navigation("mausac");
                 });
 
             modelBuilder.Entity("DAL.Model.BanPhim", b =>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220804060149_trungphong")]
-    partial class trungphong
+    [Migration("20220805103613_tuana2")]
+    partial class tuana2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,11 +52,8 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MauSac")
-                        .HasColumnType("int");
-
-                    b.Property<float>("TrongLuong")
-                        .HasColumnType("real");
+                    b.Property<double>("TrongLuong")
+                        .HasColumnType("float");
 
                     b.HasKey("MaSP");
 
@@ -348,15 +345,15 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
                 {
-                    b.Property<string>("MaSP")
+                    b.Property<string>("Masp")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("IdMau")
+                    b.Property<int>("Idmau")
                         .HasColumnType("int");
 
-                    b.HasKey("MaSP", "IdMau");
+                    b.HasKey("Masp", "Idmau");
 
-                    b.HasIndex("IdMau");
+                    b.HasIndex("Idmau");
 
                     b.ToTable("sanPhamMauSacs");
                 });
@@ -455,21 +452,21 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
                 {
-                    b.HasOne("DAL.Model.MauSac", "mauSac")
+                    b.HasOne("DAL.Model.MauSac", "mausac")
                         .WithMany("sanPhamMauSacs")
-                        .HasForeignKey("IdMau")
+                        .HasForeignKey("Idmau")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DAL.Model.BanPhim", "banPhim")
+                    b.HasOne("DAL.Model.BanPhim", "banphim")
                         .WithMany("sanPhamMauSacs")
-                        .HasForeignKey("MaSP")
+                        .HasForeignKey("Masp")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("banPhim");
+                    b.Navigation("banphim");
 
-                    b.Navigation("mauSac");
+                    b.Navigation("mausac");
                 });
 
             modelBuilder.Entity("DAL.Model.BanPhim", b =>

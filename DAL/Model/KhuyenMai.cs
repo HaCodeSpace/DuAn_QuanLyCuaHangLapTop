@@ -17,6 +17,6 @@ namespace DAL.Model
         public Boolean TrangThai { get; set; }
         public string Mota { get; set; }
 
-        public ICollection<HoaDon> hoaDons { get; set; }
+        public virtual ICollection<HoaDon> hoaDons { get; set; }
     }
 }

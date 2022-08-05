@@ -8,10 +8,10 @@ namespace DAL.Model
 {
     public class SanPhamMauSac
     {
-        public int IdMau { get; set; }
-        public MauSac mauSac { get; set; }
+        public int Idmau { get; set; }
+        public virtual MauSac mausac { get; set; }
 
-        public string MaSP { get; set; }
-        public BanPhim banPhim { get; set; }
+        public string Masp { get; set; }
+        public virtual BanPhim banphim { get; set; }
     }
 }

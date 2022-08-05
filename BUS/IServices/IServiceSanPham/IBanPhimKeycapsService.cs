@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Model;
 
-namespace DAL.IRepository.IRepositorySanPham
+namespace BUS.IServices.IServiceSanPham
 {
-    public interface IMauSacRepository
+    public interface IBanPhimKeycapsService
     {
-        Boolean Add(MauSac mau);
-        int Findid(MauSac mau);
+        Boolean ThemBPKCS(BanPhimKeyCaps banPhimKeyCaps);
     }
 }
