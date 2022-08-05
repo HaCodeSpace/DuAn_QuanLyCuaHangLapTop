@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.IRepository.IRepositorySanPham;
 
+
 namespace DAL.Repository.RepositorySanPham
 {
-    public class MauSacRepository : IMauSacRepository
+    public class MauSacRepository
     {
 
     }
