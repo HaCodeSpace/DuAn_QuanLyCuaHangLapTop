@@ -17,9 +17,9 @@ namespace Presentation.Utilities
         {
             _IQLnv = new QLNhanVienService();
         }
-        public bool NhanVienValidate(string ma, string ten, string vaitro, string email, string date, string sdt)
+        public bool NhanVienValidate(string ma, string ten, string vaitro, string email, string date, string sdt,string mk)
         {
-            if (ma.Length == 0 || ten.Length == 0 || vaitro.Length == 0 || email.Length == 0 || date.Length == 0 || sdt.Length == 0)
+            if (ma.Length == 0 || ten.Length == 0 || vaitro.Length == 0 || email.Length == 0 || date.Length == 0 || sdt.Length == 0||mk.Length==0)
             {
                 MessageBox.Show("Không được bỏ trống trường nào");
                 return false;
@@ -29,6 +29,11 @@ namespace Presentation.Utilities
                 if (item.MaNV == ma)
                 {
                     MessageBox.Show("Mã nhân viên trùng, mời nhập lại");
+                    return false;
+                }
+                if (item.Email == email)
+                {
+                    MessageBox.Show("Email đã tồn tại trong hệ thống");
                     return false;
                 }
             }
@@ -56,6 +61,11 @@ namespace Presentation.Utilities
                 MessageBox.Show("Không đúng định dạng email (VD: nguyenvietha2ka2@gmail.com)");
                 return false;
             }
+            if (mk.Length > 8)
+            {
+                MessageBox.Show("Mật khẩu ít hơn 9 ký tự");
+                return false;
+            }
             try
             {
                 Convert.ToDateTime(date);
@@ -72,12 +82,20 @@ namespace Presentation.Utilities
             }
             return true;
         }
-        public bool NhanVienValidate2(string ten, string vaitro, string email, string date, string sdt)
+        public bool NhanVienValidate2(string ten, string vaitro, string email, string date, string sdt,string mk)
         {
-            if (ten.Length == 0 || vaitro.Length == 0 || email.Length == 0 || date.Length == 0 || sdt.Length == 0)
+            if (ten.Length == 0 || vaitro.Length == 0 || email.Length == 0 || date.Length == 0 || sdt.Length == 0||mk.Length==0)
             {
                 MessageBox.Show("Không được bỏ trống trường nào");
                 return false;
+            }
+            foreach (var item in _IQLnv.getlstNVfromDB().ToList())
+            {
+                if (item.Email == email)
+                {
+                    MessageBox.Show("Email đã tồn tại trong hệ thống");
+                    return false;
+                }
             }
             if (ten.Any(char.IsNumber) == true)
             {
@@ -98,6 +116,11 @@ namespace Presentation.Utilities
                 MessageBox.Show("Không đúng định dạng email (VD: nguyenvietha2ka2@gmail.com)");
                 return false;
             }
+            if (mk.Length > 8)
+            {
+                MessageBox.Show("Mật khẩu ít hơn 9 ký tự");
+                return false;
+            }
             try
             {
                 Convert.ToDateTime(date);
@@ -114,6 +137,32 @@ namespace Presentation.Utilities
             }
             return true;
         }
-
+        public bool DoiMatKhau(string mkc,string mkm,string mkxn)
+        {
+            foreach (var item in _IQLnv.getlstNVfromDB().Where(nv => nv.MaNV == Properties.Settings.Default.manv))
+            {
+                if (item.MatKhau != mkc)
+                {
+                    MessageBox.Show("Mật khẩu cũ sai, mời bạn nhập lại");
+                    return false;
+                }
+                if (item.MatKhau == mkm)
+                {
+                    MessageBox.Show("Mật khẩu mới trùng mật khẩu cũ");
+                    return false;
+                }
+                if (mkm.Length > 8)
+                {
+                    MessageBox.Show("Mật khẩu mới không được dài quá 8 ký tự");
+                    return false;
+                }
+                if (mkm != mkxn)
+                {
+                    MessageBox.Show("Mật khẩu mới và xác nhận mật khẩu không trùng");
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

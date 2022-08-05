@@ -26,12 +26,31 @@ namespace Presentation
         {
             if (_IQLnv.getlstNVfromDB().Any(nv => nv.Email == tb_taikhoan.Text && nv.MatKhau == tb_matkhau.Text))
             {
+                if (cb_luutaikhoan.Checked == true)
+                {
+                    string email = tb_taikhoan.Text;
+                    string pwd = tb_matkhau.Text;
+                    Properties.Settings.Default.email = email;
+                    Properties.Settings.Default.password=pwd;
+                    Properties.Settings.Default.Save();
+                }
+                if(cb_luutaikhoan.Checked==false)
+                    Properties.Settings.Default.Reset();
                 MessageBox.Show("Đăng nhập thành công");
+                foreach (var item in _IQLnv.getlstNVfromDB())
+                {
+                    if (item.Email == tb_taikhoan.Text)
+                    {
+                        Properties.Settings.Default.manv = item.MaNV;
+                        Properties.Settings.Default.maql = item.MaQuanLi;
+                    }
+                }
                 this.Hide();
                 new FormBanHang().Show();
             }
             else
             {
+                Properties.Settings.Default.Reset();
                 MessageBox.Show("Đăng nhập thất bại");
             }
         }
@@ -45,6 +64,19 @@ namespace Presentation
         private void bt_thoat_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void cb_luutaikhoan_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+            tb_taikhoan.Text = Properties.Settings.Default.email;
+            tb_matkhau.Text=Properties.Settings.Default.password;
+            if (Properties.Settings.Default.email != "")
+                cb_luutaikhoan.Checked = true;
         }
     }
 }
