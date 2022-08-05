@@ -30,6 +30,17 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tb_mausac = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_kichthuoc = new System.Windows.Forms.TextBox();
+            this.tb_keycaps = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tb_layout = new System.Windows.Forms.TextBox();
+            this.tb_trongluong = new System.Windows.Forms.TextBox();
+            this.tb_led = new System.Windows.Forms.TextBox();
+            this.tb_kieubp = new System.Windows.Forms.TextBox();
+            this.tb_hangsx = new System.Windows.Forms.TextBox();
+            this.tb_ketnoi = new System.Windows.Forms.TextBox();
             this.lb_kichthuoc = new System.Windows.Forms.Label();
             this.lb_trongluong = new System.Windows.Forms.Label();
             this.lb_layout = new System.Windows.Forms.Label();
@@ -40,17 +51,6 @@
             this.lb_ketnoi = new System.Windows.Forms.Label();
             this.lb_switch = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_ketnoi = new System.Windows.Forms.TextBox();
-            this.tb_hangsx = new System.Windows.Forms.TextBox();
-            this.tb_kieubp = new System.Windows.Forms.TextBox();
-            this.tb_led = new System.Windows.Forms.TextBox();
-            this.tb_trongluong = new System.Windows.Forms.TextBox();
-            this.tb_layout = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.tb_kichthuoc = new System.Windows.Forms.TextBox();
-            this.tb_mausac = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +70,7 @@
             this.panel2.Controls.Add(this.tb_mausac);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tb_kichthuoc);
-            this.panel2.Controls.Add(this.textBox8);
+            this.panel2.Controls.Add(this.tb_keycaps);
             this.panel2.Controls.Add(this.textBox7);
             this.panel2.Controls.Add(this.tb_layout);
             this.panel2.Controls.Add(this.tb_trongluong);
@@ -92,6 +92,96 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(568, 292);
             this.panel2.TabIndex = 31;
+            // 
+            // tb_mausac
+            // 
+            this.tb_mausac.Location = new System.Drawing.Point(378, 208);
+            this.tb_mausac.Name = "tb_mausac";
+            this.tb_mausac.Size = new System.Drawing.Size(169, 23);
+            this.tb_mausac.TabIndex = 65;
+            this.tb_mausac.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(291, 208);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 19);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "Màu sắc";
+            // 
+            // tb_kichthuoc
+            // 
+            this.tb_kichthuoc.Location = new System.Drawing.Point(378, 167);
+            this.tb_kichthuoc.Name = "tb_kichthuoc";
+            this.tb_kichthuoc.Size = new System.Drawing.Size(169, 23);
+            this.tb_kichthuoc.TabIndex = 63;
+            this.tb_kichthuoc.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // tb_keycaps
+            // 
+            this.tb_keycaps.Location = new System.Drawing.Point(378, 120);
+            this.tb_keycaps.Name = "tb_keycaps";
+            this.tb_keycaps.Size = new System.Drawing.Size(169, 23);
+            this.tb_keycaps.TabIndex = 62;
+            this.tb_keycaps.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(378, 67);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(169, 23);
+            this.textBox7.TabIndex = 61;
+            this.textBox7.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // tb_layout
+            // 
+            this.tb_layout.Location = new System.Drawing.Point(378, 8);
+            this.tb_layout.Name = "tb_layout";
+            this.tb_layout.Size = new System.Drawing.Size(169, 23);
+            this.tb_layout.TabIndex = 60;
+            this.tb_layout.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // tb_trongluong
+            // 
+            this.tb_trongluong.Location = new System.Drawing.Point(125, 208);
+            this.tb_trongluong.Name = "tb_trongluong";
+            this.tb_trongluong.Size = new System.Drawing.Size(153, 23);
+            this.tb_trongluong.TabIndex = 59;
+            this.tb_trongluong.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // tb_led
+            // 
+            this.tb_led.Location = new System.Drawing.Point(109, 167);
+            this.tb_led.Name = "tb_led";
+            this.tb_led.Size = new System.Drawing.Size(169, 23);
+            this.tb_led.TabIndex = 58;
+            this.tb_led.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // tb_kieubp
+            // 
+            this.tb_kieubp.Location = new System.Drawing.Point(125, 120);
+            this.tb_kieubp.Name = "tb_kieubp";
+            this.tb_kieubp.Size = new System.Drawing.Size(153, 23);
+            this.tb_kieubp.TabIndex = 57;
+            this.tb_kieubp.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // tb_hangsx
+            // 
+            this.tb_hangsx.Location = new System.Drawing.Point(123, 63);
+            this.tb_hangsx.Name = "tb_hangsx";
+            this.tb_hangsx.Size = new System.Drawing.Size(155, 23);
+            this.tb_hangsx.TabIndex = 56;
+            this.tb_hangsx.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            // 
+            // tb_ketnoi
+            // 
+            this.tb_ketnoi.Location = new System.Drawing.Point(109, 8);
+            this.tb_ketnoi.Name = "tb_ketnoi";
+            this.tb_ketnoi.Size = new System.Drawing.Size(169, 23);
+            this.tb_ketnoi.TabIndex = 55;
+            this.tb_ketnoi.TextChanged += new System.EventHandler(this.txtbox_textchanged);
             // 
             // lb_kichthuoc
             // 
@@ -192,96 +282,6 @@
             this.label1.Size = new System.Drawing.Size(0, 51);
             this.label1.TabIndex = 0;
             // 
-            // tb_ketnoi
-            // 
-            this.tb_ketnoi.Location = new System.Drawing.Point(109, 8);
-            this.tb_ketnoi.Name = "tb_ketnoi";
-            this.tb_ketnoi.Size = new System.Drawing.Size(169, 23);
-            this.tb_ketnoi.TabIndex = 55;
-            this.tb_ketnoi.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_hangsx
-            // 
-            this.tb_hangsx.Location = new System.Drawing.Point(123, 63);
-            this.tb_hangsx.Name = "tb_hangsx";
-            this.tb_hangsx.Size = new System.Drawing.Size(155, 23);
-            this.tb_hangsx.TabIndex = 56;
-            this.tb_hangsx.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_kieubp
-            // 
-            this.tb_kieubp.Location = new System.Drawing.Point(125, 120);
-            this.tb_kieubp.Name = "tb_kieubp";
-            this.tb_kieubp.Size = new System.Drawing.Size(153, 23);
-            this.tb_kieubp.TabIndex = 57;
-            this.tb_kieubp.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_led
-            // 
-            this.tb_led.Location = new System.Drawing.Point(109, 167);
-            this.tb_led.Name = "tb_led";
-            this.tb_led.Size = new System.Drawing.Size(169, 23);
-            this.tb_led.TabIndex = 58;
-            this.tb_led.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_trongluong
-            // 
-            this.tb_trongluong.Location = new System.Drawing.Point(125, 208);
-            this.tb_trongluong.Name = "tb_trongluong";
-            this.tb_trongluong.Size = new System.Drawing.Size(153, 23);
-            this.tb_trongluong.TabIndex = 59;
-            this.tb_trongluong.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_layout
-            // 
-            this.tb_layout.Location = new System.Drawing.Point(378, 8);
-            this.tb_layout.Name = "tb_layout";
-            this.tb_layout.Size = new System.Drawing.Size(169, 23);
-            this.tb_layout.TabIndex = 60;
-            this.tb_layout.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(378, 67);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(169, 23);
-            this.textBox7.TabIndex = 61;
-            this.textBox7.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(378, 120);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(169, 23);
-            this.textBox8.TabIndex = 62;
-            this.textBox8.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_kichthuoc
-            // 
-            this.tb_kichthuoc.Location = new System.Drawing.Point(378, 167);
-            this.tb_kichthuoc.Name = "tb_kichthuoc";
-            this.tb_kichthuoc.Size = new System.Drawing.Size(169, 23);
-            this.tb_kichthuoc.TabIndex = 63;
-            this.tb_kichthuoc.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // tb_mausac
-            // 
-            this.tb_mausac.Location = new System.Drawing.Point(378, 208);
-            this.tb_mausac.Name = "tb_mausac";
-            this.tb_mausac.Size = new System.Drawing.Size(169, 23);
-            this.tb_mausac.TabIndex = 65;
-            this.tb_mausac.TextChanged += new System.EventHandler(this.txtbox_textchanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(291, 208);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 19);
-            this.label2.TabIndex = 64;
-            this.label2.Text = "Màu sắc";
-            // 
             // FormSanPhamBanPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -315,7 +315,7 @@
         private Label lb_switch;
         private Label label1;
         private TextBox tb_kichthuoc;
-        private TextBox textBox8;
+        private TextBox tb_keycaps;
         private TextBox textBox7;
         private TextBox tb_layout;
         private TextBox tb_trongluong;

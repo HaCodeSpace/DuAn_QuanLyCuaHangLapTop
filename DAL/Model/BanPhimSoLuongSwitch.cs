@@ -10,7 +10,7 @@ namespace DAL.Model
     {
 
         public string MaSP { get; set; }
-        public BanPhim banPhim { get; set; }
+        public virtual BanPhim banPhim { get; set; }
 
         public string Switch { get; set; }
         public int SoLuong { get; set; }

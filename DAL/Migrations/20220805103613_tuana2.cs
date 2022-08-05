@@ -4,7 +4,7 @@
 
 namespace DAL.Migrations
 {
-    public partial class Db5 : Migration
+    public partial class tuana2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

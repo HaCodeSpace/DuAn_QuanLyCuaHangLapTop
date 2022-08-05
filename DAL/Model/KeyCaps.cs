@@ -11,6 +11,6 @@ namespace DAL.Model
         public int Id { get; set; }
         public string TenKeyCaps { get; set; }
 
-        public IList<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
+        public virtual ICollection<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
     }
 }

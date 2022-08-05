@@ -7,9 +7,9 @@ using DAL.Model;
 
 namespace DAL.IRepository.IRepositorySanPham
 {
-    public interface IMauSacRepository
+    public interface IKeycapsRepository
     {
-        Boolean Add(MauSac mau);
-        int Findid(MauSac mau);
+        Boolean Add(KeyCaps keyCaps);
+        int FindId(KeyCaps keyCaps);
     }
 }

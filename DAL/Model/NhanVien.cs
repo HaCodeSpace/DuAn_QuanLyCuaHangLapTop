@@ -21,9 +21,9 @@ namespace DAL.Model
 
         public string? MaQuanLi { get; set; }
 
-        public NhanVien QuanLi { get; set; }
+        public virtual NhanVien QuanLi { get; set; }
 
-        public ICollection<NhanVien> nhanViens { get; set; }
-        public ICollection<HoaDon> hoaDons { get; set; }
+        public virtual ICollection<NhanVien> nhanViens { get; set; }
+        public virtual ICollection<HoaDon> hoaDons { get; set; }
     }
 }

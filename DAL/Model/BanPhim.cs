@@ -8,7 +8,9 @@ namespace DAL.Model
 {
     public class BanPhim
     {
+      
         public string MaSP { get; set; }
+
         public string HangSanXuat { get; set; }
         public int KieuKetNoi { get; set; }
         public string KieuBanPhim { get; set; }
@@ -18,10 +20,12 @@ namespace DAL.Model
         public string KichThuoc { get; set; }
         public double TrongLuong { get; set; }
 
-        public SanPham sanPham { get; set; }
+        public virtual SanPham sanPham { get; set; }
 
-        public ICollection<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }
-        public IList<SanPhamMauSac> sanPhamMauSacs { get; set; }
-        public IList<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
+        public virtual ICollection<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }
+        public virtual ICollection<SanPhamMauSac> sanPhamMauSacs { get; set; }
+        public virtual ICollection<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
+    
+
     }
 }
