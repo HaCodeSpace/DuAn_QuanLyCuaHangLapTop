@@ -33,6 +33,8 @@
             this.tb_email = new System.Windows.Forms.TextBox();
             this.bt_xacnhan = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.tb_sdt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lb_laylaimatkhau
@@ -59,9 +61,9 @@
             // tb_email
             // 
             this.tb_email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_email.Location = new System.Drawing.Point(280, 181);
+            this.tb_email.Location = new System.Drawing.Point(314, 181);
             this.tb_email.Name = "tb_email";
-            this.tb_email.Size = new System.Drawing.Size(338, 34);
+            this.tb_email.Size = new System.Drawing.Size(304, 34);
             this.tb_email.TabIndex = 21;
             // 
             // bt_xacnhan
@@ -75,6 +77,7 @@
             this.bt_xacnhan.TabIndex = 26;
             this.bt_xacnhan.Text = "Xác Nhận";
             this.bt_xacnhan.UseVisualStyleBackColor = false;
+            this.bt_xacnhan.Click += new System.EventHandler(this.bt_xacnhan_Click);
             // 
             // button1
             // 
@@ -89,12 +92,32 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tb_sdt
+            // 
+            this.tb_sdt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_sdt.Location = new System.Drawing.Point(314, 259);
+            this.tb_sdt.Name = "tb_sdt";
+            this.tb_sdt.Size = new System.Drawing.Size(304, 34);
+            this.tb_sdt.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(151, 259);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 31);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Số điện thoại";
+            // 
             // QuenMK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(854, 599);
+            this.Controls.Add(this.tb_sdt);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bt_xacnhan);
             this.Controls.Add(this.tb_email);
@@ -114,5 +137,7 @@
         private TextBox tb_email;
         private Button bt_xacnhan;
         private Button button1;
+        private TextBox tb_sdt;
+        private Label label1;
     }
 }

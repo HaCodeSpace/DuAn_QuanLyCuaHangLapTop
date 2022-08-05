@@ -7,9 +7,10 @@ using DAL.IRepository.IRepositorySanPham;
 using DAL.Model;
 using DAL.DatabaseContext;
 
+
 namespace DAL.Repository.RepositorySanPham
 {
-    public class MauSacRepository : IMauSacRepository
+    public class MauSacRepository
     {
         private DA1Context context;
 

@@ -155,10 +155,9 @@ namespace Presentation
 
         private void bt_dangxuat_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new DangNhap().Show();
+            this.Hide();
         }
-
         private void bt_doimatkhau_Click(object sender, EventArgs e)
         {
             panel3.Controls.Clear();

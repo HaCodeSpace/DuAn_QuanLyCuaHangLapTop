@@ -46,9 +46,8 @@ namespace Presentation
             dataGridView1.Columns[9].Name = "Trạng thái";
             foreach (var item in _IQLnv.getlstNVfromDB())
             {
-                dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Hoạt động" : "Nghỉ Việc");
+                dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
             }
-            MessageBox.Show("DC");
         }
         private void bt_them_Click(object sender, EventArgs e)
         {
@@ -68,7 +67,7 @@ namespace Presentation
                 _nv.NgaySinh = Convert.ToDateTime(tb_ngaysinh.Text);
                 _nv.SoDienThoai = tb_dienthoai.Text;
                 if (comboBox_vaitro.Text == "Quản Lý")
-                    _nv.MaQuanLi = "123";
+                    _nv.MaQuanLi = "QL";
                 if (comboBox_vaitro.Text == "Nhân Viên")
                     _nv.MaQuanLi = null;
                 if (rdb_nam.Checked)
@@ -103,6 +102,7 @@ namespace Presentation
             rdb_nu.Checked = dataGridViewRow.Cells[8].Value.ToString() == "Nữ";
             rdb_danglam.Checked = dataGridViewRow.Cells[9].Value.ToString() == "Đang Làm";
             rdb_nghiviec.Checked = dataGridViewRow.Cells[9].Value.ToString() == "Nghỉ Việc";
+            tb_manv.Enabled = false;
 
         }
 
@@ -113,6 +113,8 @@ namespace Presentation
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBox1.Clear();
+            comboBox2.ResetText();
             if (comboBox1.Text == "Quản Lý")
             {
                 var tim = from a in _IQLnv.getlstNVfromDB()
@@ -121,7 +123,7 @@ namespace Presentation
                 dataGridView1.Rows.Clear();
                 foreach (var item in tim)
                 {
-                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Hoạt động" : "Nghỉ Việc");
+                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
                 }
             }
             if (comboBox1.Text == "Nhân Viên")
@@ -132,7 +134,7 @@ namespace Presentation
                 dataGridView1.Rows.Clear();
                 foreach (var item in tim)
                 {
-                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Hoạt động" : "Nghỉ Việc");
+                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
                 }
             }
         }
@@ -178,16 +180,20 @@ namespace Presentation
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            comboBox1.ResetText();
+            comboBox2.ResetText();
             dataGridView1.Rows.Clear();
             var tim = _IQLnv.getlstNVfromDB().Where(e => e.TenNV.ToLower().Contains(textBox1.Text.ToLower()));
             foreach (var item in tim)
             {
-                dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Hoạt động" : "Nghỉ Việc");
+                dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
             }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBox1.Clear();
+            comboBox1.ResetText();
             if (comboBox2.Text == "Đang Làm")
             {
                 var tim = from a in _IQLnv.getlstNVfromDB()
@@ -196,7 +202,7 @@ namespace Presentation
                 dataGridView1.Rows.Clear();
                 foreach (var item in tim)
                 {
-                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Hoạt động" : "Nghỉ Việc");
+                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
                 }
             }
             if (comboBox2.Text == "Nghỉ Việc")
@@ -207,9 +213,22 @@ namespace Presentation
                 dataGridView1.Rows.Clear();
                 foreach (var item in tim)
                 {
-                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Hoạt động" : "Nghỉ Việc");
+                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
                 }
             }
+        }
+
+        private void bt_reset_Click(object sender, EventArgs e)
+        {
+            tb_manv.Enabled = true;
+            tb_manv.Clear();
+            tb_tennv.Clear();
+            tb_email.Clear();
+            tb_matkhau.Clear();
+            tb_diachi.Clear();
+            tb_email.Clear();
+            tb_ngaysinh.Clear();
+            tb_dienthoai.Clear();
         }
     }
 }
