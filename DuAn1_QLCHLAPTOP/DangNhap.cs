@@ -22,11 +22,6 @@ namespace Presentation
             _IQLnv = new QLNhanVienService();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void bt_dangnhap_Click(object sender, EventArgs e)
         {
             if (_IQLnv.getlstNVfromDB().Any(nv => nv.Email == tb_taikhoan.Text && nv.MatKhau == tb_matkhau.Text))
@@ -40,15 +35,16 @@ namespace Presentation
                 MessageBox.Show("Đăng nhập thất bại");
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void lb_quenmatkhau_Click(object sender, EventArgs e)
         {
             this.Hide();
             new QuenMK().Show();
+        }
+
+        private void bt_thoat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
