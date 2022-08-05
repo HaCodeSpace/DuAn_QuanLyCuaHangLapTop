@@ -83,11 +83,12 @@
             this.lb_quenmatkhau.AutoSize = true;
             this.lb_quenmatkhau.Font = new System.Drawing.Font("Sitka Banner", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lb_quenmatkhau.ForeColor = System.Drawing.Color.Red;
-            this.lb_quenmatkhau.Location = new System.Drawing.Point(612, 391);
+            this.lb_quenmatkhau.Location = new System.Drawing.Point(621, 387);
             this.lb_quenmatkhau.Name = "lb_quenmatkhau";
             this.lb_quenmatkhau.Size = new System.Drawing.Size(127, 24);
             this.lb_quenmatkhau.TabIndex = 24;
             this.lb_quenmatkhau.Text = "Quên mật khẩu ?";
+            this.lb_quenmatkhau.Click += new System.EventHandler(this.lb_quenmatkhau_Click);
             // 
             // tb_matkhau
             // 

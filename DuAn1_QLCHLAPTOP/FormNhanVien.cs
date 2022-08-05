@@ -48,7 +48,6 @@ namespace Presentation
             {
                 dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Hoạt động" : "Nghỉ Việc");
             }
-            MessageBox.Show("DC");
         }
         private void bt_them_Click(object sender, EventArgs e)
         {
