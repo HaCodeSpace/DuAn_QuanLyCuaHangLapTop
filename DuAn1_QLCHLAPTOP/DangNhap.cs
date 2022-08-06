@@ -42,7 +42,6 @@ namespace Presentation
                     if (item.Email == tb_taikhoan.Text)
                     {
                         Properties.Settings.Default.manv = item.MaNV;
-                        Properties.Settings.Default.maql = item.MaQuanLi;
                     }
                 }
                 this.Hide();

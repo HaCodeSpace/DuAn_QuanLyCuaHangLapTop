@@ -132,17 +132,17 @@
             // 
             this.lb_mau.AutoSize = true;
             this.lb_mau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_mau.Location = new System.Drawing.Point(458, 40);
+            this.lb_mau.Location = new System.Drawing.Point(469, 44);
             this.lb_mau.Name = "lb_mau";
-            this.lb_mau.Size = new System.Drawing.Size(44, 21);
+            this.lb_mau.Size = new System.Drawing.Size(35, 21);
             this.lb_mau.TabIndex = 24;
-            this.lb_mau.Text = "Màu";
+            this.lb_mau.Text = "Giá";
             // 
             // lb_dongsanpham
             // 
             this.lb_dongsanpham.AutoSize = true;
             this.lb_dongsanpham.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_dongsanpham.Location = new System.Drawing.Point(26, 40);
+            this.lb_dongsanpham.Location = new System.Drawing.Point(35, 44);
             this.lb_dongsanpham.Name = "lb_dongsanpham";
             this.lb_dongsanpham.Size = new System.Drawing.Size(132, 21);
             this.lb_dongsanpham.TabIndex = 25;

@@ -51,6 +51,8 @@
             this.lb_ketnoi = new System.Windows.Forms.Label();
             this.lb_switch = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tb_soluong = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +69,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.tb_soluong);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.tb_mausac);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tb_kichthuoc);
@@ -282,6 +286,23 @@
             this.label1.Size = new System.Drawing.Size(0, 51);
             this.label1.TabIndex = 0;
             // 
+            // tb_soluong
+            // 
+            this.tb_soluong.Location = new System.Drawing.Point(378, 250);
+            this.tb_soluong.Name = "tb_soluong";
+            this.tb_soluong.Size = new System.Drawing.Size(169, 23);
+            this.tb_soluong.TabIndex = 67;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(291, 250);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 19);
+            this.label3.TabIndex = 66;
+            this.label3.Text = "Số lượng";
+            // 
             // FormSanPhamBanPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -325,5 +346,7 @@
         private TextBox tb_ketnoi;
         private TextBox tb_mausac;
         private Label label2;
+        private TextBox tb_soluong;
+        private Label label3;
     }
 }
