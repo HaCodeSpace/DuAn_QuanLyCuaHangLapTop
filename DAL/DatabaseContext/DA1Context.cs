@@ -91,8 +91,8 @@ namespace DAL.DatabaseContext
             // tạo quan hệ 1 -n với bảng sanphammausac
             modelBuilder.Entity<BanPhim>()
                 .HasMany<SanPhamMauSac>(bp => bp.sanPhamMauSacs)
-                .WithOne(spms => spms.banphim)
-                .HasForeignKey(spms => spms.Masp);
+                .WithOne(spms => spms.banPhim)
+                .HasForeignKey(spms => spms.MaSP);
             // tạo quan hệ 1 - n với bảng BanPhimKeyCaps
             modelBuilder.Entity<BanPhim>()
                 .HasMany<BanPhimKeyCaps>(bp => bp.banPhimKeyCaps)
@@ -109,8 +109,8 @@ namespace DAL.DatabaseContext
             // tạo quan hệ 1 - n với bảng sanphammausac
             modelBuilder.Entity<MauSac>()
                 .HasMany<SanPhamMauSac>(ms => ms.sanPhamMauSacs)
-                .WithOne(spms => spms.mausac)
-                .HasForeignKey(spms => spms.Idmau);
+                .WithOne(spms => spms.mauSac)
+                .HasForeignKey(spms => spms.IdMau);
             #endregion
 
             #region keycaps
@@ -127,7 +127,7 @@ namespace DAL.DatabaseContext
             #endregion
 
             #region SanphamMauSac
-            modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.Masp, spms.Idmau });
+            modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.MaSP, spms.IdMau });
             #endregion
         }
 
