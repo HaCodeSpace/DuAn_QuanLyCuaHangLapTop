@@ -188,7 +188,14 @@ namespace Presentation
             }
         }
 
-        private void bt_reset_Click(object sender, EventArgs e)
+        
+
+        private void bt_them_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             tb_manv.Enabled = true;
             tb_manv.Clear();

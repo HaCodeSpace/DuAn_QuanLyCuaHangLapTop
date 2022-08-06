@@ -207,8 +207,8 @@ namespace Presentation
                         mau.MaMau = "12xd31đss";
                         mau.TenMau = UpperCaseFirstLetter(mau.TenMau);
                         result3 = _mauSacService.ThemMau(mau);
-                        sanPhamMau.IdMau = _mauSacService.Timid(mau);
-                        sanPhamMau.MaSP = sanpham.MaSP;
+                        sanPhamMau.Idmau = _mauSacService.Timid(mau);
+                        sanPhamMau.Masp = sanpham.MaSP;
                         result4 = _sanPhamMauSacService.ThemSPMS(sanPhamMau);
                         result5 = _keycapsService.ThemKeycaps(Capskey);
                         phimKeyCaps.IdKeyCaps = _keycapsService.TimId(Capskey);

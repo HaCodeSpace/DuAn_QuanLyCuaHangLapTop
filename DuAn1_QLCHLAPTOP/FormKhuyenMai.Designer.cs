@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKhuyenMai));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox_danhsach = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -40,9 +41,9 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_chuongtrinh = new System.Windows.Forms.GroupBox();
             this.bt_reset = new System.Windows.Forms.Button();
-            this.tb_voucher = new System.Windows.Forms.TextBox();
             this.bt_sua = new System.Windows.Forms.Button();
             this.bt_them = new System.Windows.Forms.Button();
+            this.tb_voucher = new System.Windows.Forms.TextBox();
             this.rdb_khongapdung = new System.Windows.Forms.RadioButton();
             this.rdb_apdung = new System.Windows.Forms.RadioButton();
             this.lb_trangthai = new System.Windows.Forms.Label();
@@ -154,9 +155,9 @@
             // groupBox_chuongtrinh
             // 
             this.groupBox_chuongtrinh.Controls.Add(this.bt_reset);
-            this.groupBox_chuongtrinh.Controls.Add(this.tb_voucher);
             this.groupBox_chuongtrinh.Controls.Add(this.bt_sua);
             this.groupBox_chuongtrinh.Controls.Add(this.bt_them);
+            this.groupBox_chuongtrinh.Controls.Add(this.tb_voucher);
             this.groupBox_chuongtrinh.Controls.Add(this.rdb_khongapdung);
             this.groupBox_chuongtrinh.Controls.Add(this.rdb_apdung);
             this.groupBox_chuongtrinh.Controls.Add(this.lb_trangthai);
@@ -183,13 +184,45 @@
             this.bt_reset.BackColor = System.Drawing.Color.Yellow;
             this.bt_reset.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_reset.ForeColor = System.Drawing.Color.Black;
-            this.bt_reset.Location = new System.Drawing.Point(900, 380);
+            this.bt_reset.Image = global::Presentation.Properties.Resources.refresh1;
+            this.bt_reset.Location = new System.Drawing.Point(825, 380);
             this.bt_reset.Name = "bt_reset";
-            this.bt_reset.Size = new System.Drawing.Size(167, 37);
-            this.bt_reset.TabIndex = 48;
-            this.bt_reset.Text = "Reset";
+            this.bt_reset.Size = new System.Drawing.Size(116, 37);
+            this.bt_reset.TabIndex = 51;
+            this.bt_reset.Text = "   Reset";
+            this.bt_reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_reset.UseVisualStyleBackColor = false;
-            this.bt_reset.Click += new System.EventHandler(this.bt_reset_Click);
+            this.bt_reset.Click += new System.EventHandler(this.bt_reset_Click_1);
+            // 
+            // bt_sua
+            // 
+            this.bt_sua.BackColor = System.Drawing.Color.Yellow;
+            this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_sua.ForeColor = System.Drawing.Color.Black;
+            this.bt_sua.Image = ((System.Drawing.Image)(resources.GetObject("bt_sua.Image")));
+            this.bt_sua.Location = new System.Drawing.Point(608, 380);
+            this.bt_sua.Name = "bt_sua";
+            this.bt_sua.Size = new System.Drawing.Size(116, 37);
+            this.bt_sua.TabIndex = 50;
+            this.bt_sua.Text = "   Sửa";
+            this.bt_sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_sua.UseVisualStyleBackColor = false;
+            this.bt_sua.Click += new System.EventHandler(this.bt_sua_Click_1);
+            // 
+            // bt_them
+            // 
+            this.bt_them.BackColor = System.Drawing.Color.Yellow;
+            this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_them.ForeColor = System.Drawing.Color.Black;
+            this.bt_them.Image = global::Presentation.Properties.Resources.add;
+            this.bt_them.Location = new System.Drawing.Point(373, 380);
+            this.bt_them.Name = "bt_them";
+            this.bt_them.Size = new System.Drawing.Size(116, 37);
+            this.bt_them.TabIndex = 49;
+            this.bt_them.Text = "  Thêm";
+            this.bt_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_them.UseVisualStyleBackColor = false;
+            this.bt_them.Click += new System.EventHandler(this.bt_them_Click_1);
             // 
             // tb_voucher
             // 
@@ -198,32 +231,6 @@
             this.tb_voucher.Name = "tb_voucher";
             this.tb_voucher.Size = new System.Drawing.Size(321, 30);
             this.tb_voucher.TabIndex = 47;
-            // 
-            // bt_sua
-            // 
-            this.bt_sua.BackColor = System.Drawing.Color.Yellow;
-            this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_sua.ForeColor = System.Drawing.Color.Black;
-            this.bt_sua.Location = new System.Drawing.Point(584, 380);
-            this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(167, 37);
-            this.bt_sua.TabIndex = 43;
-            this.bt_sua.Text = "Sửa";
-            this.bt_sua.UseVisualStyleBackColor = false;
-            this.bt_sua.Click += new System.EventHandler(this.bt_sua_Click);
-            // 
-            // bt_them
-            // 
-            this.bt_them.BackColor = System.Drawing.Color.Yellow;
-            this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_them.ForeColor = System.Drawing.Color.Black;
-            this.bt_them.Location = new System.Drawing.Point(268, 380);
-            this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(167, 37);
-            this.bt_them.TabIndex = 42;
-            this.bt_them.Text = "Thêm";
-            this.bt_them.UseVisualStyleBackColor = false;
-            this.bt_them.Click += new System.EventHandler(this.bt_them_Click);
             // 
             // rdb_khongapdung
             // 
@@ -394,9 +401,7 @@
         private DateTimePicker dateTimePicker1;
         private TextBox tb_chuongtrinhkhuyenmai;
         private TextBox tb_makhuyenmai;
-        private Button bt_them;
         private Label lb_trangthai;
-        private Button bt_sua;
         private RadioButton rdb_khongapdung;
         private RadioButton rdb_apdung;
         private TextBox tb_voucher;
@@ -407,6 +412,8 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
+        private Button bt_them;
+        private Button bt_sua;
         private Button bt_reset;
     }
 }

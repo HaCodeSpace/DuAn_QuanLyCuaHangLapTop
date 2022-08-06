@@ -64,7 +64,7 @@
             this.lb_mahoadon = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tb_makh = new System.Windows.Forms.TextBox();
-            this.tb_tenkh = new System.Windows.Forms.TextBox();
+            this.tb_sdt = new System.Windows.Forms.TextBox();
             this.bt_chon = new System.Windows.Forms.Button();
             this.lb_tenkhachhang = new System.Windows.Forms.Label();
             this.lb_makhachhang = new System.Windows.Forms.Label();
@@ -464,7 +464,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.tb_makh);
-            this.groupBox6.Controls.Add(this.tb_tenkh);
+            this.groupBox6.Controls.Add(this.tb_sdt);
             this.groupBox6.Controls.Add(this.bt_chon);
             this.groupBox6.Controls.Add(this.lb_tenkhachhang);
             this.groupBox6.Controls.Add(this.lb_makhachhang);
@@ -482,13 +482,13 @@
             this.tb_makh.Size = new System.Drawing.Size(74, 30);
             this.tb_makh.TabIndex = 52;
             // 
-            // tb_tenkh
+            // tb_sdt
             // 
-            this.tb_tenkh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_tenkh.Location = new System.Drawing.Point(210, 85);
-            this.tb_tenkh.Name = "tb_tenkh";
-            this.tb_tenkh.Size = new System.Drawing.Size(198, 30);
-            this.tb_tenkh.TabIndex = 51;
+            this.tb_sdt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_sdt.Location = new System.Drawing.Point(210, 85);
+            this.tb_sdt.Name = "tb_sdt";
+            this.tb_sdt.Size = new System.Drawing.Size(198, 30);
+            this.tb_sdt.TabIndex = 51;
             // 
             // bt_chon
             // 
@@ -508,9 +508,9 @@
             this.lb_tenkhachhang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_tenkhachhang.Location = new System.Drawing.Point(15, 85);
             this.lb_tenkhachhang.Name = "lb_tenkhachhang";
-            this.lb_tenkhachhang.Size = new System.Drawing.Size(139, 23);
+            this.lb_tenkhachhang.Size = new System.Drawing.Size(120, 23);
             this.lb_tenkhachhang.TabIndex = 29;
-            this.lb_tenkhachhang.Text = "Tên Khách Hàng:";
+            this.lb_tenkhachhang.Text = "Số Điện Thoại:";
             // 
             // lb_makhachhang
             // 
@@ -619,7 +619,7 @@
         private ComboBox comboBox_giamgia;
         private TextBox tb_tongtien;
         private TextBox tb_makh;
-        private TextBox tb_tenkh;
+        private TextBox tb_sdt;
         private Label label_mahoadon1;
         private TextBox tb_ghichu;
     }
