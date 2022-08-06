@@ -28,10 +28,7 @@ namespace DAL.DatabaseContext
             #region nhanvien 
             modelBuilder.Entity<NhanVien>().HasKey(nv => nv.MaNV);
             // tạo quan hệ bảng nhân viên tự trỏ chính nó 
-            modelBuilder.Entity<NhanVien>()
-                .HasOne(nv => nv.QuanLi)
-                .WithMany(nv => nv.nhanViens)
-                .HasForeignKey(nv => nv.MaQuanLi);
+           
             // tạo quan hệ với bảng hoá đơn 1 - n
             modelBuilder.Entity<NhanVien>()
                 .HasMany<HoaDon>(nv => nv.hoaDons)
@@ -147,7 +144,7 @@ namespace DAL.DatabaseContext
                 // của a phong
                 //optionsBuilder.UseSqlServer(@"Data Source=PHONGTT2710\SQLEXPRESS;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=phong;Password=123");
                 // của hà
-                optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-2H8Q06GG\MAIN;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=ha;Password=123");
+                //optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-2H8Q06GG\MAIN;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=ha;Password=123");
                 // của hưng
                 //optionsBuilder.UseSqlServer("Data Source=;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=;Password=");
 
