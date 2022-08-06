@@ -42,9 +42,12 @@ namespace Presentation
             bt_doimatkhau.FlatAppearance.BorderSize = 0;
             bt_dangxuat.TabStop = false;
             bt_dangxuat.FlatStyle = FlatStyle.Flat;
-            bt_dangxuat.FlatAppearance.BorderSize = 0;           
-            //Mở form Bán Hàng 1
-            panel3.Controls.Clear();
+            bt_dangxuat.FlatAppearance.BorderSize = 0;
+
+            if (Properties.Settings.Default.maql is null)
+                bt_nhanvien.Visible = false;
+                //Mở form Bán Hàng 1
+                panel3.Controls.Clear();
             FormBanHang1 fbh = new FormBanHang1()
             {
                 Dock = DockStyle.Fill,

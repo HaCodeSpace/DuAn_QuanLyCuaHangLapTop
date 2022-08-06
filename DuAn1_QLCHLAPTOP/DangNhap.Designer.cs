@@ -63,6 +63,7 @@
             this.cb_luutaikhoan.TabIndex = 26;
             this.cb_luutaikhoan.Text = "Nhớ Tài Khoản Và Mật Khẩu";
             this.cb_luutaikhoan.UseVisualStyleBackColor = true;
+            this.cb_luutaikhoan.CheckedChanged += new System.EventHandler(this.cb_luutaikhoan_CheckedChanged);
             // 
             // bt_dangnhap
             // 
@@ -166,6 +167,7 @@
             this.Controls.Add(this.lb_dangnhaphethong);
             this.Name = "DangNhap";
             this.Text = "DangNhap";
+            this.Load += new System.EventHandler(this.DangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

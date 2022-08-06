@@ -27,7 +27,7 @@ namespace Presentation
             _IQLnv = new QLNhanVienService();
             _validate = new Validations();
             Loading();
-            comboBox_vaitro.SelectedIndex = 0;
+            comboBox_vaitro.SelectedIndex = 0;       
         }
 
         public void Loading()
@@ -54,7 +54,7 @@ namespace Presentation
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn Thêm không", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (_validate.NhanVienValidate(tb_manv.Text, tb_tennv.Text, comboBox_vaitro.Text, tb_email.Text, tb_ngaysinh.Text, tb_dienthoai.Text) == false)
+                if (_validate.NhanVienValidate(tb_manv.Text, tb_tennv.Text, comboBox_vaitro.Text, tb_email.Text, tb_ngaysinh.Text, tb_dienthoai.Text,tb_matkhau.Text) == false)
                 {
                     return;
                 }
@@ -110,41 +110,12 @@ namespace Presentation
         {
 
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-            comboBox2.ResetText();
-            if (comboBox1.Text == "Quản Lý")
-            {
-                var tim = from a in _IQLnv.getlstNVfromDB()
-                          where a.MaQuanLi == "123"
-                          select a;
-                dataGridView1.Rows.Clear();
-                foreach (var item in tim)
-                {
-                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
-                }
-            }
-            if (comboBox1.Text == "Nhân Viên")
-            {
-                var tim = from a in _IQLnv.getlstNVfromDB()
-                          where a.MaQuanLi is null
-                          select a;
-                dataGridView1.Rows.Clear();
-                foreach (var item in tim)
-                {
-                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
-                }
-            }
-        }
-
         private void bt_sua_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn Sửa không", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (_validate.NhanVienValidate2(tb_tennv.Text, comboBox_vaitro.Text, tb_email.Text, tb_ngaysinh.Text, tb_dienthoai.Text) == false)
+                if (_validate.NhanVienValidate2(tb_tennv.Text, comboBox_vaitro.Text, tb_email.Text, tb_ngaysinh.Text, tb_dienthoai.Text,tb_matkhau.Text) == false)
                 {
                     return;
                 }
@@ -169,10 +140,6 @@ namespace Presentation
                     {
                         MessageBox.Show("Sửa thành công nhân viên");
                     }
-                    else
-                    {
-                        MessageBox.Show("Sửa nhân viên thất bại");
-                    }
                     Loading();
                 }
             }
@@ -189,17 +156,42 @@ namespace Presentation
                 dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
             }
         }
-
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            textBox1.Clear();
+            comboBox2.ResetText();
+            if (comboBox1.Text == "Quản Lý")
+            {
+                var tim = from a in _IQLnv.getlstNVfromDB()
+                          where a.MaQuanLi == "123"
+                          select a;
+                foreach (var item in tim)
+                {
+                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
+                }
+            }
+            if (comboBox1.Text == "Nhân Viên")
+            {
+                var tim = from a in _IQLnv.getlstNVfromDB()
+                          where a.MaQuanLi is null
+                          select a;
+                foreach (var item in tim)
+                {
+                    dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
+                }
+            }
+        }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
             textBox1.Clear();
             comboBox1.ResetText();
             if (comboBox2.Text == "Đang Làm")
             {
                 var tim = from a in _IQLnv.getlstNVfromDB()
-                          where a.TrangThai = true
+                          where a.TrangThai == true
                           select a;
-                dataGridView1.Rows.Clear();
                 foreach (var item in tim)
                 {
                     dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
@@ -208,9 +200,8 @@ namespace Presentation
             if (comboBox2.Text == "Nghỉ Việc")
             {
                 var tim = from a in _IQLnv.getlstNVfromDB()
-                          where a.TrangThai = false
+                          where a.TrangThai == false
                           select a;
-                dataGridView1.Rows.Clear();
                 foreach (var item in tim)
                 {
                     dataGridView1.Rows.Add(item.MaNV, item.TenNV, item.MaQuanLi == null ? "Nhân viên" : "Quản lý", item.Email, item.MatKhau, item.DiaChi, item.SoDienThoai, item.NgaySinh.ToString("MM/dd/yyyy"), item.GioiTinh, item.TrangThai == true ? "Đang Làm" : "Nghỉ Việc");
