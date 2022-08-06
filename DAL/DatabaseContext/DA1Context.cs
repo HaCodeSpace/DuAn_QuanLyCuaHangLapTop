@@ -10,18 +10,18 @@ namespace DAL.DatabaseContext
 {
     public class DA1Context : DbContext
     {
-        public virtual DbSet<NhanVien> nhanViens { get; set; }
-        DbSet<HoaDon> hoaDons { get; set; }
-        public virtual DbSet<KhachHang> khachHangs { get; set; }
-        DbSet<HoaDonChiTiet> hoaDonChiTiets { get; set; }
-        public virtual DbSet<KhuyenMai> khuyenMais { get; set; }
-        public virtual DbSet<SanPham> sanPhams { get; set; }
-        public virtual DbSet<BanPhim> banPhims { get; set; }
-        DbSet<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }
-        DbSet<MauSac> mauSacs { get; set; }
-        DbSet<SanPhamMauSac> sanPhamMauSacs { get; set; }
-        DbSet<KeyCaps> keyCaps { get; set; }
-        DbSet<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
+        public DbSet<NhanVien> nhanViens { get; set; }
+        public DbSet<HoaDon> hoaDons { get; set; }
+        public DbSet<KhachHang> khachHangs { get; set; }
+        public DbSet<HoaDonChiTiet> hoaDonChiTiets { get; set; }
+        public DbSet<KhuyenMai> khuyenMais { get; set; }
+        public DbSet<SanPham> sanPhams { get; set; }
+        public DbSet<BanPhim> banPhims { get; set; }
+        public DbSet<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }
+        public DbSet<MauSac> mauSacs { get; set; }
+        public DbSet<SanPhamMauSac> sanPhamMauSacs { get; set; }
+        public DbSet<KeyCaps> keyCaps { get; set; }
+        public DbSet<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -94,8 +94,8 @@ namespace DAL.DatabaseContext
             // tạo quan hệ 1 -n với bảng sanphammausac
             modelBuilder.Entity<BanPhim>()
                 .HasMany<SanPhamMauSac>(bp => bp.sanPhamMauSacs)
-                .WithOne(spms => spms.banPhim)
-                .HasForeignKey(spms => spms.MaSP);
+                .WithOne(spms => spms.banphim)
+                .HasForeignKey(spms => spms.Masp);
             // tạo quan hệ 1 - n với bảng BanPhimKeyCaps
             modelBuilder.Entity<BanPhim>()
                 .HasMany<BanPhimKeyCaps>(bp => bp.banPhimKeyCaps)
@@ -112,8 +112,8 @@ namespace DAL.DatabaseContext
             // tạo quan hệ 1 - n với bảng sanphammausac
             modelBuilder.Entity<MauSac>()
                 .HasMany<SanPhamMauSac>(ms => ms.sanPhamMauSacs)
-                .WithOne(spms => spms.mauSac)
-                .HasForeignKey(spms => spms.IdMau);
+                .WithOne(spms => spms.mausac)
+                .HasForeignKey(spms => spms.Idmau);
             #endregion
 
             #region keycaps
@@ -130,7 +130,7 @@ namespace DAL.DatabaseContext
             #endregion
 
             #region SanphamMauSac
-            modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.MaSP, spms.IdMau });
+            modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.Masp, spms.Idmau });
             #endregion
         }
 
@@ -143,9 +143,9 @@ namespace DAL.DatabaseContext
                 // dòng của người nào người đó dùng lần sau chỉ việc uncomment là được đỡ phải thay đổi của nhau gây mất thời gian
                 // sửa đi sửa lại
                 // của tuấn anh
-                // optionsBuilder.UseSqlServer("Data Source=TUANANHPC\\SQLEXPRESS01;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=tuananh;Password=123");
+                optionsBuilder.UseSqlServer("Data Source=TUANANHPC\\SQLEXPRESS01;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=tuananh;Password=123");
                 // của a phong
-                optionsBuilder.UseSqlServer(@"Data Source=PHONGTT2710\SQLEXPRESS;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=phong;Password=123");
+                //optionsBuilder.UseSqlServer(@"Data Source=PHONGTT2710\SQLEXPRESS;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=phong;Password=123");
                 // của hà
                 //optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-2H8Q06GG\MAIN;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=ha;Password=123");
                 // của hưng

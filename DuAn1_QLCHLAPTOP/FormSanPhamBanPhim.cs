@@ -37,6 +37,12 @@ namespace Presentation
 
         private void txtbox_textchanged(object sender, EventArgs e)
         {
+            var check = float.TryParse(tb_trongluong.Text.Trim(), out _);
+            if (!check && tb_trongluong.Text != "")
+            {
+                MessageBox.Show("Trọng lượng phải là số");
+                return;
+            }
             string hangsx = tb_hangsx.Text.Trim();
             int kieukn = 0;
             if (!string.IsNullOrEmpty(tb_ketnoi.Text.Trim()))

@@ -20,6 +20,11 @@ namespace BUS.Services.ServiceSanPham
             this._servie = new DAL.Repository.RepositorySanPham.SanPhamRepository();
         }
 
+        public IEnumerable<SanPham> GetListByValue(string value)
+        {
+            return _servie.GetByValue(value);
+        }
+
         public ICollection<SanPham> SanPhamList()
         {
             return this._servie.GetAll();

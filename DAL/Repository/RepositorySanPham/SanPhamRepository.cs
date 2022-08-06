@@ -60,5 +60,22 @@ namespace DAL.Repository.RepositorySanPham
             return this.context.sanPhams.ToList();
             //return new List<SanPham>();
         }
+
+        public IEnumerable<SanPham> GetByValue(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return context.sanPhams.ToList();
+            }
+            else
+            {
+                var listsp = (from sp in context.sanPhams.ToList()
+                              where sp.TenSP.Contains(value) || sp.MaSP == value
+                              select sp);
+
+                return listsp;
+            }
+            
+        }
     }
 }

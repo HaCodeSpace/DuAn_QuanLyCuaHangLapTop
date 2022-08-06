@@ -10,6 +10,7 @@ namespace DAL.IRepository.IRepositorySanPham
     public interface ISanPhamRepository
     {
         ICollection<SanPham> GetAll();
+        IEnumerable<SanPham> GetByValue(string value);
         Boolean AddSP(SanPham san);
         Boolean Edit(SanPham san);
         Boolean DeleteSP(SanPham san);

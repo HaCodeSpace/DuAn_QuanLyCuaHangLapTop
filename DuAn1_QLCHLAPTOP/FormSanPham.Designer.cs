@@ -37,6 +37,8 @@
             this.lb_dongsanpham = new System.Windows.Forms.Label();
             this.comboBox_dongspTTSP = new System.Windows.Forms.ComboBox();
             this.groupBox_thietlap = new System.Windows.Forms.GroupBox();
+            this.tb_mausac = new System.Windows.Forms.TextBox();
+            this.btnclear = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tb_ghichu = new System.Windows.Forms.TextBox();
             this.lb_ghichu = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@
             this.lb_tensp = new System.Windows.Forms.Label();
             this.lb_masp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnclear = new System.Windows.Forms.Button();
-            this.tb_mausac = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -100,6 +100,7 @@
             this.tb_timkiem.PlaceholderText = "Tìm Kiếm Theo Tên Sản Phẩm";
             this.tb_timkiem.Size = new System.Drawing.Size(239, 24);
             this.tb_timkiem.TabIndex = 24;
+            this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
             // dataGridView1
             // 
@@ -192,6 +193,28 @@
             this.groupBox_thietlap.TabIndex = 1;
             this.groupBox_thietlap.TabStop = false;
             this.groupBox_thietlap.Text = "Thiết Lập Thông Tin Sản Phẩm";
+            // 
+            // tb_mausac
+            // 
+            this.tb_mausac.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_mausac.Location = new System.Drawing.Point(196, 187);
+            this.tb_mausac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_mausac.Name = "tb_mausac";
+            this.tb_mausac.Size = new System.Drawing.Size(231, 26);
+            this.tb_mausac.TabIndex = 32;
+            // 
+            // btnclear
+            // 
+            this.btnclear.BackColor = System.Drawing.Color.Yellow;
+            this.btnclear.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnclear.ForeColor = System.Drawing.Color.Black;
+            this.btnclear.Location = new System.Drawing.Point(49, 285);
+            this.btnclear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnclear.Name = "btnclear";
+            this.btnclear.Size = new System.Drawing.Size(88, 28);
+            this.btnclear.TabIndex = 31;
+            this.btnclear.Text = "Clear";
+            this.btnclear.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -372,28 +395,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 51);
             this.label1.TabIndex = 0;
-            // 
-            // btnclear
-            // 
-            this.btnclear.BackColor = System.Drawing.Color.Yellow;
-            this.btnclear.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnclear.ForeColor = System.Drawing.Color.Black;
-            this.btnclear.Location = new System.Drawing.Point(49, 285);
-            this.btnclear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnclear.Name = "btnclear";
-            this.btnclear.Size = new System.Drawing.Size(88, 28);
-            this.btnclear.TabIndex = 31;
-            this.btnclear.Text = "Clear";
-            this.btnclear.UseVisualStyleBackColor = false;
-            // 
-            // tb_mausac
-            // 
-            this.tb_mausac.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_mausac.Location = new System.Drawing.Point(196, 187);
-            this.tb_mausac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_mausac.Name = "tb_mausac";
-            this.tb_mausac.Size = new System.Drawing.Size(231, 26);
-            this.tb_mausac.TabIndex = 32;
             // 
             // FormSanPham
             // 

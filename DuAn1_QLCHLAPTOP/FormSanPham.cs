@@ -186,47 +186,56 @@ namespace Presentation
 
         private void bt_them_Click(object sender, EventArgs e)
         {
-            IsAdd = true;
-            MatchData();
-            var result = _serviceSanPhamService.ThemSP(sanpham);
-            var result2 = false;
-            var result3 = true;
-            var result4 = false;
-            var result5 = false;
-            var result6 = true;
-            switch (comboBox_dongsp.SelectedIndex)
+            try
             {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    result2 = _banPhimService.ThemBP(ban);
-                    mau.MaMau = "12xd31đss";
-                    mau.TenMau = UpperCaseFirstLetter(mau.TenMau);
-                    result3 = _mauSacService.ThemMau(mau);
-                    sanPhamMau.Idmau = _mauSacService.Timid(mau);
-                    sanPhamMau.Masp = sanpham.MaSP;
-                    result4 = _sanPhamMauSacService.ThemSPMS(sanPhamMau);
-                    result5 = _keycapsService.ThemKeycaps(Capskey);
-                    phimKeyCaps.IdKeyCaps = _keycapsService.TimId(Capskey);
-                    phimKeyCaps.MaSP = sanpham.MaSP;
-                    result6 = _banPhimKeycapsService.ThemBPKCS(phimKeyCaps);
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
+                IsAdd = true;
+                MatchData();
+                var result = _serviceSanPhamService.ThemSP(sanpham);
+                var result2 = false;
+                var result3 = true;
+                var result4 = false;
+                var result5 = false;
+                var result6 = true;
+                switch (comboBox_dongsp.SelectedIndex)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        result2 = _banPhimService.ThemBP(ban);
+                        mau.MaMau = "12xd31đss";
+                        mau.TenMau = UpperCaseFirstLetter(mau.TenMau);
+                        result3 = _mauSacService.ThemMau(mau);
+                        sanPhamMau.Idmau = _mauSacService.Timid(mau);
+                        sanPhamMau.Masp = sanpham.MaSP;
+                        result4 = _sanPhamMauSacService.ThemSPMS(sanPhamMau);
+                        result5 = _keycapsService.ThemKeycaps(Capskey);
+                        phimKeyCaps.IdKeyCaps = _keycapsService.TimId(Capskey);
+                        phimKeyCaps.MaSP = sanpham.MaSP;
+                        result6 = _banPhimKeycapsService.ThemBPKCS(phimKeyCaps);
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                }
+                if (result && result2 && result3 && result4 && result5 &&  result6)
+                {
+                    MessageBox.Show("Thêm thành công");
+                    LoadFullList();
+                }
+                else
+                    MessageBox.Show("Thêm thất bại");
             }
-            if (result && result2 && result3 && result4 && result5 &&  result6)
+            catch (Exception ex)
             {
-                MessageBox.Show("Thêm thành công");
-                LoadFullList();
+
+                MessageBox.Show(ex.Message);
             }
-            else
-                MessageBox.Show("Thêm thất bại");
+            
         }
 
         private string UpperCaseFirstLetter(string s)
@@ -267,6 +276,11 @@ namespace Presentation
             }
             else
                 MessageBox.Show("Sửa thất bại");
+        }
+
+        private void tb_timkiem_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = _serviceSanPhamService.GetListByValue(tb_timkiem.Text.Trim());
         }
     }
 }

@@ -10,7 +10,7 @@ using DAL.DatabaseContext;
 
 namespace DAL.Repository.RepositorySanPham
 {
-    public class MauSacRepository
+    public class MauSacRepository : IMauSacRepository
     {
         private DA1Context context;
 
