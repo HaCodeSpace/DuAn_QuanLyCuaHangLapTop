@@ -72,10 +72,10 @@ namespace Presentation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string maql {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool maql {
             get {
-                return ((string)(this["maql"]));
+                return ((bool)(this["maql"]));
             }
             set {
                 this["maql"] = value;

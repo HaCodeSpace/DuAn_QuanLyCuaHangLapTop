@@ -93,8 +93,7 @@ namespace Presentation
             return true;
         }
 
-
-        private void bt_them_Click(object sender, EventArgs e)
+        private void bt_them_Click_1(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm không", "Thêm", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -108,7 +107,7 @@ namespace Presentation
                         _khuyenMai.ChietKhau = Convert.ToDouble(tb_voucher.Text);
                         _khuyenMai.TrangThai = true ? rdb_apdung.Checked : rdb_khongapdung.Checked;
                         _khuyenMai.NgayBatDau = Convert.ToDateTime(dateTimePicker1.Value);
-                        _khuyenMai.NgayKetThuc =Convert.ToDateTime(dateTimePicker2.Value);
+                        _khuyenMai.NgayKetThuc = Convert.ToDateTime(dateTimePicker2.Value);
                         _khuyenMai.Mota = tb_mota.Text;
                         _iQLKhuyenMaiService.ThemKM(_khuyenMai);
                         MessageBox.Show("Thêm thành công");
@@ -126,7 +125,7 @@ namespace Presentation
             }
         }
 
-        private void bt_sua_Click(object sender, EventArgs e)
+        private void bt_sua_Click_1(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn Sửa không", "Sửa", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -136,13 +135,13 @@ namespace Presentation
                     if (ValiDateSua())
                     {
                         foreach (var item in _iQLKhuyenMaiService.LayDanhSachKhuyenMai().Where(kh => kh.MaKM == tb_makhuyenmai.Text))
-                        {                           
+                        {
                             item.TenKhuyenMai = tb_chuongtrinhkhuyenmai.Text;
                             item.ChietKhau = Convert.ToDouble(tb_voucher.Text);
                             item.TrangThai = true ? rdb_apdung.Checked : rdb_khongapdung.Checked;
                             item.NgayBatDau = Convert.ToDateTime(dateTimePicker1.Value);
                             item.NgayKetThuc = Convert.ToDateTime(dateTimePicker2.Value);
-                            item.Mota = tb_mota.Text;                            
+                            item.Mota = tb_mota.Text;
                             _iQLKhuyenMaiService.SuaKM(item);
                         }
                         MessageBox.Show("Sửa Thành Công");
@@ -160,7 +159,7 @@ namespace Presentation
             }
         }
 
-        private void bt_reset_Click(object sender, EventArgs e)
+        private void bt_reset_Click_1(object sender, EventArgs e)
         {
             tb_makhuyenmai.Enabled = true;
             tb_makhuyenmai.Clear();

@@ -43,11 +43,13 @@
             this.bt_guibaocao.BackColor = System.Drawing.Color.Yellow;
             this.bt_guibaocao.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_guibaocao.ForeColor = System.Drawing.Color.Black;
+            this.bt_guibaocao.Image = global::Presentation.Properties.Resources.tap;
             this.bt_guibaocao.Location = new System.Drawing.Point(1140, 690);
             this.bt_guibaocao.Name = "bt_guibaocao";
             this.bt_guibaocao.Size = new System.Drawing.Size(151, 37);
             this.bt_guibaocao.TabIndex = 47;
             this.bt_guibaocao.Text = "Gửi Báo Cáo";
+            this.bt_guibaocao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_guibaocao.UseVisualStyleBackColor = false;
             // 
             // rdb_nam

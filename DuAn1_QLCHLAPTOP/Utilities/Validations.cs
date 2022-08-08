@@ -36,6 +36,11 @@ namespace Presentation.Utilities
                     MessageBox.Show("Email đã tồn tại trong hệ thống");
                     return false;
                 }
+                if (item.SoDienThoai == sdt)
+                {
+                    MessageBox.Show("Số điện thoại đã tồn tại trong hệ thống");
+                    return false;
+                }
             }
             if (ma.StartsWith("NV") == false)
             {
@@ -94,6 +99,11 @@ namespace Presentation.Utilities
                 if (item.Email == email)
                 {
                     MessageBox.Show("Email đã tồn tại trong hệ thống");
+                    return false;
+                }
+                if (item.SoDienThoai == sdt)
+                {
+                    MessageBox.Show("Số điện thoại đã tồn tại trong hệ thống");
                     return false;
                 }
             }

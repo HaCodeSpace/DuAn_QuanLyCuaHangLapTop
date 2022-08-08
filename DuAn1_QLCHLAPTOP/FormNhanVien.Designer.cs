@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNhanVien));
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox_thongtin = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -37,11 +38,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lb_locvaitro = new System.Windows.Forms.Label();
             this.groupBox_thietlap = new System.Windows.Forms.GroupBox();
+            this.bt_reset = new System.Windows.Forms.Button();
+            this.bt_sua = new System.Windows.Forms.Button();
+            this.bt_them = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rdb_nu = new System.Windows.Forms.RadioButton();
             this.rdb_nam = new System.Windows.Forms.RadioButton();
-            this.bt_sua = new System.Windows.Forms.Button();
-            this.bt_them = new System.Windows.Forms.Button();
             this.rdb_nghiviec = new System.Windows.Forms.RadioButton();
             this.rdb_danglam = new System.Windows.Forms.RadioButton();
             this.comboBox_vaitro = new System.Windows.Forms.ComboBox();
@@ -62,7 +64,6 @@
             this.lb_matkhau = new System.Windows.Forms.Label();
             this.lb_tennv = new System.Windows.Forms.Label();
             this.lb_manv = new System.Windows.Forms.Label();
-            this.bt_reset = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.groupBox_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -168,9 +169,9 @@
             // groupBox_thietlap
             // 
             this.groupBox_thietlap.Controls.Add(this.bt_reset);
-            this.groupBox_thietlap.Controls.Add(this.panel1);
             this.groupBox_thietlap.Controls.Add(this.bt_sua);
             this.groupBox_thietlap.Controls.Add(this.bt_them);
+            this.groupBox_thietlap.Controls.Add(this.panel1);
             this.groupBox_thietlap.Controls.Add(this.rdb_nghiviec);
             this.groupBox_thietlap.Controls.Add(this.rdb_danglam);
             this.groupBox_thietlap.Controls.Add(this.comboBox_vaitro);
@@ -197,6 +198,51 @@
             this.groupBox_thietlap.TabIndex = 0;
             this.groupBox_thietlap.TabStop = false;
             this.groupBox_thietlap.Text = "Thiết Lập Thông Tin Nhân Viên";
+            // 
+            // bt_reset
+            // 
+            this.bt_reset.BackColor = System.Drawing.Color.Yellow;
+            this.bt_reset.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_reset.ForeColor = System.Drawing.Color.Black;
+            this.bt_reset.Image = global::Presentation.Properties.Resources.refresh1;
+            this.bt_reset.Location = new System.Drawing.Point(830, 303);
+            this.bt_reset.Name = "bt_reset";
+            this.bt_reset.Size = new System.Drawing.Size(116, 37);
+            this.bt_reset.TabIndex = 53;
+            this.bt_reset.Text = "   Reset";
+            this.bt_reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_reset.UseVisualStyleBackColor = false;
+            this.bt_reset.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // bt_sua
+            // 
+            this.bt_sua.BackColor = System.Drawing.Color.Yellow;
+            this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_sua.ForeColor = System.Drawing.Color.Black;
+            this.bt_sua.Image = ((System.Drawing.Image)(resources.GetObject("bt_sua.Image")));
+            this.bt_sua.Location = new System.Drawing.Point(610, 303);
+            this.bt_sua.Name = "bt_sua";
+            this.bt_sua.Size = new System.Drawing.Size(116, 37);
+            this.bt_sua.TabIndex = 52;
+            this.bt_sua.Text = "   Sửa";
+            this.bt_sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_sua.UseVisualStyleBackColor = false;
+            this.bt_sua.Click += new System.EventHandler(this.bt_sua_Click_1);
+            // 
+            // bt_them
+            // 
+            this.bt_them.BackColor = System.Drawing.Color.Yellow;
+            this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_them.ForeColor = System.Drawing.Color.Black;
+            this.bt_them.Image = global::Presentation.Properties.Resources.add;
+            this.bt_them.Location = new System.Drawing.Point(369, 303);
+            this.bt_them.Name = "bt_them";
+            this.bt_them.Size = new System.Drawing.Size(116, 37);
+            this.bt_them.TabIndex = 51;
+            this.bt_them.Text = "  Thêm";
+            this.bt_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_them.UseVisualStyleBackColor = false;
+            this.bt_them.Click += new System.EventHandler(this.bt_them_Click_1);
             // 
             // panel1
             // 
@@ -230,32 +276,6 @@
             this.rdb_nam.TabStop = true;
             this.rdb_nam.Text = "Nam ";
             this.rdb_nam.UseVisualStyleBackColor = true;
-            // 
-            // bt_sua
-            // 
-            this.bt_sua.BackColor = System.Drawing.Color.Yellow;
-            this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_sua.ForeColor = System.Drawing.Color.Black;
-            this.bt_sua.Location = new System.Drawing.Point(589, 303);
-            this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(167, 37);
-            this.bt_sua.TabIndex = 23;
-            this.bt_sua.Text = "Sửa";
-            this.bt_sua.UseVisualStyleBackColor = false;
-            this.bt_sua.Click += new System.EventHandler(this.bt_sua_Click);
-            // 
-            // bt_them
-            // 
-            this.bt_them.BackColor = System.Drawing.Color.Yellow;
-            this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_them.ForeColor = System.Drawing.Color.Black;
-            this.bt_them.Location = new System.Drawing.Point(320, 303);
-            this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(167, 37);
-            this.bt_them.TabIndex = 22;
-            this.bt_them.Text = "Thêm";
-            this.bt_them.UseVisualStyleBackColor = false;
-            this.bt_them.Click += new System.EventHandler(this.bt_them_Click);
             // 
             // rdb_nghiviec
             // 
@@ -450,19 +470,6 @@
             this.lb_manv.TabIndex = 0;
             this.lb_manv.Text = "Mã Nhân Viên";
             // 
-            // bt_reset
-            // 
-            this.bt_reset.BackColor = System.Drawing.Color.Yellow;
-            this.bt_reset.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_reset.ForeColor = System.Drawing.Color.Black;
-            this.bt_reset.Location = new System.Drawing.Point(851, 303);
-            this.bt_reset.Name = "bt_reset";
-            this.bt_reset.Size = new System.Drawing.Size(167, 37);
-            this.bt_reset.TabIndex = 50;
-            this.bt_reset.Text = "Reset";
-            this.bt_reset.UseVisualStyleBackColor = false;
-            this.bt_reset.Click += new System.EventHandler(this.bt_reset_Click);
-            // 
             // FormNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -512,13 +519,13 @@
         private Label lb_loctrangthai;
         private ComboBox comboBox1;
         private Label lb_locvaitro;
-        private Button bt_sua;
-        private Button bt_them;
         private RadioButton rdb_nghiviec;
         private RadioButton rdb_danglam;
         private RadioButton rdb_nu;
         private RadioButton rdb_nam;
         private Panel panel1;
+        private Button bt_them;
+        private Button bt_sua;
         private Button bt_reset;
     }
 }

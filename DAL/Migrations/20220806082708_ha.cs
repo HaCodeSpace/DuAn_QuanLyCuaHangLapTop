@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class tuana : Migration
+    public partial class ha : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -78,21 +78,16 @@ namespace DAL.Migrations
                     TenNV = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TrangThai = table.Column<bool>(type: "bit", nullable: false),
+                    Vaitro = table.Column<bool>(type: "bit", nullable: false),
                     MatKhau = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SoDienThoai = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NgaySinh = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MaQuanLi = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_nhanViens", x => x.MaNV);
-                    table.ForeignKey(
-                        name: "FK_nhanViens_nhanViens_MaQuanLi",
-                        column: x => x.MaQuanLi,
-                        principalTable: "nhanViens",
-                        principalColumn: "MaNV");
                 });
 
             migrationBuilder.CreateTable(
@@ -291,11 +286,6 @@ namespace DAL.Migrations
                 name: "IX_hoaDons_MaNV",
                 table: "hoaDons",
                 column: "MaNV");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_nhanViens_MaQuanLi",
-                table: "nhanViens",
-                column: "MaQuanLi");
 
             migrationBuilder.CreateIndex(
                 name: "IX_sanPhamMauSacs_Idmau",
