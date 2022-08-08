@@ -44,7 +44,7 @@ namespace Presentation
             bt_dangxuat.FlatStyle = FlatStyle.Flat;
             bt_dangxuat.FlatAppearance.BorderSize = 0;
 
-            if (Properties.Settings.Default.maql is null)
+            if (Properties.Settings.Default.maql ==false)
                 bt_nhanvien.Visible = false;
                 //Mở form Bán Hàng 1
                 panel3.Controls.Clear();

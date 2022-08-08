@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220806054712_tuana3")]
-    partial class tuana3
+    [Migration("20220806082708_ha")]
+    partial class ha
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
