@@ -29,7 +29,8 @@ namespace Presentation
         public SanPhamMauSac sanPhamMau = new SanPhamMauSac();
         public SanPham sanpham;
         public KeyCaps Capskey = new KeyCaps();
-
+        public IEnumerable<SanPhamView> ListSP;
+        public IEnumerable<SanPhamView> ListSauKhisuLyDuLieu;
 
         public bool IsAdd { get; set; }
 
@@ -42,12 +43,15 @@ namespace Presentation
             _sanPhamMauSacService = new SanPhamMauSacService();
             _keycapsService = new KeyCapsService();
             _banPhimKeycapsService = new BanPhimKeyCapsService();
+            ListSP = new List<SanPhamView>();
+            ListSauKhisuLyDuLieu = new List<SanPhamView>();
             LoadFullList();
             AddBindings();
         }
 
         private void comboBox_dongsp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MessageBox.Show(comboBox_dongsp.Items[2].ToString());
             if (comboBox_dongsp.Text == "PC")
             {
                 panel2.Controls.Clear();
@@ -160,15 +164,27 @@ namespace Presentation
 
         private void LoadFullList()
         {
-            var fulllist = from c in _serviceSanPhamService.SanPhamList() select new { c.MaSP, c.TenSP, c.DongSP, c.DonGiaNhap, c.DonGiaBan, c.GhiChu };
-            dataGridView1.DataSource = fulllist.ToList();
-            dataGridView1.Columns[0].HeaderText = "Mã sản phẩm";
-            dataGridView1.Columns[1].HeaderText = "Tên sản phẩm";
-            dataGridView1.Columns[2].HeaderText = "Dòng sản phẩm";
-            dataGridView1.Columns[3].HeaderText = "Đơn giá nhập";
-            dataGridView1.Columns[4].HeaderText = "Đơn giá bán";
-            dataGridView1.Columns[5].HeaderText = "Ghi chú";
+            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP - 1].ToString(), GhiChu = c.GhiChu };
+            ListSauKhisuLyDuLieu = ListSP;
+            dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
+            //dataGridView1.Columns[0].HeaderText = "Mã sản phẩm";
+            //dataGridView1.Columns[1].HeaderText = "Tên sản phẩm";
+            //dataGridView1.Columns[2].HeaderText = "Dòng sản phẩm";
+            //dataGridView1.Columns[3].HeaderText = "Đơn giá nhập";
+            //dataGridView1.Columns[4].HeaderText = "Đơn giá bán";
+            //dataGridView1.Columns[5].HeaderText = "Ghi chú";
+            
+
         }
+
+        //private string ReturnDongSP(int i)
+        //{
+        //    for (int i = 0; i < comboBox_dongsp.Items.Count; i++)
+        //    {
+        //        comboBox_dongsp.Items[i].ToString()
+        //    }
+            
+        //}
 
         private void FormSanPham_Load(object sender, EventArgs e)
         {
@@ -207,8 +223,8 @@ namespace Presentation
                         mau.MaMau = "12xd31đss";
                         mau.TenMau = UpperCaseFirstLetter(mau.TenMau);
                         result3 = _mauSacService.ThemMau(mau);
-                        sanPhamMau.IdMau = _mauSacService.Timid(mau);
-                        sanPhamMau.MaSP = sanpham.MaSP;
+                        sanPhamMau.Idmau = _mauSacService.Timid(mau);
+                        sanPhamMau.Masp = sanpham.MaSP;
                         result4 = _sanPhamMauSacService.ThemSPMS(sanPhamMau);
                         result5 = _keycapsService.ThemKeycaps(Capskey);
                         phimKeyCaps.IdKeyCaps = _keycapsService.TimId(Capskey);
@@ -280,7 +296,51 @@ namespace Presentation
 
         private void tb_timkiem_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _serviceSanPhamService.GetListByValue(tb_timkiem.Text.Trim());
+            
+        }
+
+
+
+
+
+
+        private void comboBox_mau_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int a = 0; int b = 0; int c = 0;
+            string[] str = comboBox_mau.Text.Split(' ');
+            if (comboBox_mau.SelectedIndex == 4)
+            {
+                c = 2000000;
+                ListSauKhisuLyDuLieu = ListSauKhisuLyDuLieu.Where(p => p.DonGiaBan >= c);
+
+            }
+            else if (comboBox_mau.SelectedIndex >= 0)
+            {
+                a = int.Parse(SplitBack(str[0]));
+                b = int.Parse(SplitBack(str[str.Length - 1]));
+                ListSauKhisuLyDuLieu = ListSauKhisuLyDuLieu.Where(p => p.DonGiaBan >= a && p.DonGiaBan <= b);
+                
+            }
+
+            dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
+        }
+
+        private string SplitBack(string v)
+        {
+            string[] split = v.Split('.');
+            string newstr = string.Empty;
+            for (int i = 0; i < split.Length; i++)
+            {
+                newstr += split[i];
+            }
+
+            return newstr;
+        }
+
+        private void comboBox_dongspTTSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListSauKhisuLyDuLieu = ListSauKhisuLyDuLieu.Where(p => p.DongSP.Equals(comboBox_dongspTTSP.Text));
+            dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
         }
     }
 }

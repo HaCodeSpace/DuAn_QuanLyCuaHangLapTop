@@ -28,14 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox_thongtin = new System.Windows.Forms.GroupBox();
-            this.tb_timkiem = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox_mau = new System.Windows.Forms.ComboBox();
-            this.lb_mau = new System.Windows.Forms.Label();
-            this.lb_dongsanpham = new System.Windows.Forms.Label();
-            this.comboBox_dongspTTSP = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox_thietlap = new System.Windows.Forms.GroupBox();
             this.tb_mausac = new System.Windows.Forms.TextBox();
             this.btnclear = new System.Windows.Forms.Button();
@@ -55,115 +48,28 @@
             this.lb_giaban = new System.Windows.Forms.Label();
             this.lb_tensp = new System.Windows.Forms.Label();
             this.lb_masp = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.groupBox_thongtin = new System.Windows.Forms.GroupBox();
+            this.tb_timkiem = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox_mau = new System.Windows.Forms.ComboBox();
+            this.lb_mau = new System.Windows.Forms.Label();
+            this.lb_dongsanpham = new System.Windows.Forms.Label();
+            this.comboBox_dongspTTSP = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox_thietlap.SuspendLayout();
             this.groupBox_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox_thietlap.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // label1
             // 
-            this.panel1.Controls.Add(this.groupBox_thongtin);
-            this.panel1.Controls.Add(this.groupBox_thietlap);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(10, 9);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1234, 659);
-            this.panel1.TabIndex = 1;
-            // 
-            // groupBox_thongtin
-            // 
-            this.groupBox_thongtin.Controls.Add(this.tb_timkiem);
-            this.groupBox_thongtin.Controls.Add(this.dataGridView1);
-            this.groupBox_thongtin.Controls.Add(this.comboBox_mau);
-            this.groupBox_thongtin.Controls.Add(this.lb_mau);
-            this.groupBox_thongtin.Controls.Add(this.lb_dongsanpham);
-            this.groupBox_thongtin.Controls.Add(this.comboBox_dongspTTSP);
-            this.groupBox_thongtin.Location = new System.Drawing.Point(3, 365);
-            this.groupBox_thongtin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox_thongtin.Name = "groupBox_thongtin";
-            this.groupBox_thongtin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox_thongtin.Size = new System.Drawing.Size(1165, 286);
-            this.groupBox_thongtin.TabIndex = 2;
-            this.groupBox_thongtin.TabStop = false;
-            this.groupBox_thongtin.Text = "Thông Tin Sản Phẩm";
-            // 
-            // tb_timkiem
-            // 
-            this.tb_timkiem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_timkiem.Location = new System.Drawing.Point(882, 41);
-            this.tb_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_timkiem.Multiline = true;
-            this.tb_timkiem.Name = "tb_timkiem";
-            this.tb_timkiem.PlaceholderText = "Tìm Kiếm Theo Tên Sản Phẩm";
-            this.tb_timkiem.Size = new System.Drawing.Size(239, 24);
-            this.tb_timkiem.TabIndex = 24;
-            this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.GhostWhite;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 77);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1116, 194);
-            this.dataGridView1.TabIndex = 27;
-            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
-            // 
-            // comboBox_mau
-            // 
-            this.comboBox_mau.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_mau.FormattingEnabled = true;
-            this.comboBox_mau.Location = new System.Drawing.Point(510, 41);
-            this.comboBox_mau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_mau.Name = "comboBox_mau";
-            this.comboBox_mau.Size = new System.Drawing.Size(169, 27);
-            this.comboBox_mau.TabIndex = 26;
-            // 
-            // lb_mau
-            // 
-            this.lb_mau.AutoSize = true;
-            this.lb_mau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_mau.Location = new System.Drawing.Point(469, 44);
-            this.lb_mau.Name = "lb_mau";
-            this.lb_mau.Size = new System.Drawing.Size(35, 21);
-            this.lb_mau.TabIndex = 24;
-            this.lb_mau.Text = "Giá";
-            // 
-            // lb_dongsanpham
-            // 
-            this.lb_dongsanpham.AutoSize = true;
-            this.lb_dongsanpham.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_dongsanpham.Location = new System.Drawing.Point(35, 44);
-            this.lb_dongsanpham.Name = "lb_dongsanpham";
-            this.lb_dongsanpham.Size = new System.Drawing.Size(132, 21);
-            this.lb_dongsanpham.TabIndex = 25;
-            this.lb_dongsanpham.Text = "Dòng Sản Phẩm";
-            // 
-            // comboBox_dongspTTSP
-            // 
-            this.comboBox_dongspTTSP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_dongspTTSP.FormattingEnabled = true;
-            this.comboBox_dongspTTSP.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_dongspTTSP.Location = new System.Drawing.Point(173, 41);
-            this.comboBox_dongspTTSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_dongspTTSP.Name = "comboBox_dongspTTSP";
-            this.comboBox_dongspTTSP.Size = new System.Drawing.Size(169, 27);
-            this.comboBox_dongspTTSP.TabIndex = 24;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(281, 316);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 51);
+            this.label1.TabIndex = 0;
             // 
             // groupBox_thietlap
             // 
@@ -305,12 +211,9 @@
             this.comboBox_dongsp.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox_dongsp.FormattingEnabled = true;
             this.comboBox_dongsp.Items.AddRange(new object[] {
-            "PC",
             "Laptop",
             "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
+            "Chuột"});
             this.comboBox_dongsp.Location = new System.Drawing.Point(196, 86);
             this.comboBox_dongsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_dongsp.Name = "comboBox_dongsp";
@@ -387,14 +290,113 @@
             this.lb_masp.TabIndex = 0;
             this.lb_masp.Text = "Mã Sản Phẩm";
             // 
-            // label1
+            // groupBox_thongtin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(281, 316);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 51);
-            this.label1.TabIndex = 0;
+            this.groupBox_thongtin.Controls.Add(this.tb_timkiem);
+            this.groupBox_thongtin.Controls.Add(this.dataGridView1);
+            this.groupBox_thongtin.Controls.Add(this.comboBox_mau);
+            this.groupBox_thongtin.Controls.Add(this.lb_mau);
+            this.groupBox_thongtin.Controls.Add(this.lb_dongsanpham);
+            this.groupBox_thongtin.Controls.Add(this.comboBox_dongspTTSP);
+            this.groupBox_thongtin.Location = new System.Drawing.Point(3, 365);
+            this.groupBox_thongtin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox_thongtin.Name = "groupBox_thongtin";
+            this.groupBox_thongtin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox_thongtin.Size = new System.Drawing.Size(1165, 286);
+            this.groupBox_thongtin.TabIndex = 2;
+            this.groupBox_thongtin.TabStop = false;
+            this.groupBox_thongtin.Text = "Thông Tin Sản Phẩm";
+            // 
+            // tb_timkiem
+            // 
+            this.tb_timkiem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_timkiem.Location = new System.Drawing.Point(882, 41);
+            this.tb_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_timkiem.Multiline = true;
+            this.tb_timkiem.Name = "tb_timkiem";
+            this.tb_timkiem.PlaceholderText = "Tìm Kiếm Theo Tên Sản Phẩm";
+            this.tb_timkiem.Size = new System.Drawing.Size(239, 24);
+            this.tb_timkiem.TabIndex = 24;
+            this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.GhostWhite;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(5, 77);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(1116, 194);
+            this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            // 
+            // comboBox_mau
+            // 
+            this.comboBox_mau.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_mau.FormattingEnabled = true;
+            this.comboBox_mau.Items.AddRange(new object[] {
+            "100.000 - 300.000",
+            "300.000 - 500.000",
+            "500.000 - 1.000.000",
+            "1.000.000 - 2.000.000",
+            "2.000.000 ->"});
+            this.comboBox_mau.Location = new System.Drawing.Point(510, 41);
+            this.comboBox_mau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_mau.Name = "comboBox_mau";
+            this.comboBox_mau.Size = new System.Drawing.Size(169, 27);
+            this.comboBox_mau.TabIndex = 26;
+            this.comboBox_mau.SelectedIndexChanged += new System.EventHandler(this.comboBox_mau_SelectedIndexChanged);
+            // 
+            // lb_mau
+            // 
+            this.lb_mau.AutoSize = true;
+            this.lb_mau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_mau.Location = new System.Drawing.Point(469, 44);
+            this.lb_mau.Name = "lb_mau";
+            this.lb_mau.Size = new System.Drawing.Size(35, 21);
+            this.lb_mau.TabIndex = 24;
+            this.lb_mau.Text = "Giá";
+            // 
+            // lb_dongsanpham
+            // 
+            this.lb_dongsanpham.AutoSize = true;
+            this.lb_dongsanpham.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_dongsanpham.Location = new System.Drawing.Point(35, 44);
+            this.lb_dongsanpham.Name = "lb_dongsanpham";
+            this.lb_dongsanpham.Size = new System.Drawing.Size(132, 21);
+            this.lb_dongsanpham.TabIndex = 25;
+            this.lb_dongsanpham.Text = "Dòng Sản Phẩm";
+            // 
+            // comboBox_dongspTTSP
+            // 
+            this.comboBox_dongspTTSP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_dongspTTSP.FormattingEnabled = true;
+            this.comboBox_dongspTTSP.Items.AddRange(new object[] {
+            "Laptop",
+            "Bàn Phím",
+            "Chuột"});
+            this.comboBox_dongspTTSP.Location = new System.Drawing.Point(173, 41);
+            this.comboBox_dongspTTSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_dongspTTSP.Name = "comboBox_dongspTTSP";
+            this.comboBox_dongspTTSP.Size = new System.Drawing.Size(169, 27);
+            this.comboBox_dongspTTSP.TabIndex = 24;
+            this.comboBox_dongspTTSP.SelectedIndexChanged += new System.EventHandler(this.comboBox_dongspTTSP_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox_thongtin);
+            this.panel1.Controls.Add(this.groupBox_thietlap);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(10, 9);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1234, 659);
+            this.panel1.TabIndex = 1;
             // 
             // FormSanPham
             // 
@@ -407,21 +409,23 @@
             this.Name = "FormSanPham";
             this.Text = "FormSanPham";
             this.Load += new System.EventHandler(this.FormSanPham_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.groupBox_thietlap.ResumeLayout(false);
+            this.groupBox_thietlap.PerformLayout();
             this.groupBox_thongtin.ResumeLayout(false);
             this.groupBox_thongtin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox_thietlap.ResumeLayout(false);
-            this.groupBox_thietlap.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel panel1;
+        private Label label1;
         private GroupBox groupBox_thietlap;
+        private TextBox tb_mausac;
+        private Button btnclear;
         private Panel panel2;
         private TextBox tb_ghichu;
         private Label lb_ghichu;
@@ -438,15 +442,13 @@
         private Label lb_giaban;
         private Label lb_tensp;
         private Label lb_masp;
-        private Label label1;
         private GroupBox groupBox_thongtin;
         private TextBox tb_timkiem;
         private DataGridView dataGridView1;
         private ComboBox comboBox_mau;
+        private Label lb_mau;
         private Label lb_dongsanpham;
         private ComboBox comboBox_dongspTTSP;
-        private Label lb_mau;
-        private Button btnclear;
-        private TextBox tb_mausac;
+        private Panel panel1;
     }
 }

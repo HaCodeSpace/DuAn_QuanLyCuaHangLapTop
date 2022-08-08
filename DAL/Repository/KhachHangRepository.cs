@@ -27,8 +27,10 @@ namespace DAL.Repository
         public bool ThemKH(KhachHang kh)
         {
             _DA1context.khachHangs.Add(kh);
-            _DA1context.SaveChanges();
-            return true;
+            if (_DA1context.SaveChanges() != 0)
+                return true;
+            else
+                return false;
         }
         public bool SuaKH(KhachHang kh)
         {
