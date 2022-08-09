@@ -29,10 +29,10 @@ namespace DAL.Migrations
                     MaKH = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TenKH = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SDT = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TrangThai = table.Column<bool>(type: "bit", nullable: false)
+                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TrangThai = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -112,15 +112,13 @@ namespace DAL.Migrations
                 {
                     MaHD = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     NgayLapHD = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HinhThucThanhToan = table.Column<int>(type: "int", nullable: false),
-                    HinhThucGiaoHang = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TienKhachDua = table.Column<float>(type: "real", nullable: false),
-                    TienTraLai = table.Column<float>(type: "real", nullable: false),
-                    TongTienHD = table.Column<float>(type: "real", nullable: false),
-                    NguoiLapHD = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TenKH = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HinhThucThanhToan = table.Column<int>(type: "int", nullable: true),
+                    HinhThucGiaoHang = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TienKhachDua = table.Column<float>(type: "real", nullable: true),
+                    TienTraLai = table.Column<float>(type: "real", nullable: true),
+                    TongTienHD = table.Column<float>(type: "real", nullable: true),
                     TrangThai = table.Column<bool>(type: "bit", nullable: false),
-                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MaNV = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     MaKH = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     MaKM = table.Column<string>(type: "nvarchar(450)", nullable: true)
