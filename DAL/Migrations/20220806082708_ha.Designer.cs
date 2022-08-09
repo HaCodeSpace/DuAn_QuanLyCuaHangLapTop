@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220805103613_tuana2")]
-    partial class tuana2
+    [Migration("20220806082708_ha")]
+    partial class ha
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -288,9 +288,6 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MaQuanLi")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("MatKhau")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -309,9 +306,10 @@ namespace DAL.Migrations
                     b.Property<bool>("TrangThai")
                         .HasColumnType("bit");
 
-                    b.HasKey("MaNV");
+                    b.Property<bool>("Vaitro")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("MaQuanLi");
+                    b.HasKey("MaNV");
 
                     b.ToTable("nhanViens");
                 });
@@ -441,15 +439,6 @@ namespace DAL.Migrations
                     b.Navigation("sanPham");
                 });
 
-            modelBuilder.Entity("DAL.Model.NhanVien", b =>
-                {
-                    b.HasOne("DAL.Model.NhanVien", "QuanLi")
-                        .WithMany("nhanViens")
-                        .HasForeignKey("MaQuanLi");
-
-                    b.Navigation("QuanLi");
-                });
-
             modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
                 {
                     b.HasOne("DAL.Model.MauSac", "mausac")
@@ -506,8 +495,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Model.NhanVien", b =>
                 {
                     b.Navigation("hoaDons");
-
-                    b.Navigation("nhanViens");
                 });
 
             modelBuilder.Entity("DAL.Model.SanPham", b =>

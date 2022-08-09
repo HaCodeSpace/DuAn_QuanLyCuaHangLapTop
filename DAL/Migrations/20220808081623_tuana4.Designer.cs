@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220806054712_tuana3")]
-    partial class tuana3
+    [Migration("20220808081623_tuana4")]
+    partial class tuana4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,14 +98,12 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GhiChu")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HinhThucGiaoHang")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HinhThucThanhToan")
+                    b.Property<int?>("HinhThucThanhToan")
                         .HasColumnType("int");
 
                     b.Property<string>("MaKH")
@@ -121,21 +119,13 @@ namespace DAL.Migrations
                     b.Property<DateTime>("NgayLapHD")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("NguoiLapHD")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TenKH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("TienKhachDua")
+                    b.Property<float?>("TienKhachDua")
                         .HasColumnType("real");
 
-                    b.Property<float>("TienTraLai")
+                    b.Property<float?>("TienTraLai")
                         .HasColumnType("real");
 
-                    b.Property<float>("TongTienHD")
+                    b.Property<float?>("TongTienHD")
                         .HasColumnType("real");
 
                     b.Property<bool>("TrangThai")

@@ -38,6 +38,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lb_locvaitro = new System.Windows.Forms.Label();
             this.groupBox_thietlap = new System.Windows.Forms.GroupBox();
+            this.bt_reset = new System.Windows.Forms.Button();
+            this.bt_sua = new System.Windows.Forms.Button();
+            this.bt_them = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rdb_nu = new System.Windows.Forms.RadioButton();
             this.rdb_nam = new System.Windows.Forms.RadioButton();
@@ -61,9 +64,6 @@
             this.lb_matkhau = new System.Windows.Forms.Label();
             this.lb_tennv = new System.Windows.Forms.Label();
             this.lb_manv = new System.Windows.Forms.Label();
-            this.bt_them = new System.Windows.Forms.Button();
-            this.bt_sua = new System.Windows.Forms.Button();
-            this.bt_reset = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.groupBox_thongtin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -198,6 +198,51 @@
             this.groupBox_thietlap.TabIndex = 0;
             this.groupBox_thietlap.TabStop = false;
             this.groupBox_thietlap.Text = "Thiết Lập Thông Tin Nhân Viên";
+            // 
+            // bt_reset
+            // 
+            this.bt_reset.BackColor = System.Drawing.Color.Yellow;
+            this.bt_reset.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_reset.ForeColor = System.Drawing.Color.Black;
+            this.bt_reset.Image = global::Presentation.Properties.Resources.refresh1;
+            this.bt_reset.Location = new System.Drawing.Point(830, 303);
+            this.bt_reset.Name = "bt_reset";
+            this.bt_reset.Size = new System.Drawing.Size(116, 37);
+            this.bt_reset.TabIndex = 53;
+            this.bt_reset.Text = "   Reset";
+            this.bt_reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_reset.UseVisualStyleBackColor = false;
+            this.bt_reset.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // bt_sua
+            // 
+            this.bt_sua.BackColor = System.Drawing.Color.Yellow;
+            this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_sua.ForeColor = System.Drawing.Color.Black;
+            this.bt_sua.Image = ((System.Drawing.Image)(resources.GetObject("bt_sua.Image")));
+            this.bt_sua.Location = new System.Drawing.Point(610, 303);
+            this.bt_sua.Name = "bt_sua";
+            this.bt_sua.Size = new System.Drawing.Size(116, 37);
+            this.bt_sua.TabIndex = 52;
+            this.bt_sua.Text = "   Sửa";
+            this.bt_sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_sua.UseVisualStyleBackColor = false;
+            this.bt_sua.Click += new System.EventHandler(this.bt_sua_Click_1);
+            // 
+            // bt_them
+            // 
+            this.bt_them.BackColor = System.Drawing.Color.Yellow;
+            this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bt_them.ForeColor = System.Drawing.Color.Black;
+            this.bt_them.Image = global::Presentation.Properties.Resources.add;
+            this.bt_them.Location = new System.Drawing.Point(369, 303);
+            this.bt_them.Name = "bt_them";
+            this.bt_them.Size = new System.Drawing.Size(116, 37);
+            this.bt_them.TabIndex = 51;
+            this.bt_them.Text = "  Thêm";
+            this.bt_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_them.UseVisualStyleBackColor = false;
+            this.bt_them.Click += new System.EventHandler(this.bt_them_Click_1);
             // 
             // panel1
             // 
@@ -424,50 +469,6 @@
             this.lb_manv.Size = new System.Drawing.Size(121, 23);
             this.lb_manv.TabIndex = 0;
             this.lb_manv.Text = "Mã Nhân Viên";
-            // 
-            // bt_them
-            // 
-            this.bt_them.BackColor = System.Drawing.Color.Yellow;
-            this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_them.ForeColor = System.Drawing.Color.Black;
-            this.bt_them.Image = global::Presentation.Properties.Resources.add;
-            this.bt_them.Location = new System.Drawing.Point(369, 303);
-            this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(116, 37);
-            this.bt_them.TabIndex = 51;
-            this.bt_them.Text = "  Thêm";
-            this.bt_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_them.UseVisualStyleBackColor = false;
-            this.bt_them.Click += new System.EventHandler(this.bt_them_Click_1);
-            // 
-            // bt_sua
-            // 
-            this.bt_sua.BackColor = System.Drawing.Color.Yellow;
-            this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_sua.ForeColor = System.Drawing.Color.Black;
-            this.bt_sua.Image = ((System.Drawing.Image)(resources.GetObject("bt_sua.Image")));
-            this.bt_sua.Location = new System.Drawing.Point(610, 303);
-            this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(116, 37);
-            this.bt_sua.TabIndex = 52;
-            this.bt_sua.Text = "   Sửa";
-            this.bt_sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_sua.UseVisualStyleBackColor = false;
-            // 
-            // bt_reset
-            // 
-            this.bt_reset.BackColor = System.Drawing.Color.Yellow;
-            this.bt_reset.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_reset.ForeColor = System.Drawing.Color.Black;
-            this.bt_reset.Image = global::Presentation.Properties.Resources.refresh1;
-            this.bt_reset.Location = new System.Drawing.Point(830, 303);
-            this.bt_reset.Name = "bt_reset";
-            this.bt_reset.Size = new System.Drawing.Size(116, 37);
-            this.bt_reset.TabIndex = 53;
-            this.bt_reset.Text = "   Reset";
-            this.bt_reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bt_reset.UseVisualStyleBackColor = false;
-            this.bt_reset.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormNhanVien
             // 

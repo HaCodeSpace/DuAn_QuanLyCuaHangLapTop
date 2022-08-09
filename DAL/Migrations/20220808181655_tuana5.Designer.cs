@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220805084244_tuana")]
-    partial class tuana
+    [Migration("20220808181655_tuana5")]
+    partial class tuana5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,14 +98,12 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GhiChu")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HinhThucGiaoHang")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HinhThucThanhToan")
+                    b.Property<int?>("HinhThucThanhToan")
                         .HasColumnType("int");
 
                     b.Property<string>("MaKH")
@@ -121,21 +119,13 @@ namespace DAL.Migrations
                     b.Property<DateTime>("NgayLapHD")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("NguoiLapHD")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TenKH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("TienKhachDua")
+                    b.Property<float?>("TienKhachDua")
                         .HasColumnType("real");
 
-                    b.Property<float>("TienTraLai")
+                    b.Property<float?>("TienTraLai")
                         .HasColumnType("real");
 
-                    b.Property<float>("TongTienHD")
+                    b.Property<float?>("TongTienHD")
                         .HasColumnType("real");
 
                     b.Property<bool>("TrangThai")
@@ -193,15 +183,12 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GioiTinh")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SDT")
@@ -212,7 +199,7 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TrangThai")
+                    b.Property<bool?>("TrangThai")
                         .HasColumnType("bit");
 
                     b.HasKey("MaKH");
@@ -288,9 +275,6 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MaQuanLi")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("MatKhau")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -309,9 +293,10 @@ namespace DAL.Migrations
                     b.Property<bool>("TrangThai")
                         .HasColumnType("bit");
 
-                    b.HasKey("MaNV");
+                    b.Property<bool>("Vaitro")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("MaQuanLi");
+                    b.HasKey("MaNV");
 
                     b.ToTable("nhanViens");
                 });
@@ -441,15 +426,6 @@ namespace DAL.Migrations
                     b.Navigation("sanPham");
                 });
 
-            modelBuilder.Entity("DAL.Model.NhanVien", b =>
-                {
-                    b.HasOne("DAL.Model.NhanVien", "QuanLi")
-                        .WithMany("nhanViens")
-                        .HasForeignKey("MaQuanLi");
-
-                    b.Navigation("QuanLi");
-                });
-
             modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
                 {
                     b.HasOne("DAL.Model.MauSac", "mausac")
@@ -506,8 +482,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Model.NhanVien", b =>
                 {
                     b.Navigation("hoaDons");
-
-                    b.Navigation("nhanViens");
                 });
 
             modelBuilder.Entity("DAL.Model.SanPham", b =>

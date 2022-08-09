@@ -96,14 +96,12 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GhiChu")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HinhThucGiaoHang")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HinhThucThanhToan")
+                    b.Property<int?>("HinhThucThanhToan")
                         .HasColumnType("int");
 
                     b.Property<string>("MaKH")
@@ -119,21 +117,13 @@ namespace DAL.Migrations
                     b.Property<DateTime>("NgayLapHD")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("NguoiLapHD")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TenKH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("TienKhachDua")
+                    b.Property<float?>("TienKhachDua")
                         .HasColumnType("real");
 
-                    b.Property<float>("TienTraLai")
+                    b.Property<float?>("TienTraLai")
                         .HasColumnType("real");
 
-                    b.Property<float>("TongTienHD")
+                    b.Property<float?>("TongTienHD")
                         .HasColumnType("real");
 
                     b.Property<bool>("TrangThai")
@@ -191,15 +181,12 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GioiTinh")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SDT")
@@ -210,7 +197,7 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TrangThai")
+                    b.Property<bool?>("TrangThai")
                         .HasColumnType("bit");
 
                     b.HasKey("MaKH");
