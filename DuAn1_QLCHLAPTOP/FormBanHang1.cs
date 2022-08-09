@@ -27,7 +27,8 @@ namespace Presentation
         private IHoaDonChiTietService _hoaDonChiTietService;
 
         private CultureInfo _cultureConverter;
-        public List<sanphamMua> Listsanphammua = new List<sanphamMua>();
+        public List<sanphamMua> Giohang = new List<sanphamMua>();
+        public List<sanphamMua> ListSanpham = new List<sanphamMua>();
 
         public FormBanHang1()
         {
@@ -102,7 +103,7 @@ namespace Presentation
                              GiaSP = s.DonGiaBan,
                              SoLuong = 1
                          };
-
+            ListSanpham = ListSP.ToList();
             dataGridView_danhsachsp.DataSource = ListSP.ToList();
             ShowHoadonOnHoaDoncho();
             AddDataBinding();
@@ -118,19 +119,19 @@ namespace Presentation
                 GiaSP = float.Parse(dataGridView_danhsachsp.CurrentRow.Cells["GiaSP"].Value.ToString()),
                 SoLuong = int.Parse(dataGridView_danhsachsp.CurrentRow.Cells["SoLuong"].Value.ToString())
             };
-            var result = Listsanphammua.Any(m => m.MaSP == sanpham.MaSP);
+            var result = Giohang.Any(m => m.MaSP == sanpham.MaSP);
             
-            if (result && Listsanphammua.Count > 0) 
+            if (result && Giohang.Count > 0) 
             {
-                var sp = Listsanphammua.Find(p => p.MaSP.Equals(sanpham.MaSP));
-                var a = Listsanphammua.IndexOf(sp);
+                var sp = Giohang.Find(p => p.MaSP.Equals(sanpham.MaSP));
+                var a = Giohang.IndexOf(sp);
                 //MessageBox.Show(a.ToString());
                 //Listsanphammua.Insert(Listsanphammua.IndexOf(sanpham), sanpham);
-                Listsanphammua[a].SoLuong += 1;
+                Giohang[a].SoLuong += 1;
             }
             else
             {
-                Listsanphammua.Add(sanpham);
+                Giohang.Add(sanpham);
             }
             AddSPToListMua();
             total += sanpham.SoLuong * sanpham.GiaSP;
@@ -140,12 +141,12 @@ namespace Presentation
 
         private void AddSPToListMua()
         {
-            dataGridView_giohang.DataSource = Listsanphammua.ToList();
+            dataGridView_giohang.DataSource = Giohang.ToList();
         }
 
         private void bt_xoatatca_Click(object sender, EventArgs e)
         {
-            Listsanphammua = new List<sanphamMua>();
+            Giohang = new List<sanphamMua>();
             AddSPToListMua();
         }
 
@@ -235,17 +236,17 @@ namespace Presentation
 
         private bool FillHDCT()
         {
-            bool[] successArr = new bool[Listsanphammua.Count];
-            for (int i = 0; i < Listsanphammua.Count; i++)
+            List<bool> successArr = new List<bool>();
+            for (int i = 0; i < Giohang.Count; i++)
             {
                
                 var hdct = new HoaDonChiTiet()
                 {
                     MaHD = label_mahoadon1.Text,
-                    MaSP = Listsanphammua[i].MaSP,
-                    SoLuongMua = Listsanphammua[i].SoLuong
+                    MaSP = Giohang[i].MaSP,
+                    SoLuongMua = Giohang[i].SoLuong
                 };
-                successArr.Append(_hoaDonChiTietService.ThemHDCT(hdct));
+                successArr.Add(_hoaDonChiTietService.ThemHDCT(hdct));
 
             }
 
@@ -255,6 +256,37 @@ namespace Presentation
                     return false;
             }
             return true;
+        }
+
+        private void tb_timkiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var result = from l in _sanPhamService.SanPhamList()
+                             where l.TenSP.Contains(tb_timkiem.Text)
+                             select new sanphamMua()
+                             {
+                                 MaSP = l.MaSP,
+                                 TenSP = l.TenSP,
+                                 GiaSP = l.DonGiaBan,
+                                 SoLuong = 1
+                             };
+                dataGridView_danhsachsp.DataSource = result.ToList();
+            }
+        }
+
+        private void comboBox_danhmuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var result = from l in _sanPhamService.SanPhamList()
+                         where l.DongSP.Equals(comboBox_danhmuc.SelectedIndex)
+                         select new sanphamMua()
+                         {
+                             MaSP = l.MaSP,
+                             TenSP = l.TenSP,
+                             GiaSP = l.DonGiaBan,
+                             SoLuong = 1
+                         };
+            dataGridView_danhsachsp.DataSource = result.ToList();
         }
     }
 
