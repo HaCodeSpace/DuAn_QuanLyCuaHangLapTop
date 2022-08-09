@@ -128,11 +128,16 @@
             // 
             this.comboBox_danhmuc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox_danhmuc.FormattingEnabled = true;
+            this.comboBox_danhmuc.Items.AddRange(new object[] {
+            "Laptop",
+            "Bàn phím",
+            "Chuột"});
             this.comboBox_danhmuc.Location = new System.Drawing.Point(463, 53);
             this.comboBox_danhmuc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_danhmuc.Name = "comboBox_danhmuc";
             this.comboBox_danhmuc.Size = new System.Drawing.Size(232, 27);
             this.comboBox_danhmuc.TabIndex = 30;
+            this.comboBox_danhmuc.SelectedIndexChanged += new System.EventHandler(this.comboBox_danhmuc_SelectedIndexChanged);
             // 
             // lb_danhmuc
             // 
@@ -153,6 +158,7 @@
             this.tb_timkiem.PlaceholderText = "Tìm Theo Tên";
             this.tb_timkiem.Size = new System.Drawing.Size(240, 27);
             this.tb_timkiem.TabIndex = 26;
+            this.tb_timkiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_timkiem_KeyDown);
             // 
             // lb_timkiem
             // 
