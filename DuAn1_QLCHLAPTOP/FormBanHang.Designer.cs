@@ -215,11 +215,11 @@
             // 
             // pic_avatar
             // 
-            this.pic_avatar.Image = global::Presentation.Properties.Resources.Gau;
+            this.pic_avatar.Image = ((System.Drawing.Image)(resources.GetObject("pic_avatar.Image")));
             this.pic_avatar.Location = new System.Drawing.Point(3, 3);
             this.pic_avatar.Name = "pic_avatar";
-            this.pic_avatar.Size = new System.Drawing.Size(235, 244);
-            this.pic_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_avatar.Size = new System.Drawing.Size(235, 256);
+            this.pic_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_avatar.TabIndex = 0;
             this.pic_avatar.TabStop = false;
             // 
