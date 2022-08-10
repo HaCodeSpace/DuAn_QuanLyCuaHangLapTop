@@ -26,5 +26,11 @@ namespace DAL.Repository
             else
                 return false;
         }
+
+        public IEnumerable<HoaDonChiTiet> TimHoadonchitiet(string value)
+        {
+            var result = context.hoaDonChiTiets.Where(p => p.MaHD.Equals(value)).ToList();
+            return result;
+        }
     }
 }

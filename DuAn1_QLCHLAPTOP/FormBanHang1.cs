@@ -88,7 +88,8 @@ namespace Presentation
                 MaHD = "HD" + a,
                 NgayLapHD = DateTime.Now,
                 TrangThai = false,
-                MaNV = "NV1"
+                MaNV = "NV1",
+                MaKH = "KH0"
             };
             return hoadon;
         }

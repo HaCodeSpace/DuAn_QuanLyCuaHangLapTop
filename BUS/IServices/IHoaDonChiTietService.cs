@@ -10,5 +10,7 @@ namespace BUS.IServices
     public interface IHoaDonChiTietService
     {
         Boolean ThemHDCT(HoaDonChiTiet hoaDonChiTiet);
+
+        IEnumerable<HoaDonChiTiet> TaiHoaDonChiTiet(string value);
     }
 }

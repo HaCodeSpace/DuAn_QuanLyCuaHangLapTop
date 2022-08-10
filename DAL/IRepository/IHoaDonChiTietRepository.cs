@@ -10,5 +10,7 @@ namespace DAL.IRepository
     public interface IHoaDonChiTietRepository
     {
         Boolean Add(HoaDonChiTiet hoaDonChiTiet);
+
+        IEnumerable<HoaDonChiTiet> TimHoadonchitiet(string value);
     }
 }

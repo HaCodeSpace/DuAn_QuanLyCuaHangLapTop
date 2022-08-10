@@ -18,6 +18,12 @@ namespace BUS.Services
         {
             _service = new HoaDonChiTietRepository();
         }
+
+        public IEnumerable<HoaDonChiTiet> TaiHoaDonChiTiet(string value)
+        {
+            return _service.TimHoadonchitiet(value);
+        }
+
         public bool ThemHDCT(HoaDonChiTiet hoaDonChiTiet)
         {
             return _service.Add(hoaDonChiTiet);
