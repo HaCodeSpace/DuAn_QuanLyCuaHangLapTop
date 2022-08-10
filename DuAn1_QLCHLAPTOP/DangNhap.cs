@@ -36,7 +36,6 @@ namespace Presentation
                 }
                 if(cb_luutaikhoan.Checked==false)
                     Properties.Settings.Default.Reset();
-                MessageBox.Show("Đăng nhập thành công");
                 foreach (var item in _IQLnv.getlstNVfromDB())
                 {
                     if (item.Email == tb_taikhoan.Text)
