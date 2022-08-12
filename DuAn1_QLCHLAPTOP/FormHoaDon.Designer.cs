@@ -145,7 +145,6 @@
             this.dtghoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtghoadon.Location = new System.Drawing.Point(15, 149);
             this.dtghoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtghoadon.MultiSelect = false;
             this.dtghoadon.Name = "dtghoadon";
             this.dtghoadon.ReadOnly = true;
             this.dtghoadon.RowHeadersWidth = 51;

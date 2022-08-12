@@ -12,9 +12,8 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.IServices.IServiceSanPham;
 using BUS.Services.ServiceSanPham;
-using System.IO;
-using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace Presentation
 {
@@ -182,23 +181,42 @@ namespace Presentation
 
         private void ExportExcel(string path)
         {
-            Excel.Application application = new Excel.Application();
-            application.Application.Workbooks.Add(Type.Missing);
+            //dtghoadon.SelectAll();
+            //DataObject copydata = dtghoadon.GetClipboardContent();
+            //if (copydata != null) Clipboard.SetDataObject(copydata);
+            //Excel.Application xlapp = new Excel.Application();
+            //Excel.Workbook xlworkbook;
+            //Excel.Worksheet xlWsheet;
+            //object misseddata = System.Reflection.Missing.Value;
+
+            //xlworkbook = xlapp.Workbooks.Add(misseddata);
+            //xlWsheet = (Excel.Worksheet)xlworkbook.Worksheets.get_Item(1);
+            //Excel.Range xlr = (Excel.Range)xlWsheet.Cells[1, 1];
+            //xlr.Select();
+            //xlapp.Columns.AutoFit();
+
+            //xlWsheet.PasteSpecial(xlr, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            //xlapp.Columns.AutoFit();
+            //xlapp.Visible = true;
+
+            Excel.Application xlapp = new Excel.Application();
+            xlapp.Application.Workbooks.Add(Type.Missing);
             for (int i = 0; i < dtghoadon.Columns.Count; i++)
             {
-                application.Cells[1, i+ 1] = dtghoadon.Columns[i].HeaderText;
+                xlapp.Cells[1, i+ 1] = dtghoadon.Columns[i].HeaderText;
             }
             for (int i = 0; i < dtghoadon.Rows.Count; i++)
             {
                 for (int j = 0; j < dtghoadon.Columns.Count; j++)
                 {
-                    application.Cells[i+2, j+1] = dtghoadon.Rows[i].Cells[j].Value;
+                    xlapp.Cells[i+2, j+1] = dtghoadon.Rows[i].Cells[j].Value;
                 }
             }
 
-            application.Columns.AutoFit();
-            application.ActiveWorkbook.SaveCopyAs(path);
-            application.ActiveWorkbook.Saved = true;
+            xlapp.Columns.AutoFit();
+            xlapp.ActiveWorkbook.SaveCopyAs(path);
+            xlapp.ActiveWorkbook.Saved = true;
+            xlapp.Visible = true;
 
         }
     }
