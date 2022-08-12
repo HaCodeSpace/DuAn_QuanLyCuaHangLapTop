@@ -30,6 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox_hoadonchitiet = new System.Windows.Forms.GroupBox();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.BtnPDF = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.dtghoadonct = new System.Windows.Forms.DataGridView();
             this.groupBox_hoadon = new System.Windows.Forms.GroupBox();
             this.dtghoadon = new System.Windows.Forms.DataGridView();
@@ -60,6 +63,9 @@
             // 
             // groupBox_hoadonchitiet
             // 
+            this.groupBox_hoadonchitiet.Controls.Add(this.btnIn);
+            this.groupBox_hoadonchitiet.Controls.Add(this.BtnPDF);
+            this.groupBox_hoadonchitiet.Controls.Add(this.btnExcel);
             this.groupBox_hoadonchitiet.Controls.Add(this.dtghoadonct);
             this.groupBox_hoadonchitiet.Location = new System.Drawing.Point(9, 401);
             this.groupBox_hoadonchitiet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -70,6 +76,34 @@
             this.groupBox_hoadonchitiet.TabStop = false;
             this.groupBox_hoadonchitiet.Text = "Hóa Đơn Chi Tiết";
             // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(1073, 80);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(86, 23);
+            this.btnIn.TabIndex = 2;
+            this.btnIn.Text = "In";
+            this.btnIn.UseVisualStyleBackColor = true;
+            // 
+            // BtnPDF
+            // 
+            this.BtnPDF.Location = new System.Drawing.Point(1073, 51);
+            this.BtnPDF.Name = "BtnPDF";
+            this.BtnPDF.Size = new System.Drawing.Size(86, 23);
+            this.BtnPDF.TabIndex = 2;
+            this.BtnPDF.Text = "PDF";
+            this.BtnPDF.UseVisualStyleBackColor = true;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(1073, 22);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(86, 23);
+            this.btnExcel.TabIndex = 1;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // dtghoadonct
             // 
             this.dtghoadonct.BackgroundColor = System.Drawing.Color.GhostWhite;
@@ -79,7 +113,7 @@
             this.dtghoadonct.Name = "dtghoadonct";
             this.dtghoadonct.RowHeadersWidth = 51;
             this.dtghoadonct.RowTemplate.Height = 29;
-            this.dtghoadonct.Size = new System.Drawing.Size(1144, 212);
+            this.dtghoadonct.Size = new System.Drawing.Size(1052, 212);
             this.dtghoadonct.TabIndex = 0;
             // 
             // groupBox_hoadon
@@ -252,5 +286,8 @@
         private ComboBox cbx_locgiaohang;
         private ComboBox cbx_locthanhtoan;
         private ComboBox cbx_LocTrangthai;
+        private Button btnIn;
+        private Button BtnPDF;
+        private Button btnExcel;
     }
 }

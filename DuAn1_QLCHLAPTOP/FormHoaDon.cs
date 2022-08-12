@@ -12,6 +12,9 @@ using BUS.IServices;
 using BUS.Services;
 using BUS.IServices.IServiceSanPham;
 using BUS.Services.ServiceSanPham;
+using System.IO;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Presentation
 {
@@ -27,6 +30,8 @@ namespace Presentation
         private List<ViewHoaDon> hoaDons;
         private List<ViewHoaDon> ListLocHoaDon;
         private bool isFilltering = false;
+        private DataSet appdata;
+
         public FormHoaDon()
         {
             InitializeComponent();
@@ -45,17 +50,12 @@ namespace Presentation
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
             LoadDanhSachHoaDon();
-        }
 
-        private void Testload()
-        {
-            var result = from l in _hoaDonService.LayDanhSachHD() select new {l.MaHD, l.MaNV };
-            dtghoadon.DataSource = result.ToList();
         }
 
         private void LoadDanhSachHoaDon()
         {
-            var result = from l in _hoaDonService.LayDanhSachHD() 
+            var result = from l in _hoaDonService.LayDanhSachHD()
                          join n in _nhanVienService.getlstNVfromDB()
                          on l.MaNV equals n.MaNV
                          join h in _khachHangService.LayDanhSachKhachHang()
@@ -64,7 +64,7 @@ namespace Presentation
                          {
                              MaHD = l.MaHD,
                              NgayLapHD = l.NgayLapHD,
-                             HinhThucThanhToan = l.HinhThucThanhToan == 0 ? "Banking"  : "Tiền Mặt",
+                             HinhThucThanhToan = l.HinhThucThanhToan == 0 ? "Banking" : "Tiền Mặt",
                              HinhThucGiaoHang = l.HinhThucGiaoHang,
                              TienKhachDua = l.TienKhachDua,
                              TienTraLai = l.TienTraLai,
@@ -78,12 +78,12 @@ namespace Presentation
                          };
             hoaDons = result.ToList();
             dtghoadon.DataSource = hoaDons;
-            
+
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             if (e.KeyCode == Keys.Enter)
             {
                 if (string.IsNullOrEmpty(textBox1.Text))
@@ -157,6 +157,49 @@ namespace Presentation
                              SoLuongMua = l.SoLuongMua
                          };
             dtghoadonct.DataSource = result.ToList();
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Workbook|*.xlsx";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        ExportExcel(sfd.FileName);
+                        MessageBox.Show("Xuat file thanh cong");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Xuat file khong thanh cong, {ex.Message}");
+                    }
+                }
+            }
+
+        }
+
+        private void ExportExcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            for (int i = 0; i < dtghoadon.Columns.Count; i++)
+            {
+                application.Cells[1, i+ 1] = dtghoadon.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < dtghoadon.Rows.Count; i++)
+            {
+                for (int j = 0; j < dtghoadon.Columns.Count; j++)
+                {
+                    application.Cells[i+2, j+1] = dtghoadon.Rows[i].Cells[j].Value;
+                }
+            }
+
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+
         }
     }
 
