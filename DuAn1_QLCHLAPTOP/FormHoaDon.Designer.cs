@@ -93,6 +93,7 @@
             this.BtnPDF.TabIndex = 2;
             this.BtnPDF.Text = "PDF";
             this.BtnPDF.UseVisualStyleBackColor = true;
+            this.BtnPDF.Click += new System.EventHandler(this.BtnPDF_Click);
             // 
             // btnExcel
             // 
@@ -138,15 +139,12 @@
             // 
             // dtghoadon
             // 
-            this.dtghoadon.AllowUserToAddRows = false;
-            this.dtghoadon.AllowUserToDeleteRows = false;
             this.dtghoadon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtghoadon.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dtghoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtghoadon.Location = new System.Drawing.Point(15, 149);
             this.dtghoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtghoadon.Name = "dtghoadon";
-            this.dtghoadon.ReadOnly = true;
             this.dtghoadon.RowHeadersWidth = 51;
             this.dtghoadon.RowTemplate.Height = 29;
             this.dtghoadon.Size = new System.Drawing.Size(1144, 212);

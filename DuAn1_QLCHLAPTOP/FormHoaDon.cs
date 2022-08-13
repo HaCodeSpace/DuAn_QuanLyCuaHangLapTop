@@ -13,7 +13,15 @@ using BUS.Services;
 using BUS.IServices.IServiceSanPham;
 using BUS.Services.ServiceSanPham;
 using Excel = Microsoft.Office.Interop.Excel;
-
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using System.IO;
+using iText.Kernel.Pdf.Canvas.Draw;
+using iText.IO.Image;
+using iText.Kernel.Colors;
+using iText.Kernel.Geom;
 
 namespace Presentation
 {
@@ -43,6 +51,8 @@ namespace Presentation
 
             hoaDons = new List<ViewHoaDon>();
             ListLocHoaDon = new List<ViewHoaDon>();
+
+            
 
         }
 
@@ -218,6 +228,72 @@ namespace Presentation
             xlapp.ActiveWorkbook.Saved = true;
             xlapp.Visible = true;
 
+        }
+
+        private void BtnPDF_Click(object sender, EventArgs e)
+        {
+            ExportDataToPDF(dtghoadon);
+        }
+
+        private void ExportDataToPDF(DataGridView dtg)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = " PDF (*.pdf)|*.pdf" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    PdfWriter writer = new PdfWriter(sfd.FileName);
+                    PdfDocument pdf = new PdfDocument(writer);
+                    Document document = new Document(pdf, PageSize.A4, true);
+                    
+                    Paragraph header = new Paragraph("Hoa Don Bao Cao")
+                        .SetTextAlignment(TextAlignment.CENTER)
+                        .SetFontSize(15);
+                    document.Add(header);
+
+                    LineSeparator ls = new LineSeparator(new SolidLine());
+                    document.Add(ls);
+
+
+                    //tabel
+
+                    Table table = new Table(dtg.Columns.Count, false);
+                    foreach (DataGridViewColumn col in dtg.Columns)
+                    {
+                        Cell cell = new Cell(1, 1)
+                            .SetBackgroundColor(ColorConstants.GRAY)
+                            .SetTextAlignment(TextAlignment.CENTER)
+                            .SetFontSize(6)
+                            .Add(new Paragraph(col.HeaderText));
+                        table.AddCell(cell);
+                    }
+
+                    foreach (DataGridViewRow row in dtg.Rows)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.Value == null)
+                            {
+                                Cell cellr = new Cell(1, 1)
+                                    .SetTextAlignment(TextAlignment.LEFT)
+                                    .SetFontSize(5)
+                                    .Add(new Paragraph("null"));
+                                table.AddCell(cellr);
+                            }
+                            else
+                            {
+                                Cell cellr = new Cell(1, 1)
+                                    .SetTextAlignment(TextAlignment.LEFT)
+                                    .SetFontSize(5)
+                                    .Add(new Paragraph(String.Format(cell.Value.ToString(), Encoding.Unicode)));
+                                table.AddCell(cellr);
+                            }
+                            
+                        }
+                    }
+                    document.Add(table);
+                    document.Close();
+                }
+            }
         }
     }
 
