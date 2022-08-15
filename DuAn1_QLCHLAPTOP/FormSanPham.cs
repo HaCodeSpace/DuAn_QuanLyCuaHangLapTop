@@ -52,19 +52,19 @@ namespace Presentation
         private void comboBox_dongsp_SelectedIndexChanged(object sender, EventArgs e)
         {
             MessageBox.Show(comboBox_dongsp.Items[2].ToString());
-            if (comboBox_dongsp.Text == "PC")
-            {
-                panel2.Controls.Clear();
-                FormSanPhamPC fsppc = new FormSanPhamPC()
-                {
-                    Dock = DockStyle.Fill,
-                    TopLevel = false,
-                    TopMost = true,
-                };
-                this.panel2.Controls.Add(fsppc);
-                fsppc.FormBorderStyle = FormBorderStyle.None;
-                fsppc.Show();
-            }
+            //if (comboBox_dongsp.Text == "PC")
+            //{
+            //    panel2.Controls.Clear();
+            //    FormSanPhamPC fsppc = new FormSanPhamPC()
+            //    {
+            //        Dock = DockStyle.Fill,
+            //        TopLevel = false,
+            //        TopMost = true,
+            //    };
+            //    this.panel2.Controls.Add(fsppc);
+            //    fsppc.FormBorderStyle = FormBorderStyle.None;
+            //    fsppc.Show();
+            //}
             if (comboBox_dongsp.Text == "Laptop")
             {
                 panel2.Controls.Clear();
