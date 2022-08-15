@@ -67,7 +67,6 @@
             this.groupBox_thietlap.Size = new System.Drawing.Size(1331, 856);
             this.groupBox_thietlap.TabIndex = 3;
             this.groupBox_thietlap.TabStop = false;
-            this.groupBox_thietlap.Enter += new System.EventHandler(this.groupBox_thietlap_Enter);
             // 
             // lb_doimatkhau
             // 
