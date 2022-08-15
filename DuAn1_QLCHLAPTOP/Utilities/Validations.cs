@@ -156,9 +156,9 @@ namespace Presentation.Utilities
                     MessageBox.Show("Mật khẩu mới trùng mật khẩu cũ");
                     return false;
                 }
-                if (mkm.Length > 8)
+                if (mkm.Length < 8)
                 {
-                    MessageBox.Show("Mật khẩu mới không được dài quá 8 ký tự");
+                    MessageBox.Show("Mật khẩu mới không được ít hơn 8 ký tự");
                     return false;
                 }
                 if (mkm != mkxn)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 using DAL.Model;
 using BUS.IServices;
 using BUS.Services;
@@ -291,7 +292,8 @@ namespace Presentation
                         }
                     }
                     document.Add(table);
-                    document.Close();
+                    document.Close();              
+                    
                 }
             }
         }

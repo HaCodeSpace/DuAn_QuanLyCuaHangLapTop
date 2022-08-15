@@ -22,6 +22,7 @@ namespace DAL.DatabaseContext
         public DbSet<SanPhamMauSac> sanPhamMauSacs { get; set; }
         public DbSet<KeyCaps> keyCaps { get; set; }
         public DbSet<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
+        public DbSet<Laptop> laptops { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -79,6 +80,16 @@ namespace DAL.DatabaseContext
                 .HasOne(sp => sp.banPhim)
                 .WithOne(bp => bp.sanPham)
                 .HasForeignKey<BanPhim>(bp => bp.MaSP);
+            // tạo quan hệ 1-1 với bảng laptop
+            modelBuilder.Entity<SanPham>()
+                .HasOne(lp => lp.laptop)
+                .WithOne(sp => sp.sanPham)
+                .HasForeignKey<Laptop>(lp => lp.MaLaptop);
+
+            modelBuilder.Entity<SanPham>()
+                .Navigation(sp => sp.laptop)
+                .UsePropertyAccessMode(PropertyAccessMode.Property);
+                
             #endregion
 
             #region BanPhim
@@ -106,6 +117,7 @@ namespace DAL.DatabaseContext
 
             #region MauSac
             modelBuilder.Entity<MauSac>().HasKey(ms => ms.Id);
+            modelBuilder.Entity<MauSac>().Property(ms => ms.Id).UseIdentityColumn();
             // tạo quan hệ 1 - n với bảng sanphammausac
             modelBuilder.Entity<MauSac>()
                 .HasMany<SanPhamMauSac>(ms => ms.sanPhamMauSacs)
@@ -128,6 +140,12 @@ namespace DAL.DatabaseContext
 
             #region SanphamMauSac
             modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.Masp, spms.Idmau });
+            #endregion
+
+            #region Laptop
+            modelBuilder.Entity<Laptop>().HasKey(lp => lp.MaLaptop);
+            //modelBuilder.Entity<Laptop>().Property(p => p.MaLaptop).UseIdentityColumn('L' + 'P',1);
+           
             #endregion
         }
 
