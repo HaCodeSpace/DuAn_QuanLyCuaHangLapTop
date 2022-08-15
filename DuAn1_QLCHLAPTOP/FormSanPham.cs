@@ -51,7 +51,7 @@ namespace Presentation
 
         private void comboBox_dongsp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox_dongsp.Items[2].ToString());
+          //  MessageBox.Show(comboBox_dongsp.Items[2].ToString());
             //if (comboBox_dongsp.Text == "PC")
             //{
             //    panel2.Controls.Clear();
