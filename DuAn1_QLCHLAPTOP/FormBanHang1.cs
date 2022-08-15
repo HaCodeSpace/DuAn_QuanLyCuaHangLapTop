@@ -289,6 +289,11 @@ namespace Presentation
                          };
             dataGridView_danhsachsp.DataSource = result.ToList();
         }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class sanphamMua

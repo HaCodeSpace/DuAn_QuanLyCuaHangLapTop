@@ -96,11 +96,6 @@ namespace Presentation.Utilities
             }
             foreach (var item in _IQLnv.getlstNVfromDB().ToList())
             {
-                if (item.Email == email)
-                {
-                    MessageBox.Show("Email đã tồn tại trong hệ thống");
-                    return false;
-                }
                 if (item.SoDienThoai == sdt)
                 {
                     MessageBox.Show("Số điện thoại đã tồn tại trong hệ thống");
