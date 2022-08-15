@@ -24,6 +24,7 @@ namespace Presentation
         private IKeycapsService _keycapsService;
         private IBanPhimKeycapsService _banPhimKeycapsService;
         public BanPhim ban;
+        public Laptop lap;
         public BanPhimKeyCaps phimKeyCaps = new BanPhimKeyCaps();
         public MauSac mau = new MauSac();
         public SanPhamMauSac sanPhamMau = new SanPhamMauSac();
@@ -51,7 +52,7 @@ namespace Presentation
 
         private void comboBox_dongsp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox_dongsp.Items[2].ToString());
+            MessageBox.Show(comboBox_dongsp.SelectedIndex + "");
             if (comboBox_dongsp.Text == "PC")
             {
                 panel2.Controls.Clear();
@@ -76,6 +77,7 @@ namespace Presentation
                 };
                 this.panel2.Controls.Add(fspl) ;
                 fspl.FormBorderStyle = FormBorderStyle.None;
+                fspl.GetInfo += Fspl_GetInfo;
                 fspl.Show();
             }
             if (comboBox_dongsp.Text == "Bàn Phím")
@@ -112,6 +114,35 @@ namespace Presentation
             
         }
 
+        private void Fspl_GetInfo(string cpu, string ram, string card, string ocung, string pin, double trongluong, string manhinh, string dophangiai, string webcam, string hedieuhanh, string kichthuoc, string bluetooth)
+        {
+            sanpham = new SanPham()
+            {
+                MaSP = "LP" + tb_masp.Text.Trim(),
+                TenSP = tb_tensp.Text.Trim(),
+                DongSP = comboBox_dongsp.SelectedIndex,
+                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
+                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
+                GhiChu = tb_ghichu.Text.Trim(),
+                laptop = new Laptop
+                {
+                    MaLaptop = "LP" + tb_masp.Text.Trim(),
+                    CPU = cpu,
+                    RAM = ram,
+                    VGA_Card = card,
+                    OCung = ocung,
+                    PIN = pin,
+                    TrongLuong = trongluong,
+                    ManHinh = manhinh,
+                    DoPhanGiai = dophangiai,
+                    WebCam = webcam,
+                    HeDieuHanh = hedieuhanh,
+                    KichThuoc = kichthuoc,
+                    Bluetooth = bluetooth
+                }
+            };
+        }
+
         private void Fspbp_GetBanPhimEvent(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac, string keycaps)
         {
             ban = new BanPhim()
@@ -140,7 +171,7 @@ namespace Presentation
 
         private void LoadFullList()
         {
-            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP - 1].ToString(), GhiChu = c.GhiChu };
+            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP].ToString(), GhiChu = c.GhiChu };
             ListSauKhisuLyDuLieu = ListSP;
             dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
             //dataGridView1.Columns[0].HeaderText = "Mã sản phẩm";
@@ -149,7 +180,7 @@ namespace Presentation
             //dataGridView1.Columns[3].HeaderText = "Đơn giá nhập";
             //dataGridView1.Columns[4].HeaderText = "Đơn giá bán";
             //dataGridView1.Columns[5].HeaderText = "Ghi chú";
-            
+
 
         }
 
@@ -159,7 +190,7 @@ namespace Presentation
         //    {
         //        comboBox_dongsp.Items[i].ToString()
         //    }
-            
+
         //}
 
         private void FormSanPham_Load(object sender, EventArgs e)
@@ -181,13 +212,12 @@ namespace Presentation
             try
             {
                 IsAdd = true;
-                MatchData();
                 var result = _serviceSanPhamService.ThemSP(sanpham);
-                var result2 = false;
-                var result3 = true;
-                var result4 = false;
-                var result5 = false;
-                var result6 = true;
+                //var result2 = false;
+                //var result3 = true;
+                //var result4 = false;
+                //var result5 = false;
+                //var result6 = true;
                 switch (comboBox_dongsp.SelectedIndex)
                 {
                     case 0:
@@ -195,17 +225,17 @@ namespace Presentation
                     case 1:
                         break;
                     case 2:
-                        result2 = _banPhimService.ThemBP(ban);
-                        mau.MaMau = "12xd31đss";
-                        mau.TenMau = UpperCaseFirstLetter(mau.TenMau);
-                        result3 = _mauSacService.ThemMau(mau);
-                        sanPhamMau.Idmau = _mauSacService.Timid(mau);
-                        sanPhamMau.Masp = sanpham.MaSP;
-                        result4 = _sanPhamMauSacService.ThemSPMS(sanPhamMau);
-                        result5 = _keycapsService.ThemKeycaps(Capskey);
-                        phimKeyCaps.IdKeyCaps = _keycapsService.TimId(Capskey);
-                        phimKeyCaps.MaSP = sanpham.MaSP;
-                        result6 = _banPhimKeycapsService.ThemBPKCS(phimKeyCaps);
+                        //result2 = _banPhimService.ThemBP(ban);
+                        //mau.MaMau = "12xd31đss";
+                        //mau.TenMau = UpperCaseFirstLetter(mau.TenMau);
+                        //result3 = _mauSacService.ThemMau(mau);
+                        //sanPhamMau.Idmau = _mauSacService.Timid(mau);
+                        //sanPhamMau.Masp = sanpham.MaSP;
+                        //result4 = _sanPhamMauSacService.ThemSPMS(sanPhamMau);
+                        //result5 = _keycapsService.ThemKeycaps(Capskey);
+                        //phimKeyCaps.IdKeyCaps = _keycapsService.TimId(Capskey);
+                        //phimKeyCaps.MaSP = sanpham.MaSP;
+                        //result6 = _banPhimKeycapsService.ThemBPKCS(phimKeyCaps);
                         break;
                     case 3:
                         break;
@@ -214,7 +244,7 @@ namespace Presentation
                     case 5:
                         break;
                 }
-                if (result && result2 && result3 && result4 && result5 &&  result6)
+                if (result)
                 {
                     MessageBox.Show("Thêm thành công");
                     LoadFullList();
@@ -237,15 +267,15 @@ namespace Presentation
 
         private void MatchData()
         {
-            sanpham = new SanPham()
-            {
-                MaSP = IsAdd ? "SP" + tb_masp.Text : tb_masp.Text,
-                TenSP = tb_tensp.Text.Trim(),
-                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
-                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
-                DongSP = comboBox_dongsp.SelectedIndex,
-                GhiChu = tb_ghichu.Text
-            };    
+            //sanpham = new SanPham()
+            //{
+            //    MaSP = IsAdd ? "SP" + tb_masp.Text : tb_masp.Text,
+            //    TenSP = tb_tensp.Text.Trim(),
+            //    DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
+            //    DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
+            //    DongSP = comboBox_dongsp.SelectedIndex,
+            //    GhiChu = tb_ghichu.Text
+            //};    
         }
 
         
@@ -274,10 +304,6 @@ namespace Presentation
         {
             
         }
-
-
-
-
 
 
         private void comboBox_mau_SelectedIndexChanged(object sender, EventArgs e)

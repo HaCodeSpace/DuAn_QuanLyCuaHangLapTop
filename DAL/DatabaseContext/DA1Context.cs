@@ -146,6 +146,7 @@ namespace DAL.DatabaseContext
             modelBuilder.Entity<Laptop>().HasKey(lp => lp.MaLaptop);
             //modelBuilder.Entity<Laptop>().Property(p => p.MaLaptop).UseIdentityColumn('L' + 'P',1);
            
+
             #endregion
         }
 

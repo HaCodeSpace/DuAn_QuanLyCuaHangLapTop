@@ -57,8 +57,9 @@ namespace DAL.Repository.RepositorySanPham
 
         public ICollection<SanPham> GetAll()
         {
-            return this.context.sanPhams.ToList();
-            //return new List<SanPham>();
+
+            var result = context.sanPhams.ToList();
+            return result;
         }
 
         public IEnumerable<SanPham> GetByValue(string value)
@@ -78,4 +79,5 @@ namespace DAL.Repository.RepositorySanPham
             
         }
     }
+   
 }
