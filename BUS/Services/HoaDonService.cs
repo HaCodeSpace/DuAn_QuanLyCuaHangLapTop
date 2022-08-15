@@ -29,6 +29,7 @@ namespace BUS.Services
 
         public bool ThemHD(HoaDon hoaDon)
         {
+          //  return _service.Add(hoaDon);
             return _service.Add(hoaDon);
         }
 

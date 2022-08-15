@@ -242,7 +242,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Name = "FormBanHang";
-            this.Text = "FormBanHang";
+            this.Text = "Phần Mềm Quản Lý";
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_avatar)).EndInit();

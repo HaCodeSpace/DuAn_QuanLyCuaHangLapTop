@@ -23,12 +23,6 @@ namespace Presentation
             _IQLnv = new QLNhanVienService();
             _validate = new Validations();
         }
-
-        private void groupBox_thietlap_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void bt_thaydoi_Click(object sender, EventArgs e)
         {
             if (_validate.DoiMatKhau(tb_matkhauhientai.Text, tb_matkhaumoi.Text, tb_xacnhan.Text))
