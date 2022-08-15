@@ -17,6 +17,8 @@ namespace DAL.Model
 
         public virtual BanPhim banPhim { get; set; }
 
+        public Laptop laptop { get; set; }
+
         public virtual ICollection<HoaDonChiTiet> hoaDonChiTiets { get; set; }
     }
 }

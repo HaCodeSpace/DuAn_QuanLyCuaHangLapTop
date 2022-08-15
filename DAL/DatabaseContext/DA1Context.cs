@@ -22,6 +22,7 @@ namespace DAL.DatabaseContext
         public DbSet<SanPhamMauSac> sanPhamMauSacs { get; set; }
         public DbSet<KeyCaps> keyCaps { get; set; }
         public DbSet<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
+        public DbSet<Laptop> laptops { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -79,6 +80,16 @@ namespace DAL.DatabaseContext
                 .HasOne(sp => sp.banPhim)
                 .WithOne(bp => bp.sanPham)
                 .HasForeignKey<BanPhim>(bp => bp.MaSP);
+            // tạo quan hệ 1-1 với bảng laptop
+            modelBuilder.Entity<SanPham>()
+                .HasOne(lp => lp.laptop)
+                .WithOne(sp => sp.sanPham)
+                .HasForeignKey<Laptop>(lp => lp.MaLaptop);
+
+            modelBuilder.Entity<SanPham>()
+                .Navigation(sp => sp.laptop)
+                .UsePropertyAccessMode(PropertyAccessMode.Property);
+                
             #endregion
 
             #region BanPhim
@@ -106,6 +117,7 @@ namespace DAL.DatabaseContext
 
             #region MauSac
             modelBuilder.Entity<MauSac>().HasKey(ms => ms.Id);
+            modelBuilder.Entity<MauSac>().Property(ms => ms.Id).UseIdentityColumn();
             // tạo quan hệ 1 - n với bảng sanphammausac
             modelBuilder.Entity<MauSac>()
                 .HasMany<SanPhamMauSac>(ms => ms.sanPhamMauSacs)
@@ -129,6 +141,12 @@ namespace DAL.DatabaseContext
             #region SanphamMauSac
             modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.Masp, spms.Idmau });
             #endregion
+
+            #region Laptop
+            modelBuilder.Entity<Laptop>().HasKey(lp => lp.MaLaptop);
+            //modelBuilder.Entity<Laptop>().Property(p => p.MaLaptop).UseIdentityColumn('L' + 'P',1);
+           
+            #endregion
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -140,9 +158,9 @@ namespace DAL.DatabaseContext
                 // dòng của người nào người đó dùng lần sau chỉ việc uncomment là được đỡ phải thay đổi của nhau gây mất thời gian
                 // sửa đi sửa lại
                 // của tuấn anh
-                //optionsBuilder.UseSqlServer("Data Source=TUANANHPC\\SQLEXPRESS01;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=tuananh;Password=123");
+                optionsBuilder.UseSqlServer("Data Source=TUANANHPC\\SQLEXPRESS01;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=tuananh;Password=123");
                 // của a phong
-                optionsBuilder.UseSqlServer(@"Data Source=PHONGTT2710\SQLEXPRESS;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=phong;Password=123");
+                //optionsBuilder.UseSqlServer(@"Data Source=PHONGTT2710\SQLEXPRESS;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=phong;Password=123");
                 // của hà
                 //optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-2H8Q06GG\MAIN;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=ha;Password=123");
                 // của hưng
