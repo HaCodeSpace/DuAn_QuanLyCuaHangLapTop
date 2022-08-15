@@ -146,6 +146,7 @@ namespace DAL.DatabaseContext
             modelBuilder.Entity<Laptop>().HasKey(lp => lp.MaLaptop);
             //modelBuilder.Entity<Laptop>().Property(p => p.MaLaptop).UseIdentityColumn('L' + 'P',1);
            
+
             #endregion
         }
 
@@ -162,7 +163,7 @@ namespace DAL.DatabaseContext
                 // của a phong
                 optionsBuilder.UseSqlServer(@"Data Source=PHONGTT2710\SQLEXPRESS;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=phong;Password=123");
                 // của hà
-                //optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-2H8Q06GG\MAIN;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=ha;Password=123");
+                optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-2H8Q06GG\MAIN;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=ha;Password=123");
                 // của hưng
                 //optionsBuilder.UseSqlServer("Data Source=;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=;Password=");
 

@@ -261,19 +261,19 @@ namespace Presentation
 
         private void tb_timkiem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                var result = from l in _sanPhamService.SanPhamList()
-                             where l.TenSP.Contains(tb_timkiem.Text)
-                             select new sanphamMua()
-                             {
-                                 MaSP = l.MaSP,
-                                 TenSP = l.TenSP,
-                                 GiaSP = l.DonGiaBan,
-                                 SoLuong = 1
-                             };
-                dataGridView_danhsachsp.DataSource = result.ToList();
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    var result = from l in _sanPhamService.SanPhamList()
+            //                 where l.TenSP.Contains(tb_timkiem.Text)
+            //                 select new sanphamMua()
+            //                 {
+            //                     MaSP = l.MaSP,
+            //                     TenSP = l.TenSP,
+            //                     GiaSP = l.DonGiaBan,
+            //                     SoLuong = 1
+            //                 };
+            //    dataGridView_danhsachsp.DataSource = result.ToList();
+            //}
         }
 
         private void comboBox_danhmuc_SelectedIndexChanged(object sender, EventArgs e)
@@ -288,6 +288,11 @@ namespace Presentation
                              SoLuong = 1
                          };
             dataGridView_danhsachsp.DataSource = result.ToList();
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -87,7 +87,7 @@ namespace Presentation.Utilities
             }
             return true;
         }
-        public bool NhanVienValidate2(string ten, string vaitro, string email, string date, string sdt,string mk)
+        public bool NhanVienValidate2(string ma,string ten, string vaitro, string email, string date, string sdt,string mk)
         {
             if (ten.Length == 0 || vaitro.Length == 0 || email.Length == 0 || date.Length == 0 || sdt.Length == 0||mk.Length==0)
             {
@@ -96,6 +96,10 @@ namespace Presentation.Utilities
             }
             foreach (var item in _IQLnv.getlstNVfromDB().ToList())
             {
+                if (ma==item.MaNV)
+                {
+                    break;
+                }
                 if (item.Email == email)
                 {
                     MessageBox.Show("Email đã tồn tại trong hệ thống");

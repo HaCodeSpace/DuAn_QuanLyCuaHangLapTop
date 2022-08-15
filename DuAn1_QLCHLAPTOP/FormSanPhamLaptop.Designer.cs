@@ -30,20 +30,22 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox_kichthuoc = new System.Windows.Forms.ComboBox();
-            this.comboBox_trongluong = new System.Windows.Forms.ComboBox();
-            this.comboBox_pin = new System.Windows.Forms.ComboBox();
+            this.tbx_bluetooth = new System.Windows.Forms.TextBox();
+            this.tbx_kichthuoc = new System.Windows.Forms.TextBox();
+            this.tbx_hedieuhanh = new System.Windows.Forms.TextBox();
+            this.tbx_webcam = new System.Windows.Forms.TextBox();
+            this.tbx_dophangiai = new System.Windows.Forms.TextBox();
+            this.tbx_manhinh = new System.Windows.Forms.TextBox();
+            this.tbx_trongluong = new System.Windows.Forms.TextBox();
+            this.tbx_pin = new System.Windows.Forms.TextBox();
+            this.tbx_ocung = new System.Windows.Forms.TextBox();
+            this.tbx_card = new System.Windows.Forms.TextBox();
+            this.tb_ram = new System.Windows.Forms.TextBox();
+            this.tb_cpu = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lb_kichthuoc = new System.Windows.Forms.Label();
             this.lb_trongluong = new System.Windows.Forms.Label();
             this.lb_pin = new System.Windows.Forms.Label();
-            this.comboBox_hedieuhanh = new System.Windows.Forms.ComboBox();
-            this.comboBox_webcam = new System.Windows.Forms.ComboBox();
-            this.comboBox_banphim = new System.Windows.Forms.ComboBox();
-            this.comboBox_manhinh = new System.Windows.Forms.ComboBox();
-            this.comboBox_oluutru = new System.Windows.Forms.ComboBox();
-            this.comboBox_vga = new System.Windows.Forms.ComboBox();
-            this.comboBox_ram = new System.Windows.Forms.ComboBox();
-            this.comboBox_cpu = new System.Windows.Forms.ComboBox();
             this.lb_manhinh = new System.Windows.Forms.Label();
             this.lb_oluutru = new System.Windows.Forms.Label();
             this.lb_hedieuhanh = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.lb_cpu = new System.Windows.Forms.Label();
             this.lb_banphim = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,22 +71,22 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.tbx_bluetooth);
+            this.panel2.Controls.Add(this.tbx_kichthuoc);
+            this.panel2.Controls.Add(this.tbx_hedieuhanh);
+            this.panel2.Controls.Add(this.tbx_webcam);
+            this.panel2.Controls.Add(this.tbx_dophangiai);
+            this.panel2.Controls.Add(this.tbx_manhinh);
+            this.panel2.Controls.Add(this.tbx_trongluong);
+            this.panel2.Controls.Add(this.tbx_pin);
+            this.panel2.Controls.Add(this.tbx_ocung);
+            this.panel2.Controls.Add(this.tbx_card);
+            this.panel2.Controls.Add(this.tb_ram);
+            this.panel2.Controls.Add(this.tb_cpu);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.comboBox_kichthuoc);
-            this.panel2.Controls.Add(this.comboBox_trongluong);
-            this.panel2.Controls.Add(this.comboBox_pin);
             this.panel2.Controls.Add(this.lb_kichthuoc);
             this.panel2.Controls.Add(this.lb_trongluong);
             this.panel2.Controls.Add(this.lb_pin);
-            this.panel2.Controls.Add(this.comboBox_hedieuhanh);
-            this.panel2.Controls.Add(this.comboBox_webcam);
-            this.panel2.Controls.Add(this.comboBox_banphim);
-            this.panel2.Controls.Add(this.comboBox_manhinh);
-            this.panel2.Controls.Add(this.comboBox_oluutru);
-            this.panel2.Controls.Add(this.comboBox_vga);
-            this.panel2.Controls.Add(this.comboBox_ram);
-            this.panel2.Controls.Add(this.comboBox_cpu);
             this.panel2.Controls.Add(this.lb_manhinh);
             this.panel2.Controls.Add(this.lb_oluutru);
             this.panel2.Controls.Add(this.lb_hedieuhanh);
@@ -101,56 +101,111 @@
             this.panel2.Size = new System.Drawing.Size(568, 292);
             this.panel2.TabIndex = 31;
             // 
-            // comboBox_kichthuoc
+            // tbx_bluetooth
             // 
-            this.comboBox_kichthuoc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_kichthuoc.FormattingEnabled = true;
-            this.comboBox_kichthuoc.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_kichthuoc.Location = new System.Drawing.Point(367, 200);
-            this.comboBox_kichthuoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_kichthuoc.Name = "comboBox_kichthuoc";
-            this.comboBox_kichthuoc.Size = new System.Drawing.Size(187, 27);
-            this.comboBox_kichthuoc.TabIndex = 57;
+            this.tbx_bluetooth.Location = new System.Drawing.Point(378, 242);
+            this.tbx_bluetooth.Name = "tbx_bluetooth";
+            this.tbx_bluetooth.Size = new System.Drawing.Size(162, 23);
+            this.tbx_bluetooth.TabIndex = 70;
+            this.tbx_bluetooth.TextChanged += new System.EventHandler(this.tbx_textchanged);
             // 
-            // comboBox_trongluong
+            // tbx_kichthuoc
             // 
-            this.comboBox_trongluong.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_trongluong.FormattingEnabled = true;
-            this.comboBox_trongluong.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_trongluong.Location = new System.Drawing.Point(119, 239);
-            this.comboBox_trongluong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_trongluong.Name = "comboBox_trongluong";
-            this.comboBox_trongluong.Size = new System.Drawing.Size(141, 27);
-            this.comboBox_trongluong.TabIndex = 56;
+            this.tbx_kichthuoc.Location = new System.Drawing.Point(378, 206);
+            this.tbx_kichthuoc.Name = "tbx_kichthuoc";
+            this.tbx_kichthuoc.Size = new System.Drawing.Size(162, 23);
+            this.tbx_kichthuoc.TabIndex = 69;
+            this.tbx_kichthuoc.TextChanged += new System.EventHandler(this.tbx_textchanged);
             // 
-            // comboBox_pin
+            // tbx_hedieuhanh
             // 
-            this.comboBox_pin.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_pin.FormattingEnabled = true;
-            this.comboBox_pin.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_pin.Location = new System.Drawing.Point(100, 200);
-            this.comboBox_pin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_pin.Name = "comboBox_pin";
-            this.comboBox_pin.Size = new System.Drawing.Size(160, 27);
-            this.comboBox_pin.TabIndex = 55;
+            this.tbx_hedieuhanh.Location = new System.Drawing.Point(378, 165);
+            this.tbx_hedieuhanh.Name = "tbx_hedieuhanh";
+            this.tbx_hedieuhanh.Size = new System.Drawing.Size(162, 23);
+            this.tbx_hedieuhanh.TabIndex = 68;
+            this.tbx_hedieuhanh.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tbx_webcam
+            // 
+            this.tbx_webcam.Location = new System.Drawing.Point(378, 118);
+            this.tbx_webcam.Name = "tbx_webcam";
+            this.tbx_webcam.Size = new System.Drawing.Size(162, 23);
+            this.tbx_webcam.TabIndex = 67;
+            this.tbx_webcam.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tbx_dophangiai
+            // 
+            this.tbx_dophangiai.Location = new System.Drawing.Point(378, 64);
+            this.tbx_dophangiai.Name = "tbx_dophangiai";
+            this.tbx_dophangiai.Size = new System.Drawing.Size(162, 23);
+            this.tbx_dophangiai.TabIndex = 66;
+            this.tbx_dophangiai.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tbx_manhinh
+            // 
+            this.tbx_manhinh.Location = new System.Drawing.Point(378, 2);
+            this.tbx_manhinh.Name = "tbx_manhinh";
+            this.tbx_manhinh.Size = new System.Drawing.Size(162, 23);
+            this.tbx_manhinh.TabIndex = 65;
+            this.tbx_manhinh.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tbx_trongluong
+            // 
+            this.tbx_trongluong.Location = new System.Drawing.Point(114, 242);
+            this.tbx_trongluong.Name = "tbx_trongluong";
+            this.tbx_trongluong.Size = new System.Drawing.Size(141, 23);
+            this.tbx_trongluong.TabIndex = 64;
+            this.tbx_trongluong.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tbx_pin
+            // 
+            this.tbx_pin.Location = new System.Drawing.Point(97, 206);
+            this.tbx_pin.Name = "tbx_pin";
+            this.tbx_pin.Size = new System.Drawing.Size(158, 23);
+            this.tbx_pin.TabIndex = 63;
+            this.tbx_pin.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tbx_ocung
+            // 
+            this.tbx_ocung.Location = new System.Drawing.Point(97, 165);
+            this.tbx_ocung.Name = "tbx_ocung";
+            this.tbx_ocung.Size = new System.Drawing.Size(158, 23);
+            this.tbx_ocung.TabIndex = 62;
+            this.tbx_ocung.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tbx_card
+            // 
+            this.tbx_card.Location = new System.Drawing.Point(97, 118);
+            this.tbx_card.Name = "tbx_card";
+            this.tbx_card.Size = new System.Drawing.Size(158, 23);
+            this.tbx_card.TabIndex = 61;
+            this.tbx_card.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tb_ram
+            // 
+            this.tb_ram.Location = new System.Drawing.Point(97, 64);
+            this.tb_ram.Name = "tb_ram";
+            this.tb_ram.Size = new System.Drawing.Size(158, 23);
+            this.tb_ram.TabIndex = 60;
+            this.tb_ram.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // tb_cpu
+            // 
+            this.tb_cpu.Location = new System.Drawing.Point(97, 6);
+            this.tb_cpu.Name = "tb_cpu";
+            this.tb_cpu.Size = new System.Drawing.Size(158, 23);
+            this.tb_cpu.TabIndex = 59;
+            this.tb_cpu.TextChanged += new System.EventHandler(this.tbx_textchanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(278, 247);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 19);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "Bluetooth";
             // 
             // lb_kichthuoc
             // 
@@ -181,142 +236,6 @@
             this.lb_pin.Size = new System.Drawing.Size(29, 19);
             this.lb_pin.TabIndex = 52;
             this.lb_pin.Text = "Pin";
-            // 
-            // comboBox_hedieuhanh
-            // 
-            this.comboBox_hedieuhanh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_hedieuhanh.FormattingEnabled = true;
-            this.comboBox_hedieuhanh.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_hedieuhanh.Location = new System.Drawing.Point(388, 159);
-            this.comboBox_hedieuhanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_hedieuhanh.Name = "comboBox_hedieuhanh";
-            this.comboBox_hedieuhanh.Size = new System.Drawing.Size(166, 27);
-            this.comboBox_hedieuhanh.TabIndex = 51;
-            // 
-            // comboBox_webcam
-            // 
-            this.comboBox_webcam.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_webcam.FormattingEnabled = true;
-            this.comboBox_webcam.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_webcam.Location = new System.Drawing.Point(360, 112);
-            this.comboBox_webcam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_webcam.Name = "comboBox_webcam";
-            this.comboBox_webcam.Size = new System.Drawing.Size(187, 27);
-            this.comboBox_webcam.TabIndex = 50;
-            // 
-            // comboBox_banphim
-            // 
-            this.comboBox_banphim.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_banphim.FormattingEnabled = true;
-            this.comboBox_banphim.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_banphim.Location = new System.Drawing.Point(371, 58);
-            this.comboBox_banphim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_banphim.Name = "comboBox_banphim";
-            this.comboBox_banphim.Size = new System.Drawing.Size(176, 27);
-            this.comboBox_banphim.TabIndex = 49;
-            // 
-            // comboBox_manhinh
-            // 
-            this.comboBox_manhinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_manhinh.FormattingEnabled = true;
-            this.comboBox_manhinh.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_manhinh.Location = new System.Drawing.Point(360, 0);
-            this.comboBox_manhinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_manhinh.Name = "comboBox_manhinh";
-            this.comboBox_manhinh.Size = new System.Drawing.Size(187, 27);
-            this.comboBox_manhinh.TabIndex = 48;
-            // 
-            // comboBox_oluutru
-            // 
-            this.comboBox_oluutru.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_oluutru.FormattingEnabled = true;
-            this.comboBox_oluutru.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_oluutru.Location = new System.Drawing.Point(100, 159);
-            this.comboBox_oluutru.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_oluutru.Name = "comboBox_oluutru";
-            this.comboBox_oluutru.Size = new System.Drawing.Size(160, 27);
-            this.comboBox_oluutru.TabIndex = 47;
-            // 
-            // comboBox_vga
-            // 
-            this.comboBox_vga.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_vga.FormattingEnabled = true;
-            this.comboBox_vga.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_vga.Location = new System.Drawing.Point(156, 112);
-            this.comboBox_vga.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_vga.Name = "comboBox_vga";
-            this.comboBox_vga.Size = new System.Drawing.Size(104, 27);
-            this.comboBox_vga.TabIndex = 46;
-            // 
-            // comboBox_ram
-            // 
-            this.comboBox_ram.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_ram.FormattingEnabled = true;
-            this.comboBox_ram.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_ram.Location = new System.Drawing.Point(73, 58);
-            this.comboBox_ram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_ram.Name = "comboBox_ram";
-            this.comboBox_ram.Size = new System.Drawing.Size(187, 27);
-            this.comboBox_ram.TabIndex = 45;
-            // 
-            // comboBox_cpu
-            // 
-            this.comboBox_cpu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_cpu.FormattingEnabled = true;
-            this.comboBox_cpu.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox_cpu.Location = new System.Drawing.Point(73, 0);
-            this.comboBox_cpu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_cpu.Name = "comboBox_cpu";
-            this.comboBox_cpu.Size = new System.Drawing.Size(187, 27);
-            this.comboBox_cpu.TabIndex = 44;
             // 
             // lb_manhinh
             // 
@@ -364,9 +283,9 @@
             this.lb_vga.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_vga.Location = new System.Drawing.Point(18, 118);
             this.lb_vga.Name = "lb_vga";
-            this.lb_vga.Size = new System.Drawing.Size(123, 19);
+            this.lb_vga.Size = new System.Drawing.Size(72, 19);
             this.lb_vga.TabIndex = 31;
-            this.lb_vga.Text = "VGA-Card Đồ Họa";
+            this.lb_vga.Text = "VGA-Card";
             // 
             // lb_ram
             // 
@@ -407,33 +326,6 @@
             this.label1.Size = new System.Drawing.Size(0, 51);
             this.label1.TabIndex = 0;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "PC",
-            "Laptop",
-            "Bàn Phím",
-            "Chuột",
-            "Tai Nghe",
-            "Màn Hình"});
-            this.comboBox1.Location = new System.Drawing.Point(374, 244);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 27);
-            this.comboBox1.TabIndex = 59;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(278, 247);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 19);
-            this.label2.TabIndex = 58;
-            this.label2.Text = "Bluetooth";
-            // 
             // FormSanPhamLaptop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -444,6 +336,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSanPhamLaptop";
             this.Text = "FormSanPhamLaptop";
+            this.Load += new System.EventHandler(this.FormSanPhamLaptop_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -456,14 +349,6 @@
 
         private Panel panel1;
         private Panel panel2;
-        private ComboBox comboBox_hedieuhanh;
-        private ComboBox comboBox_webcam;
-        private ComboBox comboBox_banphim;
-        private ComboBox comboBox_manhinh;
-        private ComboBox comboBox_oluutru;
-        private ComboBox comboBox_vga;
-        private ComboBox comboBox_ram;
-        private ComboBox comboBox_cpu;
         private Label lb_manhinh;
         private Label lb_oluutru;
         private Label lb_hedieuhanh;
@@ -473,13 +358,21 @@
         private Label lb_cpu;
         private Label lb_banphim;
         private Label label1;
-        private ComboBox comboBox_kichthuoc;
-        private ComboBox comboBox_trongluong;
-        private ComboBox comboBox_pin;
         private Label lb_kichthuoc;
         private Label lb_trongluong;
         private Label lb_pin;
-        private ComboBox comboBox1;
         private Label label2;
+        private TextBox tbx_bluetooth;
+        private TextBox tbx_kichthuoc;
+        private TextBox tbx_hedieuhanh;
+        private TextBox tbx_webcam;
+        private TextBox tbx_dophangiai;
+        private TextBox tbx_manhinh;
+        private TextBox tbx_trongluong;
+        private TextBox tbx_pin;
+        private TextBox tbx_ocung;
+        private TextBox tbx_card;
+        private TextBox tb_ram;
+        private TextBox tb_cpu;
     }
 }

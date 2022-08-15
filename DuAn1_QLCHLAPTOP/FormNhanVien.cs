@@ -201,7 +201,7 @@ namespace Presentation
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn Sửa không", "", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (!_validate.NhanVienValidate2( tb_tennv.Text, comboBox_vaitro.Text, tb_email.Text, tb_ngaysinh.Text, tb_dienthoai.Text, tb_matkhau.Text))
+                if (!_validate.NhanVienValidate2(tb_manv.Text,tb_tennv.Text, comboBox_vaitro.Text, tb_email.Text, tb_ngaysinh.Text, tb_dienthoai.Text, tb_matkhau.Text))
                 {
                     return;
                 }
