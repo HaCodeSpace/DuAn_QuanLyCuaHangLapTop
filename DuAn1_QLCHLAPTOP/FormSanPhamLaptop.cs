@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DAL.Model;
 
 namespace Presentation
 {
@@ -15,11 +15,19 @@ namespace Presentation
     {
         public delegate void GetLaptop(string cpu, string ram, string card, string ocung, string pin, double trongluong, string manhinh, string dophangiai, string webcam, string hedieuhanh, string kichthuoc, string bluetooth);
         public event GetLaptop GetInfo;
+        private Laptop laptop;
 
         public FormSanPhamLaptop()
         {
             InitializeComponent();
+  
 
+        }
+        public FormSanPhamLaptop(Laptop lap)
+        {
+            InitializeComponent();
+            laptop = lap;
+            
         }
 
         private void tbx_textchanged(object sender, EventArgs e)
@@ -31,7 +39,7 @@ namespace Presentation
             string pin = tbx_pin.Text.Trim();
             double trongluong;
             var check = double.TryParse(tbx_trongluong.Text.Trim(), out trongluong);
-            if (!check)
+            if (!check && !string.IsNullOrEmpty(tbx_trongluong.Text))
             {
                 MessageBox.Show("Trọng lượng phải là số!");
                 return;
@@ -48,7 +56,28 @@ namespace Presentation
 
         private void FormSanPhamLaptop_Load(object sender, EventArgs e)
         {
-           
+            if (laptop !=null)
+            {
+                tb_cpu.Text = laptop.CPU;
+                tb_ram.Text = laptop.RAM;
+                tbx_card.Text = laptop.VGA_Card;
+                tbx_ocung.Text=laptop.OCung;
+                tbx_pin.Text=laptop.PIN;
+                tbx_trongluong.Text=laptop.TrongLuong.ToString();
+                tbx_manhinh.Text=laptop.ManHinh;
+                tbx_dophangiai.Text=laptop.DoPhanGiai;
+                tbx_webcam.Text=laptop.WebCam;
+                tbx_hedieuhanh.Text=laptop.HeDieuHanh;
+                tbx_bluetooth.Text=laptop.Bluetooth;
+                tbx_kichthuoc.Text=laptop.KichThuoc;
+            }
+        }
+
+
+
+        private void tb_cpu_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

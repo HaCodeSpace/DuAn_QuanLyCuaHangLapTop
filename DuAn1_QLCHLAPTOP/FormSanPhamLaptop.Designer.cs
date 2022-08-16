@@ -195,6 +195,7 @@
             this.tb_cpu.Name = "tb_cpu";
             this.tb_cpu.Size = new System.Drawing.Size(158, 23);
             this.tb_cpu.TabIndex = 59;
+            this.tb_cpu.Click += new System.EventHandler(this.tb_cpu_Click);
             this.tb_cpu.TextChanged += new System.EventHandler(this.tbx_textchanged);
             // 
             // label2
