@@ -35,8 +35,7 @@ namespace Presentation
         private void bt_xacnhan_Click(object sender, EventArgs e)
         {
             if (_IQLnv.getlstNVfromDB().Any(nv => nv.Email == tb_email.Text && nv.SoDienThoai ==tb_sdt.Text))
-            {
-                MessageBox.Show("Mật khẩu của bạn đã được gửi về mail, mời kiểm tra");
+            {              
                 string from, to, pass;
                 from = "hanvph19236@fpt.edu.vn";
                 to = tb_email.Text;
@@ -48,7 +47,7 @@ namespace Presentation
                 MailMessage mail = new MailMessage();
                 mail.To.Add(to);
                 mail.From = new MailAddress(from);
-                mail.Subject = "Quên mât khẩu";
+                mail.Subject = "Cửa hàng laptop và phụ kiện";
                 mail.Body = "Mật khẩu của bạn là: "+_nv.MatKhau;
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com");
@@ -59,7 +58,7 @@ namespace Presentation
                 try
                 {
                     smtp.Send(mail);
-                    MessageBox.Show("Gửi mail thành công");
+                    MessageBox.Show("Mật khẩu của bạn đã được gửi về mail, mời kiểm tra");
                 }
                 catch (Exception ex)
                 {
