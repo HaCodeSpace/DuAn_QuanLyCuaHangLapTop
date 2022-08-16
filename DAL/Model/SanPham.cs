@@ -8,7 +8,7 @@ namespace DAL.Model
 {
     public class SanPham
     {
-        public String MaSP { get; set; }
+        public int MaSP { get; set; }
         public string TenSP { get; set; }
         public float DonGiaNhap { get; set; }
         public float DonGiaBan { get; set; }
@@ -19,6 +19,7 @@ namespace DAL.Model
 
         public Laptop laptop { get; set; }
 
+        public Chuot chuot { get; set; }
         public virtual ICollection<HoaDonChiTiet> hoaDonChiTiets { get; set; }
     }
 }

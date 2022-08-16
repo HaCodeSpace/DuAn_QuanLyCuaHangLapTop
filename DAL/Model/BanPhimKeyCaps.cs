@@ -11,7 +11,7 @@ namespace DAL.Model
         public int IdKeyCaps { get; set; }
         public virtual KeyCaps keyCaps { get; set; }
 
-        public string MaSP { get; set; }
+        public int MaSP { get; set; }
         public virtual BanPhim banPhim { get; set; }
     }
 }

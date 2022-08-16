@@ -9,7 +9,7 @@ namespace DAL.Model
     public class BanPhimSoLuongSwitch
     {
 
-        public string MaSP { get; set; }
+        public int MaSP { get; set; }
         public virtual BanPhim banPhim { get; set; }
 
         public string Switch { get; set; }

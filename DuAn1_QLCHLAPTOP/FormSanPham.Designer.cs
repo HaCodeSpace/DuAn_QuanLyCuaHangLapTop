@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox_thietlap = new System.Windows.Forms.GroupBox();
-            this.tb_mausac = new System.Windows.Forms.TextBox();
+            this.tb_soluong = new System.Windows.Forms.TextBox();
             this.btnclear = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tb_ghichu = new System.Windows.Forms.TextBox();
@@ -43,11 +43,9 @@
             this.comboBox_dongsp = new System.Windows.Forms.ComboBox();
             this.tb_giaban = new System.Windows.Forms.TextBox();
             this.tb_gianhap = new System.Windows.Forms.TextBox();
-            this.tb_masp = new System.Windows.Forms.TextBox();
             this.lb_gianhap = new System.Windows.Forms.Label();
             this.lb_giaban = new System.Windows.Forms.Label();
             this.lb_tensp = new System.Windows.Forms.Label();
-            this.lb_masp = new System.Windows.Forms.Label();
             this.groupBox_thongtin = new System.Windows.Forms.GroupBox();
             this.tb_timkiem = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -66,14 +64,14 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(321, 421);
+            this.label1.Location = new System.Drawing.Point(281, 316);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 62);
+            this.label1.Size = new System.Drawing.Size(0, 51);
             this.label1.TabIndex = 0;
             // 
             // groupBox_thietlap
             // 
-            this.groupBox_thietlap.Controls.Add(this.tb_mausac);
+            this.groupBox_thietlap.Controls.Add(this.tb_soluong);
             this.groupBox_thietlap.Controls.Add(this.btnclear);
             this.groupBox_thietlap.Controls.Add(this.panel2);
             this.groupBox_thietlap.Controls.Add(this.tb_ghichu);
@@ -86,62 +84,68 @@
             this.groupBox_thietlap.Controls.Add(this.comboBox_dongsp);
             this.groupBox_thietlap.Controls.Add(this.tb_giaban);
             this.groupBox_thietlap.Controls.Add(this.tb_gianhap);
-            this.groupBox_thietlap.Controls.Add(this.tb_masp);
             this.groupBox_thietlap.Controls.Add(this.lb_gianhap);
             this.groupBox_thietlap.Controls.Add(this.lb_giaban);
             this.groupBox_thietlap.Controls.Add(this.lb_tensp);
-            this.groupBox_thietlap.Controls.Add(this.lb_masp);
-            this.groupBox_thietlap.Location = new System.Drawing.Point(3, 17);
+            this.groupBox_thietlap.Location = new System.Drawing.Point(3, 13);
+            this.groupBox_thietlap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox_thietlap.Name = "groupBox_thietlap";
-            this.groupBox_thietlap.Size = new System.Drawing.Size(1331, 444);
+            this.groupBox_thietlap.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox_thietlap.Size = new System.Drawing.Size(1165, 333);
             this.groupBox_thietlap.TabIndex = 1;
             this.groupBox_thietlap.TabStop = false;
             this.groupBox_thietlap.Text = "Thiết Lập Thông Tin Sản Phẩm";
             // 
-            // tb_mausac
+            // tb_soluong
             // 
-            this.tb_mausac.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_mausac.Location = new System.Drawing.Point(224, 249);
-            this.tb_mausac.Name = "tb_mausac";
-            this.tb_mausac.Size = new System.Drawing.Size(263, 30);
-            this.tb_mausac.TabIndex = 32;
+            this.tb_soluong.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_soluong.Location = new System.Drawing.Point(196, 187);
+            this.tb_soluong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_soluong.Name = "tb_soluong";
+            this.tb_soluong.Size = new System.Drawing.Size(231, 26);
+            this.tb_soluong.TabIndex = 32;
             // 
             // btnclear
             // 
             this.btnclear.BackColor = System.Drawing.Color.Yellow;
+            this.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnclear.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnclear.ForeColor = System.Drawing.Color.Black;
             this.btnclear.Image = global::Presentation.Properties.Resources.refresh;
-            this.btnclear.Location = new System.Drawing.Point(56, 380);
+            this.btnclear.Location = new System.Drawing.Point(54, 274);
+            this.btnclear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnclear.Name = "btnclear";
-            this.btnclear.Size = new System.Drawing.Size(101, 37);
+            this.btnclear.Size = new System.Drawing.Size(83, 39);
             this.btnclear.TabIndex = 31;
             this.btnclear.Text = "Clear";
             this.btnclear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnclear.UseVisualStyleBackColor = false;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(493, 27);
+            this.panel2.Location = new System.Drawing.Point(431, 20);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(789, 389);
+            this.panel2.Size = new System.Drawing.Size(690, 292);
             this.panel2.TabIndex = 30;
             // 
             // tb_ghichu
             // 
             this.tb_ghichu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_ghichu.Location = new System.Drawing.Point(224, 296);
+            this.tb_ghichu.Location = new System.Drawing.Point(196, 231);
+            this.tb_ghichu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_ghichu.Name = "tb_ghichu";
-            this.tb_ghichu.Size = new System.Drawing.Size(263, 30);
+            this.tb_ghichu.Size = new System.Drawing.Size(231, 26);
             this.tb_ghichu.TabIndex = 29;
             // 
             // lb_ghichu
             // 
             this.lb_ghichu.AutoSize = true;
             this.lb_ghichu.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_ghichu.Location = new System.Drawing.Point(46, 303);
+            this.lb_ghichu.Location = new System.Drawing.Point(40, 236);
             this.lb_ghichu.Name = "lb_ghichu";
-            this.lb_ghichu.Size = new System.Drawing.Size(72, 23);
+            this.lb_ghichu.Size = new System.Drawing.Size(60, 19);
             this.lb_ghichu.TabIndex = 27;
             this.lb_ghichu.Text = "Ghi Chú";
             // 
@@ -149,39 +153,42 @@
             // 
             this.lb_mausac.AutoSize = true;
             this.lb_mausac.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_mausac.Location = new System.Drawing.Point(46, 259);
+            this.lb_mausac.Location = new System.Drawing.Point(40, 194);
             this.lb_mausac.Name = "lb_mausac";
-            this.lb_mausac.Size = new System.Drawing.Size(76, 23);
+            this.lb_mausac.Size = new System.Drawing.Size(67, 19);
             this.lb_mausac.TabIndex = 26;
-            this.lb_mausac.Text = "Màu Sắc";
+            this.lb_mausac.Text = "Số lượng";
             // 
             // lb_dongsp
             // 
             this.lb_dongsp.AutoSize = true;
             this.lb_dongsp.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_dongsp.Location = new System.Drawing.Point(46, 123);
+            this.lb_dongsp.Location = new System.Drawing.Point(40, 68);
             this.lb_dongsp.Name = "lb_dongsp";
-            this.lb_dongsp.Size = new System.Drawing.Size(134, 23);
+            this.lb_dongsp.Size = new System.Drawing.Size(109, 19);
             this.lb_dongsp.TabIndex = 25;
             this.lb_dongsp.Text = "Dòng Sản Phẩm";
             // 
             // tb_tensp
             // 
             this.tb_tensp.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_tensp.Location = new System.Drawing.Point(224, 72);
+            this.tb_tensp.Location = new System.Drawing.Point(196, 20);
+            this.tb_tensp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_tensp.Name = "tb_tensp";
-            this.tb_tensp.Size = new System.Drawing.Size(263, 30);
+            this.tb_tensp.Size = new System.Drawing.Size(231, 26);
             this.tb_tensp.TabIndex = 24;
             // 
             // bt_sua
             // 
             this.bt_sua.BackColor = System.Drawing.Color.Yellow;
+            this.bt_sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_sua.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_sua.ForeColor = System.Drawing.Color.Black;
             this.bt_sua.Image = global::Presentation.Properties.Resources.maintenance;
-            this.bt_sua.Location = new System.Drawing.Point(386, 380);
+            this.bt_sua.Location = new System.Drawing.Point(343, 274);
+            this.bt_sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(101, 37);
+            this.bt_sua.Size = new System.Drawing.Size(83, 39);
             this.bt_sua.TabIndex = 23;
             this.bt_sua.Text = "Sửa";
             this.bt_sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -191,12 +198,14 @@
             // bt_them
             // 
             this.bt_them.BackColor = System.Drawing.Color.Yellow;
+            this.bt_them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_them.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_them.ForeColor = System.Drawing.Color.Black;
             this.bt_them.Image = global::Presentation.Properties.Resources.add;
-            this.bt_them.Location = new System.Drawing.Point(217, 380);
+            this.bt_them.Location = new System.Drawing.Point(196, 274);
+            this.bt_them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_them.Name = "bt_them";
-            this.bt_them.Size = new System.Drawing.Size(101, 37);
+            this.bt_them.Size = new System.Drawing.Size(83, 39);
             this.bt_them.TabIndex = 22;
             this.bt_them.Text = "Thêm";
             this.bt_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -211,45 +220,40 @@
             "Laptop",
             "Bàn Phím",
             "Chuột"});
-            this.comboBox_dongsp.Location = new System.Drawing.Point(224, 115);
+            this.comboBox_dongsp.Location = new System.Drawing.Point(196, 62);
+            this.comboBox_dongsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_dongsp.Name = "comboBox_dongsp";
-            this.comboBox_dongsp.Size = new System.Drawing.Size(263, 31);
+            this.comboBox_dongsp.Size = new System.Drawing.Size(231, 27);
             this.comboBox_dongsp.TabIndex = 17;
             this.comboBox_dongsp.SelectedIndexChanged += new System.EventHandler(this.comboBox_dongsp_SelectedIndexChanged);
             // 
             // tb_giaban
             // 
             this.tb_giaban.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_giaban.Location = new System.Drawing.Point(224, 205);
+            this.tb_giaban.Location = new System.Drawing.Point(196, 147);
+            this.tb_giaban.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_giaban.Name = "tb_giaban";
             this.tb_giaban.PlaceholderText = "                                           VND";
-            this.tb_giaban.Size = new System.Drawing.Size(263, 30);
+            this.tb_giaban.Size = new System.Drawing.Size(231, 26);
             this.tb_giaban.TabIndex = 13;
             // 
             // tb_gianhap
             // 
             this.tb_gianhap.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_gianhap.Location = new System.Drawing.Point(224, 161);
+            this.tb_gianhap.Location = new System.Drawing.Point(196, 108);
+            this.tb_gianhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_gianhap.Name = "tb_gianhap";
             this.tb_gianhap.PlaceholderText = "                                           VND";
-            this.tb_gianhap.Size = new System.Drawing.Size(263, 30);
+            this.tb_gianhap.Size = new System.Drawing.Size(231, 26);
             this.tb_gianhap.TabIndex = 12;
-            // 
-            // tb_masp
-            // 
-            this.tb_masp.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_masp.Location = new System.Drawing.Point(224, 28);
-            this.tb_masp.Name = "tb_masp";
-            this.tb_masp.Size = new System.Drawing.Size(263, 30);
-            this.tb_masp.TabIndex = 10;
             // 
             // lb_gianhap
             // 
             this.lb_gianhap.AutoSize = true;
             this.lb_gianhap.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_gianhap.Location = new System.Drawing.Point(46, 168);
+            this.lb_gianhap.Location = new System.Drawing.Point(40, 113);
             this.lb_gianhap.Name = "lb_gianhap";
-            this.lb_gianhap.Size = new System.Drawing.Size(82, 23);
+            this.lb_gianhap.Size = new System.Drawing.Size(68, 19);
             this.lb_gianhap.TabIndex = 4;
             this.lb_gianhap.Text = "Giá Nhập";
             // 
@@ -257,9 +261,9 @@
             // 
             this.lb_giaban.AutoSize = true;
             this.lb_giaban.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_giaban.Location = new System.Drawing.Point(46, 213);
+            this.lb_giaban.Location = new System.Drawing.Point(40, 153);
             this.lb_giaban.Name = "lb_giaban";
-            this.lb_giaban.Size = new System.Drawing.Size(69, 23);
+            this.lb_giaban.Size = new System.Drawing.Size(57, 19);
             this.lb_giaban.TabIndex = 2;
             this.lb_giaban.Text = "Giá Bán";
             // 
@@ -267,21 +271,11 @@
             // 
             this.lb_tensp.AutoSize = true;
             this.lb_tensp.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_tensp.Location = new System.Drawing.Point(46, 79);
+            this.lb_tensp.Location = new System.Drawing.Point(40, 25);
             this.lb_tensp.Name = "lb_tensp";
-            this.lb_tensp.Size = new System.Drawing.Size(118, 23);
+            this.lb_tensp.Size = new System.Drawing.Size(97, 19);
             this.lb_tensp.TabIndex = 1;
             this.lb_tensp.Text = "Tên Sản Phẩm";
-            // 
-            // lb_masp
-            // 
-            this.lb_masp.AutoSize = true;
-            this.lb_masp.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_masp.Location = new System.Drawing.Point(46, 35);
-            this.lb_masp.Name = "lb_masp";
-            this.lb_masp.Size = new System.Drawing.Size(117, 23);
-            this.lb_masp.TabIndex = 0;
-            this.lb_masp.Text = "Mã Sản Phẩm";
             // 
             // groupBox_thongtin
             // 
@@ -291,9 +285,11 @@
             this.groupBox_thongtin.Controls.Add(this.lb_mau);
             this.groupBox_thongtin.Controls.Add(this.lb_dongsanpham);
             this.groupBox_thongtin.Controls.Add(this.comboBox_dongspTTSP);
-            this.groupBox_thongtin.Location = new System.Drawing.Point(3, 487);
+            this.groupBox_thongtin.Location = new System.Drawing.Point(3, 365);
+            this.groupBox_thongtin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox_thongtin.Name = "groupBox_thongtin";
-            this.groupBox_thongtin.Size = new System.Drawing.Size(1331, 381);
+            this.groupBox_thongtin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox_thongtin.Size = new System.Drawing.Size(1165, 286);
             this.groupBox_thongtin.TabIndex = 2;
             this.groupBox_thongtin.TabStop = false;
             this.groupBox_thongtin.Text = "Thông Tin Sản Phẩm";
@@ -301,11 +297,12 @@
             // tb_timkiem
             // 
             this.tb_timkiem.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_timkiem.Location = new System.Drawing.Point(1008, 55);
+            this.tb_timkiem.Location = new System.Drawing.Point(882, 41);
+            this.tb_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_timkiem.Multiline = true;
             this.tb_timkiem.Name = "tb_timkiem";
             this.tb_timkiem.PlaceholderText = "Tìm Kiếm Theo Tên Sản Phẩm";
-            this.tb_timkiem.Size = new System.Drawing.Size(273, 31);
+            this.tb_timkiem.Size = new System.Drawing.Size(239, 24);
             this.tb_timkiem.TabIndex = 24;
             this.tb_timkiem.TextChanged += new System.EventHandler(this.tb_timkiem_TextChanged);
             // 
@@ -315,14 +312,16 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 103);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 77);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1275, 259);
+            this.dataGridView1.Size = new System.Drawing.Size(1116, 194);
             this.dataGridView1.TabIndex = 27;
-            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // comboBox_mau
             // 
@@ -334,9 +333,10 @@
             "500.000 - 1.000.000",
             "1.000.000 - 2.000.000",
             "2.000.000 ->"});
-            this.comboBox_mau.Location = new System.Drawing.Point(583, 55);
+            this.comboBox_mau.Location = new System.Drawing.Point(510, 41);
+            this.comboBox_mau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_mau.Name = "comboBox_mau";
-            this.comboBox_mau.Size = new System.Drawing.Size(193, 31);
+            this.comboBox_mau.Size = new System.Drawing.Size(169, 27);
             this.comboBox_mau.TabIndex = 26;
             this.comboBox_mau.SelectedIndexChanged += new System.EventHandler(this.comboBox_mau_SelectedIndexChanged);
             // 
@@ -344,9 +344,9 @@
             // 
             this.lb_mau.AutoSize = true;
             this.lb_mau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_mau.Location = new System.Drawing.Point(536, 59);
+            this.lb_mau.Location = new System.Drawing.Point(469, 44);
             this.lb_mau.Name = "lb_mau";
-            this.lb_mau.Size = new System.Drawing.Size(43, 28);
+            this.lb_mau.Size = new System.Drawing.Size(35, 21);
             this.lb_mau.TabIndex = 24;
             this.lb_mau.Text = "Giá";
             // 
@@ -354,9 +354,9 @@
             // 
             this.lb_dongsanpham.AutoSize = true;
             this.lb_dongsanpham.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_dongsanpham.Location = new System.Drawing.Point(40, 59);
+            this.lb_dongsanpham.Location = new System.Drawing.Point(35, 44);
             this.lb_dongsanpham.Name = "lb_dongsanpham";
-            this.lb_dongsanpham.Size = new System.Drawing.Size(162, 28);
+            this.lb_dongsanpham.Size = new System.Drawing.Size(132, 21);
             this.lb_dongsanpham.TabIndex = 25;
             this.lb_dongsanpham.Text = "Dòng Sản Phẩm";
             // 
@@ -368,9 +368,10 @@
             "Laptop",
             "Bàn Phím",
             "Chuột"});
-            this.comboBox_dongspTTSP.Location = new System.Drawing.Point(198, 55);
+            this.comboBox_dongspTTSP.Location = new System.Drawing.Point(173, 41);
+            this.comboBox_dongspTTSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox_dongspTTSP.Name = "comboBox_dongspTTSP";
-            this.comboBox_dongspTTSP.Size = new System.Drawing.Size(193, 31);
+            this.comboBox_dongspTTSP.Size = new System.Drawing.Size(169, 27);
             this.comboBox_dongspTTSP.TabIndex = 24;
             this.comboBox_dongspTTSP.SelectedIndexChanged += new System.EventHandler(this.comboBox_dongspTTSP_SelectedIndexChanged);
             // 
@@ -379,18 +380,20 @@
             this.panel1.Controls.Add(this.groupBox_thongtin);
             this.panel1.Controls.Add(this.groupBox_thietlap);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(11, 12);
+            this.panel1.Location = new System.Drawing.Point(10, 9);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1410, 879);
+            this.panel1.Size = new System.Drawing.Size(1234, 659);
             this.panel1.TabIndex = 1;
             // 
             // FormSanPham
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1199, 562);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSanPham";
             this.Text = "FormSanPham";
             this.Load += new System.EventHandler(this.FormSanPham_Load);
@@ -409,7 +412,7 @@
 
         private Label label1;
         private GroupBox groupBox_thietlap;
-        private TextBox tb_mausac;
+        private TextBox tb_soluong;
         private Button btnclear;
         private Panel panel2;
         private TextBox tb_ghichu;
@@ -422,11 +425,9 @@
         private ComboBox comboBox_dongsp;
         private TextBox tb_giaban;
         private TextBox tb_gianhap;
-        private TextBox tb_masp;
         private Label lb_gianhap;
         private Label lb_giaban;
         private Label lb_tensp;
-        private Label lb_masp;
         private GroupBox groupBox_thongtin;
         private TextBox tb_timkiem;
         private DataGridView dataGridView1;

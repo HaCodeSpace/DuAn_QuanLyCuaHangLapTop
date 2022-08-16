@@ -115,7 +115,7 @@ namespace Presentation
 
             var sanpham = new sanphamMua()
             {
-                MaSP = dataGridView_danhsachsp.CurrentRow.Cells["MaSP"].Value.ToString(),
+                MaSP = int.Parse(dataGridView_danhsachsp.CurrentRow.Cells["MaSP"].Value.ToString()),
                 TenSP = dataGridView_danhsachsp.CurrentRow.Cells["TenSP"].Value.ToString(),
                 GiaSP = float.Parse(dataGridView_danhsachsp.CurrentRow.Cells["GiaSP"].Value.ToString()),
                 SoLuong = int.Parse(dataGridView_danhsachsp.CurrentRow.Cells["SoLuong"].Value.ToString())
@@ -298,7 +298,7 @@ namespace Presentation
 
     public class sanphamMua
     {
-        public string MaSP { get; set; }
+        public int MaSP { get; set; }
         public string TenSP { get; set; }
         public float GiaSP { get; set; }
         public int SoLuong { get; set; }

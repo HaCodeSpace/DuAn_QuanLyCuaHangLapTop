@@ -23,6 +23,7 @@ namespace DAL.DatabaseContext
         public DbSet<KeyCaps> keyCaps { get; set; }
         public DbSet<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
         public DbSet<Laptop> laptops { get; set; }
+        public DbSet<Chuot> chuots { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -70,6 +71,7 @@ namespace DAL.DatabaseContext
 
             #region SanPham
             modelBuilder.Entity<SanPham>().HasKey(sp => sp.MaSP);
+            modelBuilder.Entity<SanPham>().Property(sp => sp.MaSP).UseIdentityColumn(03970, 1);
             // tạo quan hệ 1 -n với bảng hoadonchitiets
             modelBuilder.Entity<SanPham>()
                 .HasMany(sp => sp.hoaDonChiTiets)
@@ -89,7 +91,12 @@ namespace DAL.DatabaseContext
             modelBuilder.Entity<SanPham>()
                 .Navigation(sp => sp.laptop)
                 .UsePropertyAccessMode(PropertyAccessMode.Property);
-                
+
+            // tạo quan hệ 1 - 1 với bảng chuột
+            modelBuilder.Entity<SanPham>()
+                .HasOne(c => c.chuot)
+                .WithOne(sp => sp.sanPham)
+                .HasForeignKey<Chuot>(c => c.MaChuot);
             #endregion
 
             #region BanPhim
@@ -144,9 +151,11 @@ namespace DAL.DatabaseContext
 
             #region Laptop
             modelBuilder.Entity<Laptop>().HasKey(lp => lp.MaLaptop);
-            //modelBuilder.Entity<Laptop>().Property(p => p.MaLaptop).UseIdentityColumn('L' + 'P',1);
-           
 
+            #endregion
+
+            #region chuot
+            modelBuilder.Entity<Chuot>().HasKey(c => c.MaChuot);
             #endregion
         }
 
@@ -159,7 +168,7 @@ namespace DAL.DatabaseContext
                 // dòng của người nào người đó dùng lần sau chỉ việc uncomment là được đỡ phải thay đổi của nhau gây mất thời gian
                 // sửa đi sửa lại
                 // của tuấn anh
-                //optionsBuilder.UseSqlServer("Data Source=TUANANHPC\\SQLEXPRESS01;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=tuananh;Password=123");
+                optionsBuilder.UseSqlServer("Data Source=TUANANHPC\\SQLEXPRESS01;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=tuananh;Password=123");
                 // của a phong
                 optionsBuilder.UseSqlServer(@"Data Source=PHONGTT2710\SQLEXPRESS;Initial Catalog=DBDuAn1;Persist Security Info=True;User ID=phong;Password=123");
                 // của hà

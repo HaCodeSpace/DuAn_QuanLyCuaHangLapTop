@@ -23,6 +23,8 @@ namespace Presentation
         private ISanPhamMauSacService _sanPhamMauSacService;
         private IKeycapsService _keycapsService;
         private IBanPhimKeycapsService _banPhimKeycapsService;
+        private FormSanPhamLaptop sp = new FormSanPhamLaptop();
+        private Form activeForm;
         public BanPhim ban;
         public Laptop lap;
         public BanPhimKeyCaps phimKeyCaps = new BanPhimKeyCaps();
@@ -32,7 +34,6 @@ namespace Presentation
         public KeyCaps Capskey = new KeyCaps();
         public IEnumerable<SanPhamView> ListSP;
         public IEnumerable<SanPhamView> ListSauKhisuLyDuLieu;
-
         public bool IsAdd { get; set; }
 
         public FormSanPham()
@@ -52,48 +53,38 @@ namespace Presentation
 
         private void comboBox_dongsp_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  MessageBox.Show(comboBox_dongsp.Items[2].ToString());
-            //if (comboBox_dongsp.Text == "PC")
-            //{
-            //    panel2.Controls.Clear();
-            //    FormSanPhamPC fsppc = new FormSanPhamPC()
-            //    {
-            //        Dock = DockStyle.Fill,
-            //        TopLevel = false,
-            //        TopMost = true,
-            //    };
-            //    this.panel2.Controls.Add(fsppc);
-            //    fsppc.FormBorderStyle = FormBorderStyle.None;
-            //    fsppc.Show();
-            //}
             if (comboBox_dongsp.Text == "Laptop")
             {
                 panel2.Controls.Clear();
-                FormSanPhamLaptop fspl = new FormSanPhamLaptop()
+                FormSanPhamLaptop fspl = new FormSanPhamLaptop(lap)
                 {
                     Dock = DockStyle.Fill,
                     TopLevel = false,
                     TopMost = true,
                 };
-                this.panel2.Controls.Add(fspl) ;
+                activeForm = fspl;
+                this.panel2.Controls.Add(fspl);
                 fspl.FormBorderStyle = FormBorderStyle.None;
                 fspl.GetInfo += Fspl_GetInfo;
+
                 fspl.Show();
             }
             if (comboBox_dongsp.Text == "Bàn Phím")
             {
                 panel2.Controls.Clear();
-                
-                FormSanPhamBanPhim fspbp = new FormSanPhamBanPhim()
+
+                FormSanPhamBanPhim fspbp = new FormSanPhamBanPhim(ban)
                 {
                     Dock = DockStyle.Fill,
                     TopLevel = false,
                     TopMost = true,
-                    
+
                 };
+                activeForm = fspbp;
                 this.panel2.Controls.Add(fspbp);
                 fspbp.FormBorderStyle = FormBorderStyle.None;
                 fspbp.GetBanPhimEvent += Fspbp_GetBanPhimEvent;
+
                 fspbp.Show();
             }
             if (comboBox_dongsp.Text == "Chuột")
@@ -105,52 +96,25 @@ namespace Presentation
                     TopLevel = false,
                     TopMost = true,
                 };
+                activeForm = fspc;
                 this.panel2.Controls.Add(fspc);
                 fspc.FormBorderStyle = FormBorderStyle.None;
                 fspc.Show();
             }
-            //if (comboBox_dongsp.Text == "Tai Nghe")
-            //{
-            //    panel2.Controls.Clear();
-            //    FormSanPhamTaiNghe fsptn = new FormSanPhamTaiNghe()
-            //    {
-            //        Dock = DockStyle.Fill,
-            //        TopLevel = false,
-            //        TopMost = true,
-            //    };
-            //    this.panel2.Controls.Add(fsptn);
-            //    fsptn.FormBorderStyle = FormBorderStyle.None;
-            //    fsptn.Show();
-            //}
-            //if (comboBox_dongsp.Text == "Màn Hình")
-            //{
-            //    panel2.Controls.Clear();
-            //    FormSanPhamManHinh fspmh = new FormSanPhamManHinh()
-            //    {
-            //        Dock = DockStyle.Fill,
-            //        TopLevel = false,
-            //        TopMost = true,
-            //    };
-            //    this.panel2.Controls.Add(fspmh);
-            //    fspmh.FormBorderStyle = FormBorderStyle.None;
-            //    fspmh.Show();
-            //}
-            
         }
 
         private void Fspl_GetInfo(string cpu, string ram, string card, string ocung, string pin, double trongluong, string manhinh, string dophangiai, string webcam, string hedieuhanh, string kichthuoc, string bluetooth)
         {
             sanpham = new SanPham()
             {
-                MaSP = "LP" + tb_masp.Text.Trim(),
                 TenSP = tb_tensp.Text.Trim(),
                 DongSP = comboBox_dongsp.SelectedIndex,
                 DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
                 DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
                 GhiChu = tb_ghichu.Text.Trim(),
-                laptop = new Laptop
+                laptop = new Laptop()
                 {
-                    MaLaptop = "LP" + tb_masp.Text.Trim(),
+
                     CPU = cpu,
                     RAM = ram,
                     VGA_Card = card,
@@ -169,24 +133,29 @@ namespace Presentation
 
         private void Fspbp_GetBanPhimEvent(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac, string keycaps)
         {
-            ban = new BanPhim()
+            sanpham = new SanPham()
             {
-                MaSP = "SP" + tb_masp.Text,
-                HangSanXuat = hangsx,
-                KieuKetNoi = kieukn,
-                KieuBanPhim = kieubp,
-                Led = led,
-                Layout = layout,
-                KichThuoc = kichthuoc,
-                TrongLuong = trongluong,
+                TenSP = tb_tensp.Text.Trim(),
+                DongSP = comboBox_dongsp.SelectedIndex,
+                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
+                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
+                GhiChu = tb_ghichu.Text.Trim(),
+                banPhim = new BanPhim()
+                {
+                    HangSanXuat = hangsx,
+                    KieuKetNoi = kieukn,
+                    KieuBanPhim = kieubp,
+                    Led = led,
+                    Layout = layout,
+                    KichThuoc = kichthuoc,
+                    TrongLuong = trongluong,
+                }
             };
-            mau.TenMau = mausac;
-            Capskey.TenKeyCaps = keycaps;
+
         }
 
         private void AddBindings()
         {
-            tb_masp.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "MaSP"));
             tb_tensp.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "TenSP"));
             tb_gianhap.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "DonGiaNhap"));
             tb_giaban.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "DonGiaBan"));
@@ -195,10 +164,12 @@ namespace Presentation
 
         private void LoadFullList()
         {
-            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP].ToString(), GhiChu = c.GhiChu };
+            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP].ToString(), GhiChu = c.GhiChu, laptop = c.laptop, banPhim = c.banPhim };
             ListSauKhisuLyDuLieu = ListSP;
             dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
-            //dataGridView1.Columns[0].HeaderText = "Mã sản phẩm";
+            dataGridView1.Columns[dataGridView1.ColumnCount - 1].Visible = false;
+            dataGridView1.Columns[dataGridView1.ColumnCount - 2].Visible = false;
+
             //dataGridView1.Columns[1].HeaderText = "Tên sản phẩm";
             //dataGridView1.Columns[2].HeaderText = "Dòng sản phẩm";
             //dataGridView1.Columns[3].HeaderText = "Đơn giá nhập";
@@ -219,23 +190,13 @@ namespace Presentation
 
         private void FormSanPham_Load(object sender, EventArgs e)
         {
-            btnclear.Click += (s, e) =>
-            {
-                tb_masp.Clear();
-                tb_tensp.Clear();
-                comboBox_dongsp.Text = String.Empty;
-                tb_gianhap.Clear();
-                tb_giaban.Clear();
-                tb_mausac.Clear();
-                tb_ghichu.Clear();
-            };
+
         }
 
         private void bt_them_Click(object sender, EventArgs e)
         {
             try
             {
-                IsAdd = true;
                 var result = _serviceSanPhamService.ThemSP(sanpham);
                 //var result2 = false;
                 //var result3 = true;
@@ -281,7 +242,7 @@ namespace Presentation
 
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private string UpperCaseFirstLetter(string s)
@@ -289,46 +250,46 @@ namespace Presentation
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
-        private void MatchData()
-        {
-            //sanpham = new SanPham()
-            //{
-            //    MaSP = IsAdd ? "SP" + tb_masp.Text : tb_masp.Text,
-            //    TenSP = tb_tensp.Text.Trim(),
-            //    DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
-            //    DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
-            //    DongSP = comboBox_dongsp.SelectedIndex,
-            //    GhiChu = tb_ghichu.Text
-            //};    
-        }
-
-        
-
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void bt_sua_Click(object sender, EventArgs e)
         {
-            IsAdd = false;
-            MatchData();
+            MappingData();
             var result = _serviceSanPhamService.SuaSP(sanpham);
-            
             if (result)
             {
                 MessageBox.Show("Sửa thành công");
                 LoadFullList();
+                RemoveBindings();
+                AddBindings();
             }
             else
                 MessageBox.Show("Sửa thất bại");
         }
 
-        private void tb_timkiem_TextChanged(object sender, EventArgs e)
+        private void RemoveBindings()
         {
-            
+            tb_tensp.DataBindings.Clear();
+            tb_gianhap.DataBindings.Clear();
+            tb_giaban.DataBindings.Clear();
+            tb_ghichu.DataBindings.Clear();
         }
 
+        private void MappingData()
+        {
+            sanpham.TenSP=tb_tensp.Text.Trim();
+            sanpham.DonGiaNhap=int.Parse(tb_gianhap.Text.Trim());
+            sanpham.DonGiaBan=int.Parse(tb_giaban.Text.Trim());
+            sanpham.GhiChu=tb_ghichu.Text.Trim();
+        }
+
+        private void tb_timkiem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void comboBox_mau_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -345,7 +306,7 @@ namespace Presentation
                 a = int.Parse(SplitBack(str[0]));
                 b = int.Parse(SplitBack(str[str.Length - 1]));
                 ListSauKhisuLyDuLieu = ListSauKhisuLyDuLieu.Where(p => p.DonGiaBan >= a && p.DonGiaBan <= b);
-                
+
             }
 
             dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
@@ -367,6 +328,48 @@ namespace Presentation
         {
             ListSauKhisuLyDuLieu = ListSauKhisuLyDuLieu.Where(p => p.DongSP.Equals(comboBox_dongspTTSP.Text));
             dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
+        }
+
+        public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            var index = comboBox_dongsp.Items.IndexOf(dataGridView1.CurrentRow.Cells["DongSP"].Value);
+            var modelchild = ListSP
+                .Where(p => p.MaSP == Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()))
+                .SingleOrDefault();
+            if (activeForm != null) activeForm.Close();
+            comboBox_dongsp.SelectedIndex = -1;
+            if (modelchild != null)
+            {
+                switch (index)
+                {
+                    case 0:
+                        lap = modelchild.laptop;
+                        break;
+                    case 1:
+                        ban = modelchild.banPhim;
+                        break;
+                    case 2:
+
+                        break;
+
+                }
+                comboBox_dongsp.SelectedItem = dataGridView1.CurrentRow.Cells["DongSP"].Value;
+                //MessageBox.Show(sanpham.laptop.CPU);
+
+            }
+        }
+
+        private void btnclear_Click(object sender, EventArgs e)
+        {
+            tb_tensp.Text = String.Empty;
+            comboBox_dongsp.SelectedIndex = -1;
+            panel2.Controls.Clear();
+            tb_gianhap.Text=String.Empty;
+            tb_giaban.Text = String.Empty;
+            tb_soluong.Text = String.Empty;
+            tb_ghichu.Text = String.Empty;
+
         }
     }
 }

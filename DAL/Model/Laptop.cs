@@ -8,7 +8,7 @@ namespace DAL.Model
 {
     public class Laptop
     {
-        public string MaLaptop { get; set; }
+        public int MaLaptop { get; set; }
         public string CPU { get; set; }
         public string RAM { get; set; }
         public string VGA_Card { get; set; }

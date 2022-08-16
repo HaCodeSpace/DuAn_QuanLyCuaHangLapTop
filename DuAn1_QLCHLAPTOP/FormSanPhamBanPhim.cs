@@ -18,11 +18,18 @@ namespace Presentation
     {
         public delegate void GetBanPhim(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac, string keycaps);
         public event GetBanPhim GetBanPhimEvent;
-
+        private BanPhim banPhim;
         public FormSanPhamBanPhim()
         {
             InitializeComponent();
             
+        }
+        public FormSanPhamBanPhim(BanPhim ban)
+        {
+            InitializeComponent();
+            banPhim = ban;
+            
+           
         }
 
         private void _view_MatchBanPhim(object? sender, EventArgs e)
@@ -63,6 +70,20 @@ namespace Presentation
 
             if (GetBanPhimEvent != null)
                 GetBanPhimEvent(hangsx, kieukn, kieubp, led, layout, kichthuoc, trongluong, mausac, keycaps);
+        }
+
+        private void FormSanPhamBanPhim_Load(object sender, EventArgs e)
+        {
+            if (banPhim != null)
+            {
+                tb_hangsx.Text=banPhim.HangSanXuat;
+                tb_ketnoi.Text=banPhim.KieuKetNoi.ToString();
+                tb_led.Text=banPhim.Led;
+                tb_layout.Text=banPhim.Layout;
+                tb_kieubp.Text=banPhim.KieuBanPhim;
+                tb_trongluong.Text=banPhim.TrongLuong.ToString();
+                tb_kichthuoc.Text=banPhim.KichThuoc;
+            }
         }
     }
 }

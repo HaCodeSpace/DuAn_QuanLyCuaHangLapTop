@@ -11,7 +11,7 @@ namespace DAL.Model
         public string MaHD { get; set; }
         public virtual HoaDon hoaDon { get; set; }
 
-        public string MaSP { get; set; }
+        public int MaSP { get; set; }
         public virtual SanPham sanPham { get; set; }
 
         public int SoLuongMua { get; set; }

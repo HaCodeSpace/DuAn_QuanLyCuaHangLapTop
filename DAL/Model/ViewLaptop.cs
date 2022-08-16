@@ -8,7 +8,7 @@ namespace DAL.Model
 {
     public class ViewLaptop
     {
-        public string MaSp { get; set; }
+        public int MaSp { get; set; }
         public Laptop laptop { get; set; }
     }
 }

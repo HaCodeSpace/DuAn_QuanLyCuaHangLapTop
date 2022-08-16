@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_kichthuoc = new System.Windows.Forms.TextBox();
             this.tb_keycaps = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tb_switch = new System.Windows.Forms.TextBox();
             this.tb_layout = new System.Windows.Forms.TextBox();
             this.tb_trongluong = new System.Windows.Forms.TextBox();
             this.tb_led = new System.Windows.Forms.TextBox();
@@ -51,8 +51,6 @@
             this.lb_ketnoi = new System.Windows.Forms.Label();
             this.lb_switch = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_soluong = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -69,13 +67,11 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.tb_soluong);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.tb_mausac);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tb_kichthuoc);
             this.panel2.Controls.Add(this.tb_keycaps);
-            this.panel2.Controls.Add(this.textBox7);
+            this.panel2.Controls.Add(this.tb_switch);
             this.panel2.Controls.Add(this.tb_layout);
             this.panel2.Controls.Add(this.tb_trongluong);
             this.panel2.Controls.Add(this.tb_led);
@@ -131,13 +127,13 @@
             this.tb_keycaps.TabIndex = 62;
             this.tb_keycaps.TextChanged += new System.EventHandler(this.txtbox_textchanged);
             // 
-            // textBox7
+            // tb_switch
             // 
-            this.textBox7.Location = new System.Drawing.Point(378, 67);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(169, 23);
-            this.textBox7.TabIndex = 61;
-            this.textBox7.TextChanged += new System.EventHandler(this.txtbox_textchanged);
+            this.tb_switch.Location = new System.Drawing.Point(378, 67);
+            this.tb_switch.Name = "tb_switch";
+            this.tb_switch.Size = new System.Drawing.Size(169, 23);
+            this.tb_switch.TabIndex = 61;
+            this.tb_switch.TextChanged += new System.EventHandler(this.txtbox_textchanged);
             // 
             // tb_layout
             // 
@@ -286,23 +282,6 @@
             this.label1.Size = new System.Drawing.Size(0, 51);
             this.label1.TabIndex = 0;
             // 
-            // tb_soluong
-            // 
-            this.tb_soluong.Location = new System.Drawing.Point(378, 250);
-            this.tb_soluong.Name = "tb_soluong";
-            this.tb_soluong.Size = new System.Drawing.Size(169, 23);
-            this.tb_soluong.TabIndex = 67;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(291, 250);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 19);
-            this.label3.TabIndex = 66;
-            this.label3.Text = "Số lượng";
-            // 
             // FormSanPhamBanPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -313,6 +292,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSanPhamBanPhim";
             this.Text = "FormSanPhamBanPhim";
+            this.Load += new System.EventHandler(this.FormSanPhamBanPhim_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -336,8 +316,7 @@
         private Label lb_switch;
         private Label label1;
         private TextBox tb_kichthuoc;
-        private TextBox tb_keycaps;
-        private TextBox textBox7;
+        private TextBox tb_switch;
         private TextBox tb_layout;
         private TextBox tb_trongluong;
         private TextBox tb_led;
@@ -346,7 +325,6 @@
         private TextBox tb_ketnoi;
         private TextBox tb_mausac;
         private Label label2;
-        private TextBox tb_soluong;
-        private Label label3;
+        private TextBox tb_keycaps;
     }
 }
