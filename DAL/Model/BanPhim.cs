@@ -9,8 +9,7 @@ namespace DAL.Model
     public class BanPhim
     {
       
-        public string MaSP { get; set; }
-
+        public int MaSP { get; set; }
         public string HangSanXuat { get; set; }
         public int KieuKetNoi { get; set; }
         public string KieuBanPhim { get; set; }

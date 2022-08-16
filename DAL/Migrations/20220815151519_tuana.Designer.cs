@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220815091758_tuana")]
+    [Migration("20220815151519_tuana")]
     partial class tuana
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,8 +26,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.BanPhim", b =>
                 {
-                    b.Property<string>("MaSP")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaSP")
+                        .HasColumnType("int");
 
                     b.Property<string>("HangSanXuat")
                         .IsRequired()
@@ -65,8 +65,8 @@ namespace DAL.Migrations
                     b.Property<int>("IdKeyCaps")
                         .HasColumnType("int");
 
-                    b.Property<string>("MaSP")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaSP")
+                        .HasColumnType("int");
 
                     b.HasKey("IdKeyCaps", "MaSP");
 
@@ -77,8 +77,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.BanPhimSoLuongSwitch", b =>
                 {
-                    b.Property<string>("MaSP")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaSP")
+                        .HasColumnType("int");
 
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
@@ -147,8 +147,8 @@ namespace DAL.Migrations
                     b.Property<string>("MaHD")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("MaSP")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaSP")
+                        .HasColumnType("int");
 
                     b.Property<int>("SoLuongMua")
                         .HasColumnType("int");
@@ -239,8 +239,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.Laptop", b =>
                 {
-                    b.Property<string>("MaLaptop")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaLaptop")
+                        .HasColumnType("int");
 
                     b.Property<string>("Bluetooth")
                         .IsRequired()
@@ -360,8 +360,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.SanPham", b =>
                 {
-                    b.Property<string>("MaSP")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaSP")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaSP"), 3970L, 1);
 
                     b.Property<float>("DonGiaBan")
                         .HasColumnType("real");
@@ -387,8 +390,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
                 {
-                    b.Property<string>("Masp")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Masp")
+                        .HasColumnType("int");
 
                     b.Property<int>("Idmau")
                         .HasColumnType("int");
