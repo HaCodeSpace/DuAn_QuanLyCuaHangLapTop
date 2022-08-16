@@ -53,11 +53,11 @@ namespace Presentation
             DataGridViewRow dt = dataGridView1.Rows[e.RowIndex];           
             tb_tenkh.Text = dt.Cells[0].Value.ToString();
             tb_dienthoai.Text = dt.Cells[1].Value.ToString();
-            tb_diachi.Text = dt.Cells[2].Value.ToString();
-            rdb_nam.Checked = (dt.Cells[3].Value.ToString() == "Nam" ? true : false);
-            rdb_nu.Checked = (dt.Cells[3].Value.ToString() == "Nữ" ? true : false);
-            rdb_hd.Checked = (dt.Cells[4].Value.ToString() == "Hoạt Động" ? true : false);
-            rdb_khd.Checked = (dt.Cells[4].Value.ToString() == "Không Hoạt Động" ? true : false);
+            tb_diachi.Text = dt.Cells[2].Value?.ToString();
+            rdb_nam.Checked = (dt.Cells[3].Value?.ToString() == "Nam" ? true : false);
+            rdb_nu.Checked = (dt.Cells[3].Value?.ToString() == "Nữ" ? true : false);
+            rdb_hd.Checked = (dt.Cells[4].Value?.ToString() == "Hoạt Động" ? true : false);
+            rdb_khd.Checked = (dt.Cells[4].Value?.ToString() == "Không Hoạt Động" ? true : false);
             var data = _context.khachHangs.FirstOrDefault(p => p.MaKH == dt.Cells[5].Value.ToString());
             tb_makh.Text = data.MaKH;
             tb_email.Text = data.Email;
