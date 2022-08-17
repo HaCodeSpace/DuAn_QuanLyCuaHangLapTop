@@ -30,8 +30,8 @@
         {
             this.bt_guibaocao = new System.Windows.Forms.Button();
             this.rdb_nam = new System.Windows.Forms.RadioButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbx_nam = new System.Windows.Forms.ComboBox();
+            this.cbx_thang = new System.Windows.Forms.ComboBox();
             this.rdb_thang = new System.Windows.Forms.RadioButton();
             this.rdb_tatca = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -44,9 +44,10 @@
             this.bt_guibaocao.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bt_guibaocao.ForeColor = System.Drawing.Color.Black;
             this.bt_guibaocao.Image = global::Presentation.Properties.Resources.tap;
-            this.bt_guibaocao.Location = new System.Drawing.Point(1140, 690);
+            this.bt_guibaocao.Location = new System.Drawing.Point(998, 518);
+            this.bt_guibaocao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_guibaocao.Name = "bt_guibaocao";
-            this.bt_guibaocao.Size = new System.Drawing.Size(151, 37);
+            this.bt_guibaocao.Size = new System.Drawing.Size(132, 28);
             this.bt_guibaocao.TabIndex = 47;
             this.bt_guibaocao.Text = "Gửi Báo Cáo";
             this.bt_guibaocao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -56,55 +57,45 @@
             // 
             this.rdb_nam.AutoSize = true;
             this.rdb_nam.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rdb_nam.Location = new System.Drawing.Point(41, 77);
+            this.rdb_nam.Location = new System.Drawing.Point(36, 58);
+            this.rdb_nam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdb_nam.Name = "rdb_nam";
-            this.rdb_nam.Size = new System.Drawing.Size(68, 27);
+            this.rdb_nam.Size = new System.Drawing.Size(57, 23);
             this.rdb_nam.TabIndex = 46;
             this.rdb_nam.TabStop = true;
             this.rdb_nam.Text = "Năm";
             this.rdb_nam.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cbx_nam
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "2022",
-            "2023"});
-            this.comboBox2.Location = new System.Drawing.Point(191, 73);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(193, 31);
-            this.comboBox2.TabIndex = 42;
+            this.cbx_nam.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbx_nam.FormattingEnabled = true;
+            this.cbx_nam.Location = new System.Drawing.Point(167, 55);
+            this.cbx_nam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_nam.Name = "cbx_nam";
+            this.cbx_nam.Size = new System.Drawing.Size(169, 27);
+            this.cbx_nam.TabIndex = 42;
+            this.cbx_nam.SelectedIndexChanged += new System.EventHandler(this.cbx_nam_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbx_thang
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Tháng 1",
-            "Tháng 2",
-            "Tháng 3",
-            "Tháng 4",
-            "Tháng 5",
-            "Tháng 6",
-            "Tháng 7",
-            "Tháng 8",
-            "Tháng 9",
-            "Tháng 10",
-            "Tháng 11",
-            "Tháng 12"});
-            this.comboBox1.Location = new System.Drawing.Point(191, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 31);
-            this.comboBox1.TabIndex = 41;
+            this.cbx_thang.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbx_thang.FormattingEnabled = true;
+            this.cbx_thang.Location = new System.Drawing.Point(167, 96);
+            this.cbx_thang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_thang.Name = "cbx_thang";
+            this.cbx_thang.Size = new System.Drawing.Size(169, 27);
+            this.cbx_thang.TabIndex = 41;
+            this.cbx_thang.SelectedIndexChanged += new System.EventHandler(this.cbx_thang_SelectedIndexChanged);
             // 
             // rdb_thang
             // 
             this.rdb_thang.AutoSize = true;
             this.rdb_thang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rdb_thang.Location = new System.Drawing.Point(41, 132);
+            this.rdb_thang.Location = new System.Drawing.Point(36, 99);
+            this.rdb_thang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdb_thang.Name = "rdb_thang";
-            this.rdb_thang.Size = new System.Drawing.Size(79, 27);
+            this.rdb_thang.Size = new System.Drawing.Size(66, 23);
             this.rdb_thang.TabIndex = 45;
             this.rdb_thang.TabStop = true;
             this.rdb_thang.Text = "Tháng";
@@ -114,40 +105,45 @@
             // 
             this.rdb_tatca.AutoSize = true;
             this.rdb_tatca.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rdb_tatca.Location = new System.Drawing.Point(41, 30);
+            this.rdb_tatca.Location = new System.Drawing.Point(36, 22);
+            this.rdb_tatca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdb_tatca.Name = "rdb_tatca";
-            this.rdb_tatca.Size = new System.Drawing.Size(80, 27);
+            this.rdb_tatca.Size = new System.Drawing.Size(67, 23);
             this.rdb_tatca.TabIndex = 44;
             this.rdb_tatca.TabStop = true;
             this.rdb_tatca.Text = "Tất Cả";
             this.rdb_tatca.UseVisualStyleBackColor = true;
+            this.rdb_tatca.CheckedChanged += new System.EventHandler(this.rdb_tatca_CheckedChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 200);
+            this.dataGridView1.Location = new System.Drawing.Point(27, 150);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1260, 484);
+            this.dataGridView1.Size = new System.Drawing.Size(1102, 363);
             this.dataGridView1.TabIndex = 43;
             // 
             // FormThongKeDoanhThu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1432, 1020);
+            this.ClientSize = new System.Drawing.Size(1199, 562);
             this.Controls.Add(this.bt_guibaocao);
             this.Controls.Add(this.rdb_nam);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbx_nam);
+            this.Controls.Add(this.cbx_thang);
             this.Controls.Add(this.rdb_thang);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.rdb_tatca);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormThongKeDoanhThu";
             this.Text = "FormThongKeDoanhThu";
+            this.Load += new System.EventHandler(this.FormThongKeDoanhThu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,8 +154,8 @@
 
         private Button bt_guibaocao;
         private RadioButton rdb_nam;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox cbx_nam;
+        private ComboBox cbx_thang;
         private RadioButton rdb_thang;
         private RadioButton rdb_tatca;
         private DataGridView dataGridView1;
