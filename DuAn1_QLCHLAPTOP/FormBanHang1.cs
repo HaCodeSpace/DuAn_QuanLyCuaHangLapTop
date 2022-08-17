@@ -223,7 +223,7 @@ namespace Presentation
                 TrangThai = true,
                 GhiChu = tb_ghichu.Text,
                 MaNV = "NV1",
-                MaKH = tb_makh.Text
+                MaKH = string.IsNullOrEmpty(tb_makh.Text) ? "KH0" : tb_makh.Text.Trim()
             };
             var EditHD = _hoaDonService.SuaHD(hd);
             var EditHDCT = FillHDCT();

@@ -19,5 +19,6 @@ namespace Presentation
 
         public Laptop laptop { get; set; }
         public BanPhim banPhim { get; set; }
+        public Chuot chuot { get; set; }
     }
 }

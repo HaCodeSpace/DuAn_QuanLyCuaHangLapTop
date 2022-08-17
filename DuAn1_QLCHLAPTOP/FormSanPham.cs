@@ -27,6 +27,7 @@ namespace Presentation
         private Form activeForm;
         public BanPhim ban;
         public Laptop lap;
+        public Chuot chuot;
         public BanPhimKeyCaps phimKeyCaps = new BanPhimKeyCaps();
         public MauSac mau = new MauSac();
         public SanPhamMauSac sanPhamMau = new SanPhamMauSac();
@@ -53,6 +54,12 @@ namespace Presentation
 
         private void comboBox_dongsp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (activeForm != null)
+            {
+                activeForm.Dispose();
+                activeForm.Close();
+            }
+
             if (comboBox_dongsp.Text == "Laptop")
             {
                 panel2.Controls.Clear();
@@ -90,7 +97,7 @@ namespace Presentation
             if (comboBox_dongsp.Text == "Chuột")
             {
                 panel2.Controls.Clear();
-                FormSanPhamChuot fspc = new FormSanPhamChuot()
+                FormSanPhamChuot fspc = new FormSanPhamChuot(chuot)
                 {
                     Dock = DockStyle.Fill,
                     TopLevel = false,
@@ -99,8 +106,36 @@ namespace Presentation
                 activeForm = fspc;
                 this.panel2.Controls.Add(fspc);
                 fspc.FormBorderStyle = FormBorderStyle.None;
+                fspc.PushData += Fspc_PushData;
                 fspc.Show();
             }
+        }
+
+        private void Fspc_PushData(string ketnoi, int ips, string tansophanhoi, string chatlieuvo, double trongluong, string swich, string led, string giatoc, string kichthuoc, string tuoitho)
+        {
+
+
+            sanpham = new SanPham()
+            {
+                TenSP = tb_tensp.Text.Trim(),
+                DongSP = comboBox_dongsp.SelectedIndex,
+                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
+                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
+                GhiChu = tb_ghichu.Text.Trim(),
+                chuot = new Chuot()
+                {
+                    KetNoi = ketnoi,
+                    IPS = ips,
+                    TanSoPhanHoi = tansophanhoi,
+                    ChetLieuVo = chatlieuvo,
+                    TrongLuong = trongluong,
+                    Switch = swich,
+                    Led = led,
+                    GiaToc = giatoc,
+                    KichThuoc = kichthuoc,
+                    TuoiTho = tuoitho
+                }
+            };
         }
 
         private void Fspl_GetInfo(string cpu, string ram, string card, string ocung, string pin, double trongluong, string manhinh, string dophangiai, string webcam, string hedieuhanh, string kichthuoc, string bluetooth)
@@ -109,8 +144,8 @@ namespace Presentation
             {
                 TenSP = tb_tensp.Text.Trim(),
                 DongSP = comboBox_dongsp.SelectedIndex,
-                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
-                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
+                DonGiaNhap = string.IsNullOrEmpty(tb_gianhap.Text) ? -1 : float.Parse(tb_gianhap.Text.Trim()),
+                DonGiaBan = string.IsNullOrEmpty(tb_giaban.Text) ? -1 : float.Parse(tb_giaban.Text.Trim()),
                 GhiChu = tb_ghichu.Text.Trim(),
                 laptop = new Laptop()
                 {
@@ -133,6 +168,8 @@ namespace Presentation
 
         private void Fspbp_GetBanPhimEvent(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac, string keycaps)
         {
+        
+
             sanpham = new SanPham()
             {
                 TenSP = tb_tensp.Text.Trim(),
@@ -164,7 +201,7 @@ namespace Presentation
 
         private void LoadFullList()
         {
-            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP].ToString(), GhiChu = c.GhiChu, laptop = c.laptop, banPhim = c.banPhim };
+            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP].ToString(), GhiChu = c.GhiChu, laptop = c.laptop, banPhim = c.banPhim, chuot = c.chuot };
             ListSauKhisuLyDuLieu = ListSP;
             dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
             dataGridView1.Columns[dataGridView1.ColumnCount - 1].Visible = false;
@@ -197,12 +234,10 @@ namespace Presentation
         {
             try
             {
+                MappingData();
+                new Utilities.DataAnnotationValidation().CheckValidation(sanpham);
                 var result = _serviceSanPhamService.ThemSP(sanpham);
-                //var result2 = false;
-                //var result3 = true;
-                //var result4 = false;
-                //var result5 = false;
-                //var result6 = true;
+
                 switch (comboBox_dongsp.SelectedIndex)
                 {
                     case 0:
@@ -280,10 +315,26 @@ namespace Presentation
 
         private void MappingData()
         {
-            sanpham.TenSP=tb_tensp.Text.Trim();
-            sanpham.DonGiaNhap=int.Parse(tb_gianhap.Text.Trim());
-            sanpham.DonGiaBan=int.Parse(tb_giaban.Text.Trim());
-            sanpham.GhiChu=tb_ghichu.Text.Trim();
+            if (sanpham != null)
+            {
+                sanpham.TenSP=tb_tensp.Text.Trim();
+                sanpham.DonGiaNhap=string.IsNullOrEmpty(tb_gianhap.Text) ? -1 : int.Parse(tb_gianhap.Text.Trim());
+                sanpham.DonGiaBan=string.IsNullOrEmpty(tb_giaban.Text) ? -1 : int.Parse(tb_giaban.Text.Trim());
+                sanpham.DongSP = comboBox_dongsp.SelectedIndex;
+                sanpham.GhiChu=tb_ghichu.Text.Trim();
+            }
+            else
+            {
+                sanpham = new SanPham()
+                {
+                    TenSP=tb_tensp.Text.Trim(),
+                    DonGiaNhap = string.IsNullOrEmpty(tb_gianhap.Text) ? -1 : int.Parse(tb_gianhap.Text.Trim()),
+                    DonGiaBan= string.IsNullOrEmpty(tb_giaban.Text) ? -1 : int.Parse(tb_giaban.Text.Trim()),
+                    DongSP = comboBox_dongsp.SelectedIndex,
+                    GhiChu=tb_ghichu.Text.Trim()
+                };
+            }
+            
         }
 
         private void tb_timkiem_TextChanged(object sender, EventArgs e)
@@ -350,7 +401,7 @@ namespace Presentation
                         ban = modelchild.banPhim;
                         break;
                     case 2:
-
+                        chuot = modelchild.chuot;
                         break;
 
                 }
@@ -362,13 +413,20 @@ namespace Presentation
 
         private void btnclear_Click(object sender, EventArgs e)
         {
-            tb_tensp.Text = String.Empty;
+            
+            if (activeForm != null)
+            {
+                activeForm.Dispose();
+                activeForm.Close();
+            }
+
             comboBox_dongsp.SelectedIndex = -1;
-            panel2.Controls.Clear();
-            tb_gianhap.Text=String.Empty;
-            tb_giaban.Text = String.Empty;
-            tb_soluong.Text = String.Empty;
-            tb_ghichu.Text = String.Empty;
+            tb_gianhap.Clear();
+            tb_giaban.Clear();
+            tb_soluong.Clear();
+            tb_ghichu.Clear();
+            tb_tensp.Clear();
+
 
         }
     }
