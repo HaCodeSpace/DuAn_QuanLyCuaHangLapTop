@@ -16,7 +16,7 @@ namespace Presentation
         {
             InitializeComponent();
             // ẩn viền button
-            bt_nhanvien.TabStop = false; 
+            bt_nhanvien.TabStop = false;
             bt_nhanvien.FlatStyle = FlatStyle.Flat;
             bt_nhanvien.FlatAppearance.BorderSize = 0;
             bt_banhang.TabStop = false;
@@ -44,10 +44,10 @@ namespace Presentation
             bt_dangxuat.FlatStyle = FlatStyle.Flat;
             bt_dangxuat.FlatAppearance.BorderSize = 0;
 
-            if (Properties.Settings.Default.maql ==false)
+            if (Properties.Settings.Default.maql == false)
                 bt_nhanvien.Visible = false;
-                //Mở form Bán Hàng 1
-                panel3.Controls.Clear();
+            //Mở form Bán Hàng 1
+            panel3.Controls.Clear();
             FormBanHang1 fbh = new FormBanHang1()
             {
                 Dock = DockStyle.Fill,
@@ -57,9 +57,26 @@ namespace Presentation
             this.panel3.Controls.Add(fbh);
             fbh.FormBorderStyle = FormBorderStyle.None;
             fbh.Show();
-        }           
+        }
         private void bt_nhanvien_Click_1(object sender, EventArgs e)
-        {           
+        {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Gray;
             panel3.Controls.Clear();
             FormNhanVien fnv = new FormNhanVien()
             {
@@ -69,11 +86,28 @@ namespace Presentation
             };
             this.panel3.Controls.Add(fnv);
             fnv.FormBorderStyle = FormBorderStyle.None;
-            fnv.Show();           
+            fnv.Show();
         }
 
         private void bt_hoadon_Click(object sender, EventArgs e)
         {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Gray;
             panel3.Controls.Clear();
             FormHoaDon fhd = new FormHoaDon()
             {
@@ -88,6 +122,23 @@ namespace Presentation
 
         private void bt_khachhang_Click(object sender, EventArgs e)
         {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Gray;
             panel3.Controls.Clear();
             FormKhachHang fkh = new FormKhachHang()
             {
@@ -102,6 +153,23 @@ namespace Presentation
 
         private void bt_thongke_Click(object sender, EventArgs e)
         {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Gray;
             panel3.Controls.Clear();
             FormThongKe ftk = new FormThongKe()
             {
@@ -116,6 +184,23 @@ namespace Presentation
 
         private void bt_khuyenmai_Click(object sender, EventArgs e)
         {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Gray;
             panel3.Controls.Clear();
             FormKhuyenMai fkm = new FormKhuyenMai()
             {
@@ -130,6 +215,23 @@ namespace Presentation
 
         private void bt_sanpham_Click(object sender, EventArgs e)
         {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Gray;
             panel3.Controls.Clear();
             FormSanPham fsp = new FormSanPham()
             {
@@ -144,6 +246,23 @@ namespace Presentation
 
         private void bt_banhang_Click(object sender, EventArgs e)
         {
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_banhang.BackColor = Color.Gray;
             panel3.Controls.Clear();
             FormBanHang1 fbh = new FormBanHang1()
             {
@@ -158,11 +277,45 @@ namespace Presentation
 
         private void bt_dangxuat_Click(object sender, EventArgs e)
         {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_doimatkhau.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Gray;
             new DangNhap().Show();
             this.Hide();
         }
         private void bt_doimatkhau_Click(object sender, EventArgs e)
         {
+            bt_banhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_banhang.UseVisualStyleBackColor = true;
+            bt_sanpham.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_sanpham.UseVisualStyleBackColor = true;
+            bt_khuyenmai.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khuyenmai.UseVisualStyleBackColor = true;
+            bt_nhanvien.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_nhanvien.UseVisualStyleBackColor = true;
+            bt_khachhang.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_khachhang.UseVisualStyleBackColor = true;
+            bt_thongke.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_thongke.UseVisualStyleBackColor = true;
+            bt_hoadon.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_hoadon.UseVisualStyleBackColor = true;
+            bt_dangxuat.BackColor = Color.Snow;    // Xóa màu backcolor
+            bt_dangxuat.UseVisualStyleBackColor = true;
+            bt_doimatkhau.BackColor = Color.Gray;
             panel3.Controls.Clear();
             DoiMatKhau dmk = new DoiMatKhau()
             {

@@ -41,6 +41,7 @@ namespace Presentation.Utilities
                 {
                     errorMessage += "- " + item.ErrorMessage + "\n";
                 }
+                throw new Exception(errorMessage);
             }
             if (isValidateChild == false)
             {
@@ -48,9 +49,8 @@ namespace Presentation.Utilities
                 {
                     errorMessage += "- " + item.ErrorMessage + "\n";
                 }
-            }
-            throw new Exception(errorMessage);
-
+                throw new Exception(errorMessage);
+            }          
         }
     }
 }

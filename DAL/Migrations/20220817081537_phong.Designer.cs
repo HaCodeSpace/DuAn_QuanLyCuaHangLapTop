@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DA1Context))]
-    [Migration("20220815151519_tuana")]
-    partial class tuana
+    [Migration("20220817081537_phong")]
+    partial class phong
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,6 +90,54 @@ namespace DAL.Migrations
                     b.HasKey("MaSP");
 
                     b.ToTable("banPhimSoLuongSwitches");
+                });
+
+            modelBuilder.Entity("DAL.Model.Chuot", b =>
+                {
+                    b.Property<int>("MaChuot")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ChetLieuVo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GiaToc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IPS")
+                        .HasColumnType("int");
+
+                    b.Property<string>("KetNoi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KichThuoc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Led")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Switch")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TanSoPhanHoi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TrongLuong")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TuoiTho")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MaChuot");
+
+                    b.ToTable("chuots");
                 });
 
             modelBuilder.Entity("DAL.Model.HoaDon", b =>
@@ -248,7 +296,8 @@ namespace DAL.Migrations
 
                     b.Property<string>("CPU")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("DoPhanGiai")
                         .IsRequired()
@@ -381,7 +430,8 @@ namespace DAL.Migrations
 
                     b.Property<string>("TenSP")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaSP");
 
@@ -442,6 +492,17 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("banPhim");
+                });
+
+            modelBuilder.Entity("DAL.Model.Chuot", b =>
+                {
+                    b.HasOne("DAL.Model.SanPham", "sanPham")
+                        .WithOne("chuot")
+                        .HasForeignKey("DAL.Model.Chuot", "MaChuot")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("sanPham");
                 });
 
             modelBuilder.Entity("DAL.Model.HoaDon", b =>
@@ -558,6 +619,9 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Model.SanPham", b =>
                 {
                     b.Navigation("banPhim")
+                        .IsRequired();
+
+                    b.Navigation("chuot")
                         .IsRequired();
 
                     b.Navigation("hoaDonChiTiets");

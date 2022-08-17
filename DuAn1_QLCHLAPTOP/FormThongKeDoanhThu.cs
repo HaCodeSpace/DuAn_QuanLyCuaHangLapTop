@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using BUS.IServices;
 using BUS.Services;
 using DAL.Model;
+using System.Net.Mail;
+using System.Net;
 
 namespace Presentation
 {
@@ -19,7 +21,9 @@ namespace Presentation
         private IQuanLyKhachHangService _IQLKhachHangService;
         private List<ShowThongKe> showThongKes;
         private List<ShowThongKe> ListLoc;
-       
+        private IQLNhanVienService _IQLnv;
+        private NhanVien _nv;
+
         public FormThongKeDoanhThu()
         {
             InitializeComponent();
@@ -133,6 +137,34 @@ namespace Presentation
                 dataGridView1.DataSource = showThongKes.ToList();
             }
 
+        }
+
+        private void bt_guibaocao_Click(object sender, EventArgs e)
+        {           
+            string from, to, pass;
+                from = "phongttph19348@fpt.edu.vn"; // mail gửi đi - pass 
+                to = "nguyenvietha2ka2@gmail.com"; // mail gửi đến
+                pass = "4ever1love";                 
+                MailMessage mail = new MailMessage();
+                mail.To.Add(to);
+                mail.From = new MailAddress(from);
+                mail.Subject = "Báo Cáo Doanh Thu";
+                mail.Body = "Doanh thu: " + showThongKes;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.EnableSsl = true;
+                smtp.Port = 587;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(from, pass);
+                try
+                {
+                    smtp.Send(mail);
+                    MessageBox.Show("Gửi Báo Cáo Doanh Thu Thành Công");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gửi Thất Bại");
+                }         
         }
     }
 }
