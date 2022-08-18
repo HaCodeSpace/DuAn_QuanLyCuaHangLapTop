@@ -58,6 +58,38 @@ namespace DAL.Migrations
                     b.ToTable("banPhims");
                 });
 
+            modelBuilder.Entity("DAL.Model.BanPhimKeyCaps", b =>
+                {
+                    b.Property<int>("IdKeyCaps")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaSP")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdKeyCaps", "MaSP");
+
+                    b.HasIndex("MaSP");
+
+                    b.ToTable("banPhimKeyCaps");
+                });
+
+            modelBuilder.Entity("DAL.Model.BanPhimSoLuongSwitch", b =>
+                {
+                    b.Property<int>("MaSP")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuong")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Switch")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MaSP");
+
+                    b.ToTable("banPhimSoLuongSwitches");
+                });
+
             modelBuilder.Entity("DAL.Model.Chuot", b =>
                 {
                     b.Property<int>("MaChuot")
@@ -172,6 +204,23 @@ namespace DAL.Migrations
                     b.HasIndex("MaSP");
 
                     b.ToTable("hoaDonChiTiets");
+                });
+
+            modelBuilder.Entity("DAL.Model.KeyCaps", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("TenKeyCaps")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("keyCaps");
                 });
 
             modelBuilder.Entity("DAL.Model.KhachHang", b =>
@@ -382,12 +431,24 @@ namespace DAL.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("soluong")
-                        .HasColumnType("int");
-
                     b.HasKey("MaSP");
 
                     b.ToTable("sanPhams");
+                });
+
+            modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
+                {
+                    b.Property<int>("Masp")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Idmau")
+                        .HasColumnType("int");
+
+                    b.HasKey("Masp", "Idmau");
+
+                    b.HasIndex("Idmau");
+
+                    b.ToTable("sanPhamMauSacs");
                 });
 
             modelBuilder.Entity("DAL.Model.BanPhim", b =>
@@ -399,6 +460,36 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("sanPham");
+                });
+
+            modelBuilder.Entity("DAL.Model.BanPhimKeyCaps", b =>
+                {
+                    b.HasOne("DAL.Model.KeyCaps", "keyCaps")
+                        .WithMany("banPhimKeyCaps")
+                        .HasForeignKey("IdKeyCaps")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL.Model.BanPhim", "banPhim")
+                        .WithMany("banPhimKeyCaps")
+                        .HasForeignKey("MaSP")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("banPhim");
+
+                    b.Navigation("keyCaps");
+                });
+
+            modelBuilder.Entity("DAL.Model.BanPhimSoLuongSwitch", b =>
+                {
+                    b.HasOne("DAL.Model.BanPhim", "banPhim")
+                        .WithMany("banPhimSoLuongSwitches")
+                        .HasForeignKey("MaSP")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("banPhim");
                 });
 
             modelBuilder.Entity("DAL.Model.Chuot", b =>
@@ -465,9 +556,42 @@ namespace DAL.Migrations
                     b.Navigation("sanPham");
                 });
 
+            modelBuilder.Entity("DAL.Model.SanPhamMauSac", b =>
+                {
+                    b.HasOne("DAL.Model.MauSac", "mausac")
+                        .WithMany("sanPhamMauSacs")
+                        .HasForeignKey("Idmau")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL.Model.BanPhim", "banphim")
+                        .WithMany("sanPhamMauSacs")
+                        .HasForeignKey("Masp")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("banphim");
+
+                    b.Navigation("mausac");
+                });
+
+            modelBuilder.Entity("DAL.Model.BanPhim", b =>
+                {
+                    b.Navigation("banPhimKeyCaps");
+
+                    b.Navigation("banPhimSoLuongSwitches");
+
+                    b.Navigation("sanPhamMauSacs");
+                });
+
             modelBuilder.Entity("DAL.Model.HoaDon", b =>
                 {
                     b.Navigation("hoadonchitiets");
+                });
+
+            modelBuilder.Entity("DAL.Model.KeyCaps", b =>
+                {
+                    b.Navigation("banPhimKeyCaps");
                 });
 
             modelBuilder.Entity("DAL.Model.KhachHang", b =>
@@ -478,6 +602,11 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Model.KhuyenMai", b =>
                 {
                     b.Navigation("hoaDons");
+                });
+
+            modelBuilder.Entity("DAL.Model.MauSac", b =>
+                {
+                    b.Navigation("sanPhamMauSacs");
                 });
 
             modelBuilder.Entity("DAL.Model.NhanVien", b =>

@@ -31,7 +31,7 @@ namespace Presentation
 
         private void tb_trongluong_TextChanged(object sender, EventArgs e)
         {
-            string ketnoi = tb_ketnoi.Text.Trim();
+            string ketnoi = tb_ketnoi.Text.Trim(); 
             int ips = 0;
             if (!string.IsNullOrEmpty(tb_ips.Text))
                 ips = int.Parse(tb_ips.Text.Trim());

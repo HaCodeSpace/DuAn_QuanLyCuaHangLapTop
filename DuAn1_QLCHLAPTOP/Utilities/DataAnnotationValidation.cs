@@ -50,8 +50,7 @@ namespace Presentation.Utilities
                     errorMessage += "- " + item.ErrorMessage + "\n";
                 }
                 throw new Exception(errorMessage);
-            }
-
+            }          
         }
     }
 }
