@@ -150,7 +150,6 @@ namespace Presentation
                 mail.From = new MailAddress(from);
                 mail.Subject = "Báo Cáo Doanh Thu";
                 mail.Body = "Doanh thu: " + showThongKes;
-
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com");
                 smtp.EnableSsl = true;
                 smtp.Port = 587;
