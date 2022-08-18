@@ -9,6 +9,6 @@ namespace DAL.IRepository.IRepositorySanPham
 {
     public interface ISanPhamMauSacRepository
     {
-        Boolean Add(SanPhamMauSac sanPhamMau);
+        //Boolean Add(SanPhamMauSac sanPhamMau);
     }
 }

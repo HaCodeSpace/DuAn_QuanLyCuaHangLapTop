@@ -35,9 +35,9 @@ namespace DAL.Model
 
         public virtual SanPham sanPham { get; set; }
 
-        public virtual ICollection<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }
-        public virtual ICollection<SanPhamMauSac> sanPhamMauSacs { get; set; }
-        public virtual ICollection<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
+        //public virtual ICollection<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }
+        //public virtual ICollection<SanPhamMauSac> sanPhamMauSacs { get; set; }
+        //public virtual ICollection<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
     
 
     }

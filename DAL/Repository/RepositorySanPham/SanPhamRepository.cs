@@ -63,7 +63,7 @@ namespace DAL.Repository.RepositorySanPham
                 san.banPhim.MaSP=existingSanPham.MaSP;
                 existingChild=existingSanPham.banPhim;
             }
-            else
+            else if (san.chuot != null)
             {
                 existingSanPham = context.sanPhams
                 .Where(p => p.TenSP == san.TenSP)
@@ -71,6 +71,12 @@ namespace DAL.Repository.RepositorySanPham
                 .SingleOrDefault();
                 san.chuot.MaChuot=existingSanPham.MaSP;
                 existingChild=existingSanPham.chuot;
+            }
+            else
+            {
+                existingSanPham = context.sanPhams
+                .Where(p => p.TenSP == san.TenSP)
+                .SingleOrDefault();
             }
 
 
@@ -80,13 +86,13 @@ namespace DAL.Repository.RepositorySanPham
                 // update Sanpham
                 san.MaSP = existingSanPham.MaSP;
                 context.Entry(existingSanPham).CurrentValues.SetValues(san);
-
+                //throw new Exception(existingSanPham.MaSP + "");
                 //update child
                 if(san.laptop!=null)
                     context.Entry(existingChild).CurrentValues.SetValues(san.laptop);
                 else if (san.banPhim != null)
                     context.Entry(existingChild).CurrentValues.SetValues(san.banPhim);
-                else
+                else if (san.chuot != null)
                     context.Entry(existingChild).CurrentValues.SetValues(san.chuot);
 
                 context.SaveChanges();

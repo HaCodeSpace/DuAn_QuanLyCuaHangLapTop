@@ -29,6 +29,10 @@ namespace DAL.Model
 
         public Int32 DongSP { get; set; }
 
+        [Required(ErrorMessage ="Yeu cau so luong san pham")]
+        [Range(0, int.MaxValue, ErrorMessage = "so luong khong duoc be hon 0")]
+        public int soluong { get; set; }
+
         public string GhiChu { get; set; }
 
         public virtual BanPhim banPhim { get; set; }

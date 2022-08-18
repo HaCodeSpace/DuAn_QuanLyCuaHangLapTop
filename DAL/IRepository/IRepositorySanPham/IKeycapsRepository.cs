@@ -9,7 +9,7 @@ namespace DAL.IRepository.IRepositorySanPham
 {
     public interface IKeycapsRepository
     {
-        Boolean Add(KeyCaps keyCaps);
-        int FindId(KeyCaps keyCaps);
+        //Boolean Add(KeyCaps keyCaps);
+        //int FindId(KeyCaps keyCaps);
     }
 }

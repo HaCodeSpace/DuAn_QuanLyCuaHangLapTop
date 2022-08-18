@@ -9,6 +9,6 @@ namespace BUS.IServices.IServiceSanPham
 {
     public interface ISanPhamMauSacService
     {
-        Boolean ThemSPMS(SanPhamMauSac sanPhamMau);
+        //Boolean ThemSPMS(SanPhamMauSac sanPhamMau);
     }
 }

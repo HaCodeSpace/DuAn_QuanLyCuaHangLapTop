@@ -93,7 +93,7 @@ namespace Presentation
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            //var tim = _khachHangService.LayDanhSachKhachHang().Where(e => e.TenKH.ToLower().Contains(textBox1.Text.ToLower()));
             if (e.KeyCode == Keys.Enter)
             {
                 if (string.IsNullOrEmpty(textBox1.Text))
@@ -104,7 +104,7 @@ namespace Presentation
                     ListLocHoaDon = ListLocHoaDon.Where(p => p.MaHD.Contains(textBox1.Text)).ToList();
                 else
                 {
-                    ListLocHoaDon = hoaDons.Where(p => p.MaHD.Contains(textBox1.Text)).ToList();
+                    ListLocHoaDon = hoaDons.Where(p => p.MaHD.Contains(textBox1.Text.ToUpper())).ToList();
                     isFilltering = true;
                 }
                 dtghoadon.DataSource = ListLocHoaDon;

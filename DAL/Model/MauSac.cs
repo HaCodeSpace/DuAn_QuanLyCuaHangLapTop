@@ -12,6 +12,5 @@ namespace DAL.Model
         public string MaMau { get; set; }
         public string TenMau { get; set; }
 
-        public virtual ICollection<SanPhamMauSac> sanPhamMauSacs { get; set; }
     }
 }

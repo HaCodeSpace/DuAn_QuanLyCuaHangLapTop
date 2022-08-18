@@ -9,6 +9,6 @@ namespace DAL.IRepository.IRepositorySanPham
 {
     public interface IBanPhimKeyCapsRepository
     {
-        Boolean Add(BanPhimKeyCaps banPhimKeyCaps);
+        //Boolean Add(BanPhimKeyCaps banPhimKeyCaps);
     }
 }

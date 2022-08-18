@@ -49,7 +49,7 @@
             this.groupBox_thongtin = new System.Windows.Forms.GroupBox();
             this.tb_timkiem = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox_mau = new System.Windows.Forms.ComboBox();
+            this.comboBox_gia = new System.Windows.Forms.ComboBox();
             this.lb_mau = new System.Windows.Forms.Label();
             this.lb_dongsanpham = new System.Windows.Forms.Label();
             this.comboBox_dongspTTSP = new System.Windows.Forms.ComboBox();
@@ -120,7 +120,7 @@
             this.btnclear.Text = "Clear";
             this.btnclear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnclear.UseVisualStyleBackColor = false;
-            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click_1);
             // 
             // panel2
             // 
@@ -281,7 +281,7 @@
             // 
             this.groupBox_thongtin.Controls.Add(this.tb_timkiem);
             this.groupBox_thongtin.Controls.Add(this.dataGridView1);
-            this.groupBox_thongtin.Controls.Add(this.comboBox_mau);
+            this.groupBox_thongtin.Controls.Add(this.comboBox_gia);
             this.groupBox_thongtin.Controls.Add(this.lb_mau);
             this.groupBox_thongtin.Controls.Add(this.lb_dongsanpham);
             this.groupBox_thongtin.Controls.Add(this.comboBox_dongspTTSP);
@@ -323,22 +323,22 @@
             this.dataGridView1.TabIndex = 27;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // comboBox_mau
+            // comboBox_gia
             // 
-            this.comboBox_mau.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_mau.FormattingEnabled = true;
-            this.comboBox_mau.Items.AddRange(new object[] {
+            this.comboBox_gia.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox_gia.FormattingEnabled = true;
+            this.comboBox_gia.Items.AddRange(new object[] {
             "100.000 - 300.000",
             "300.000 - 500.000",
             "500.000 - 1.000.000",
             "1.000.000 - 2.000.000",
             "2.000.000 ->"});
-            this.comboBox_mau.Location = new System.Drawing.Point(510, 41);
-            this.comboBox_mau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_mau.Name = "comboBox_mau";
-            this.comboBox_mau.Size = new System.Drawing.Size(169, 27);
-            this.comboBox_mau.TabIndex = 26;
-            this.comboBox_mau.SelectedIndexChanged += new System.EventHandler(this.comboBox_mau_SelectedIndexChanged);
+            this.comboBox_gia.Location = new System.Drawing.Point(510, 41);
+            this.comboBox_gia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_gia.Name = "comboBox_gia";
+            this.comboBox_gia.Size = new System.Drawing.Size(169, 27);
+            this.comboBox_gia.TabIndex = 26;
+            this.comboBox_gia.SelectedIndexChanged += new System.EventHandler(this.comboBox_mau_SelectedIndexChanged);
             // 
             // lb_mau
             // 
@@ -431,7 +431,7 @@
         private GroupBox groupBox_thongtin;
         private TextBox tb_timkiem;
         private DataGridView dataGridView1;
-        private ComboBox comboBox_mau;
+        private ComboBox comboBox_gia;
         private Label lb_mau;
         private Label lb_dongsanpham;
         private ComboBox comboBox_dongspTTSP;

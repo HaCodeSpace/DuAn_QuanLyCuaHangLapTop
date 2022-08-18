@@ -106,6 +106,8 @@
             // 
             // dataGridView_danhsachsp
             // 
+            this.dataGridView_danhsachsp.AllowUserToAddRows = false;
+            this.dataGridView_danhsachsp.AllowUserToDeleteRows = false;
             this.dataGridView_danhsachsp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_danhsachsp.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dataGridView_danhsachsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -291,6 +293,7 @@
             this.comboBox_giamgia.Name = "comboBox_giamgia";
             this.comboBox_giamgia.Size = new System.Drawing.Size(198, 31);
             this.comboBox_giamgia.TabIndex = 47;
+            this.comboBox_giamgia.SelectedIndexChanged += new System.EventHandler(this.comboBox_giamgia_SelectedIndexChanged);
             // 
             // tb_tongtien
             // 
@@ -351,6 +354,7 @@
             this.bt_lammoi.TabIndex = 41;
             this.bt_lammoi.Text = "Làm Mới";
             this.bt_lammoi.UseVisualStyleBackColor = false;
+            this.bt_lammoi.Click += new System.EventHandler(this.bt_lammoi_Click);
             // 
             // bt_huyhoadon
             // 

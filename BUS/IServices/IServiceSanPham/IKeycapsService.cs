@@ -9,7 +9,7 @@ namespace BUS.IServices.IServiceSanPham
 {
     public interface IKeycapsService
     {
-        Boolean ThemKeycaps(KeyCaps keyCaps);
-        int TimId(KeyCaps keyCaps);
+        //Boolean ThemKeycaps(KeyCaps keyCaps);
+        //int TimId(KeyCaps keyCaps);
     }
 }

@@ -17,17 +17,17 @@ namespace DAL.Repository.RepositorySanPham
         {
             context = new DA1Context();
         }
-        public bool Add(BanPhimKeyCaps banPhimKeyCaps)
-        {
-            context.banPhimKeyCaps.Add(banPhimKeyCaps);
-            if (context.SaveChanges() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool Add(BanPhimKeyCaps banPhimKeyCaps)
+        //{
+        //    context.banPhimKeyCaps.Add(banPhimKeyCaps);
+        //    if (context.SaveChanges() > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

@@ -19,9 +19,9 @@ namespace BUS.Services.ServiceSanPham
             _service = new SanPhamMauSacRepository();
         }
 
-        public bool ThemSPMS(SanPhamMauSac sanPhamMau)
-        {
-            return _service.Add(sanPhamMau);
-        }
+        //public bool ThemSPMS(SanPhamMauSac sanPhamMau)
+        //{
+        //    return _service.Add(sanPhamMau);
+        //}
     }
 }
