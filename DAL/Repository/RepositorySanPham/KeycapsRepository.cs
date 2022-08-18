@@ -18,22 +18,22 @@ namespace DAL.Repository.RepositorySanPham
             context = new DA1Context();
         }
 
-        public bool Add(KeyCaps keyCaps)
-        {
-            var result = context.keyCaps.Where(p => p.TenKeyCaps == keyCaps.TenKeyCaps).FirstOrDefault();
-            if (result == null)
-            {
-                context.keyCaps.Add(keyCaps);
-                context.SaveChanges();
-            }
+        //public bool Add(KeyCaps keyCaps)
+        //{
+        //    var result = context.keyCaps.Where(p => p.TenKeyCaps == keyCaps.TenKeyCaps).FirstOrDefault();
+        //    if (result == null)
+        //    {
+        //        context.keyCaps.Add(keyCaps);
+        //        context.SaveChanges();
+        //    }
             
-            return true;
-        }
+        //    return true;
+        //}
 
-        public int FindId(KeyCaps keyCaps)
-        {
-            var result = context.keyCaps.Where(p => p.TenKeyCaps == keyCaps.TenKeyCaps).FirstOrDefault();
-            return result.Id;
-        }
+        //public int FindId(KeyCaps keyCaps)
+        //{
+        //    var result = context.keyCaps.Where(p => p.TenKeyCaps == keyCaps.TenKeyCaps).FirstOrDefault();
+        //    return result.Id;
+        //}
     }
 }

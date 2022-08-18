@@ -28,11 +28,11 @@ namespace Presentation
         public BanPhim ban;
         public Laptop lap;
         public Chuot chuot;
-        public BanPhimKeyCaps phimKeyCaps = new BanPhimKeyCaps();
+        //public BanPhimKeyCaps phimKeyCaps = new BanPhimKeyCaps();
         public MauSac mau = new MauSac();
-        public SanPhamMauSac sanPhamMau = new SanPhamMauSac();
+        //public SanPhamMauSac sanPhamMau = new SanPhamMauSac();
         public SanPham sanpham;
-        public KeyCaps Capskey = new KeyCaps();
+        //public KeyCaps Capskey = new KeyCaps();
         public IEnumerable<SanPhamView> ListSP;
         public IEnumerable<SanPhamView> ListSauKhisuLyDuLieu;
         public bool IsAdd { get; set; }
@@ -113,81 +113,109 @@ namespace Presentation
 
         private void Fspc_PushData(string ketnoi, int ips, string tansophanhoi, string chatlieuvo, double trongluong, string swich, string led, string giatoc, string kichthuoc, string tuoitho)
         {
-
-
-            sanpham = new SanPham()
+            try
             {
-                TenSP = tb_tensp.Text.Trim(),
-                DongSP = comboBox_dongsp.SelectedIndex,
-                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
-                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
-                GhiChu = tb_ghichu.Text.Trim(),
-                chuot = new Chuot()
+                sanpham = new SanPham()
                 {
-                    KetNoi = ketnoi,
-                    IPS = ips,
-                    TanSoPhanHoi = tansophanhoi,
-                    ChetLieuVo = chatlieuvo,
-                    TrongLuong = trongluong,
-                    Switch = swich,
-                    Led = led,
-                    GiaToc = giatoc,
-                    KichThuoc = kichthuoc,
-                    TuoiTho = tuoitho
-                }
-            };
+                    TenSP = tb_tensp.Text.Trim(),
+                    DongSP = comboBox_dongsp.SelectedIndex,
+                    DonGiaNhap = float.TryParse(tb_gianhap.Text.Trim(), out _) ? float.Parse(tb_gianhap.Text.Trim()) : throw new Exception("Khong duoc nhap chu cai"),
+                    DonGiaBan = float.TryParse(tb_giaban.Text.Trim(), out _) ? float.Parse(tb_giaban.Text.Trim()) : throw new Exception("Khong duoc nhap chu cai"),
+                    GhiChu = tb_ghichu.Text.Trim(),
+                    soluong = string.IsNullOrEmpty(tb_soluong.Text) ? 0 : int.Parse(tb_soluong.Text.Trim()),
+                    chuot = new Chuot()
+                    {
+                        KetNoi = ketnoi,
+                        IPS = ips,
+                        TanSoPhanHoi = tansophanhoi,
+                        ChetLieuVo = chatlieuvo,
+                        TrongLuong = trongluong,
+                        Switch = swich,
+                        Led = led,
+                        GiaToc = giatoc,
+                        KichThuoc = kichthuoc,
+                        TuoiTho = tuoitho
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+
+            
         }
 
         private void Fspl_GetInfo(string cpu, string ram, string card, string ocung, string pin, double trongluong, string manhinh, string dophangiai, string webcam, string hedieuhanh, string kichthuoc, string bluetooth)
         {
-            sanpham = new SanPham()
+            try
             {
-                TenSP = tb_tensp.Text.Trim(),
-                DongSP = comboBox_dongsp.SelectedIndex,
-                DonGiaNhap = string.IsNullOrEmpty(tb_gianhap.Text) ? -1 : float.Parse(tb_gianhap.Text.Trim()),
-                DonGiaBan = string.IsNullOrEmpty(tb_giaban.Text) ? -1 : float.Parse(tb_giaban.Text.Trim()),
-                GhiChu = tb_ghichu.Text.Trim(),
-                laptop = new Laptop()
+                sanpham = new SanPham()
                 {
+                    TenSP = tb_tensp.Text.Trim(),
+                    DongSP = comboBox_dongsp.SelectedIndex,
+                    DonGiaNhap = float.TryParse(tb_gianhap.Text.Trim(), out _) ? float.Parse(tb_gianhap.Text.Trim()) : throw new Exception("Khong duoc nhap chu cai"),
+                    DonGiaBan = float.TryParse(tb_giaban.Text.Trim(), out _) ? float.Parse(tb_giaban.Text.Trim()) : throw new Exception("Khong duoc nhap chu cai"),
+                    soluong = string.IsNullOrEmpty(tb_soluong.Text) ? 0 : int.Parse(tb_soluong.Text.Trim()),
+                    GhiChu = tb_ghichu.Text.Trim(),
+                    laptop = new Laptop()
+                    {
 
-                    CPU = cpu,
-                    RAM = ram,
-                    VGA_Card = card,
-                    OCung = ocung,
-                    PIN = pin,
-                    TrongLuong = trongluong,
-                    ManHinh = manhinh,
-                    DoPhanGiai = dophangiai,
-                    WebCam = webcam,
-                    HeDieuHanh = hedieuhanh,
-                    KichThuoc = kichthuoc,
-                    Bluetooth = bluetooth
-                }
-            };
+                        CPU = cpu,
+                        RAM = ram,
+                        VGA_Card = card,
+                        OCung = ocung,
+                        PIN = pin,
+                        TrongLuong = trongluong,
+                        ManHinh = manhinh,
+                        DoPhanGiai = dophangiai,
+                        WebCam = webcam,
+                        HeDieuHanh = hedieuhanh,
+                        KichThuoc = kichthuoc,
+                        Bluetooth = bluetooth
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+            
         }
 
         private void Fspbp_GetBanPhimEvent(string hangsx, int kieukn, string kieubp, string led, string layout, string kichthuoc, float trongluong, string mausac, string keycaps)
         {
-        
-
-            sanpham = new SanPham()
+            try
             {
-                TenSP = tb_tensp.Text.Trim(),
-                DongSP = comboBox_dongsp.SelectedIndex,
-                DonGiaNhap = float.Parse(tb_gianhap.Text.Trim()),
-                DonGiaBan = float.Parse(tb_giaban.Text.Trim()),
-                GhiChu = tb_ghichu.Text.Trim(),
-                banPhim = new BanPhim()
+                sanpham = new SanPham()
                 {
-                    HangSanXuat = hangsx,
-                    KieuKetNoi = kieukn,
-                    KieuBanPhim = kieubp,
-                    Led = led,
-                    Layout = layout,
-                    KichThuoc = kichthuoc,
-                    TrongLuong = trongluong,
-                }
-            };
+                    TenSP = tb_tensp.Text.Trim(),
+                    DongSP = comboBox_dongsp.SelectedIndex,
+                    DonGiaNhap = float.TryParse(tb_gianhap.Text.Trim(), out _) ? float.Parse(tb_gianhap.Text.Trim()) : throw new Exception("Khong duoc nhap chu cai"),
+                    DonGiaBan = float.TryParse(tb_giaban.Text.Trim(), out _) ? float.Parse(tb_giaban.Text.Trim()) : throw new Exception("Khong duoc nhap chu cai"),
+                    soluong = string.IsNullOrEmpty(tb_soluong.Text) ? 0 : int.Parse(tb_soluong.Text.Trim()),
+                    GhiChu = tb_ghichu.Text.Trim(),
+                    banPhim = new BanPhim()
+                    {
+                        HangSanXuat = hangsx,
+                        KieuKetNoi = kieukn,
+                        KieuBanPhim = kieubp,
+                        Led = led,
+                        Layout = layout,
+                        KichThuoc = kichthuoc,
+                        TrongLuong = trongluong,
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+
+            
 
         }
 
@@ -197,11 +225,12 @@ namespace Presentation
             tb_gianhap.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "DonGiaNhap"));
             tb_giaban.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "DonGiaBan"));
             tb_ghichu.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "GhiChu"));
+            tb_soluong.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "SoLuongTon"));
         }
 
         private void LoadFullList()
         {
-            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP].ToString(), GhiChu = c.GhiChu, laptop = c.laptop, banPhim = c.banPhim, chuot = c.chuot };
+            ListSP = from c in _serviceSanPhamService.SanPhamList() select new SanPhamView { MaSP = c.MaSP, TenSP = c.TenSP, DonGiaNhap = c.DonGiaNhap, DonGiaBan = c.DonGiaBan, DongSP = comboBox_dongsp.Items[c.DongSP].ToString(), GhiChu = c.GhiChu, laptop = c.laptop, banPhim = c.banPhim, chuot = c.chuot, SoLuongTon = c.soluong };
             ListSauKhisuLyDuLieu = ListSP;
             dataGridView1.DataSource = ListSauKhisuLyDuLieu.ToList();
             dataGridView1.Columns[dataGridView1.ColumnCount - 1].Visible = false;
@@ -311,6 +340,7 @@ namespace Presentation
             tb_gianhap.DataBindings.Clear();
             tb_giaban.DataBindings.Clear();
             tb_ghichu.DataBindings.Clear();
+            tb_soluong.DataBindings.Clear();
         }
 
         private void MappingData()
@@ -321,6 +351,7 @@ namespace Presentation
                 sanpham.DonGiaNhap=string.IsNullOrEmpty(tb_gianhap.Text) ? -1 : int.Parse(tb_gianhap.Text.Trim());
                 sanpham.DonGiaBan=string.IsNullOrEmpty(tb_giaban.Text) ? -1 : int.Parse(tb_giaban.Text.Trim());
                 sanpham.DongSP = comboBox_dongsp.SelectedIndex;
+                sanpham.soluong = int.TryParse(tb_soluong.Text.Trim(), out _) ? int.Parse(tb_soluong.Text.Trim()) : throw new Exception("so luong khong duoc co chu");
                 sanpham.GhiChu=tb_ghichu.Text.Trim();
             }
             else
@@ -331,6 +362,7 @@ namespace Presentation
                     DonGiaNhap = string.IsNullOrEmpty(tb_gianhap.Text) ? -1 : int.Parse(tb_gianhap.Text.Trim()),
                     DonGiaBan= string.IsNullOrEmpty(tb_giaban.Text) ? -1 : int.Parse(tb_giaban.Text.Trim()),
                     DongSP = comboBox_dongsp.SelectedIndex,
+                    soluong = int.TryParse(tb_soluong.Text.Trim(), out _) ? int.Parse(tb_soluong.Text.Trim()) : throw new Exception("so luong khong duoc co chu"),
                     GhiChu=tb_ghichu.Text.Trim()
                 };
             }
@@ -345,14 +377,14 @@ namespace Presentation
         private void comboBox_mau_SelectedIndexChanged(object sender, EventArgs e)
         {
             int a = 0; int b = 0; int c = 0;
-            string[] str = comboBox_mau.Text.Split(' ');
-            if (comboBox_mau.SelectedIndex == 4)
+            string[] str = comboBox_gia.Text.Split(' ');
+            if (comboBox_gia.SelectedIndex == 4)
             {
                 c = 2000000;
                 ListSauKhisuLyDuLieu = ListSauKhisuLyDuLieu.Where(p => p.DonGiaBan >= c);
 
             }
-            else if (comboBox_mau.SelectedIndex >= 0)
+            else if (comboBox_gia.SelectedIndex >= 0)
             {
                 a = int.Parse(SplitBack(str[0]));
                 b = int.Parse(SplitBack(str[str.Length - 1]));
@@ -411,9 +443,8 @@ namespace Presentation
             }
         }
 
-        private void btnclear_Click(object sender, EventArgs e)
+        private void btnclear_Click_1(object sender, EventArgs e)
         {
-            
             if (activeForm != null)
             {
                 activeForm.Dispose();
@@ -426,8 +457,6 @@ namespace Presentation
             tb_soluong.Clear();
             tb_ghichu.Clear();
             tb_tensp.Clear();
-
-
         }
     }
 }

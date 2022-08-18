@@ -48,6 +48,11 @@ namespace Presentation
                 bt_nhanvien.Visible = false;
                 //Mở form Bán Hàng 1
                 panel3.Controls.Clear();
+            ResetPanel();
+        }
+        
+        public void ResetPanel()
+        {
             FormBanHang1 fbh = new FormBanHang1()
             {
                 Dock = DockStyle.Fill,
@@ -57,7 +62,7 @@ namespace Presentation
             this.panel3.Controls.Add(fbh);
             fbh.FormBorderStyle = FormBorderStyle.None;
             fbh.Show();
-        }           
+        }
         private void bt_nhanvien_Click_1(object sender, EventArgs e)
         {           
             panel3.Controls.Clear();

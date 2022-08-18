@@ -18,11 +18,11 @@ namespace DAL.Repository.RepositorySanPham
             context = new DA1Context();
         }
 
-        public bool Add(SanPhamMauSac sanPhamMau)
-        {
-            context.sanPhamMauSacs.Add(sanPhamMau);
-            context.SaveChanges();
-            return true;
-        }
+        //public bool Add(SanPhamMauSac sanPhamMau)
+        //{
+        //    context.sanPhamMauSacs.Add(sanPhamMau);
+        //    context.SaveChanges();
+        //    return true;
+        //}
     }
 }

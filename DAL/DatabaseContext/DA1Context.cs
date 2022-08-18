@@ -17,11 +17,7 @@ namespace DAL.DatabaseContext
         public DbSet<KhuyenMai> khuyenMais { get; set; }
         public DbSet<SanPham> sanPhams { get; set; }
         public DbSet<BanPhim> banPhims { get; set; }
-        public DbSet<BanPhimSoLuongSwitch> banPhimSoLuongSwitches { get; set; }
         public DbSet<MauSac> mauSacs { get; set; }
-        public DbSet<SanPhamMauSac> sanPhamMauSacs { get; set; }
-        public DbSet<KeyCaps> keyCaps { get; set; }
-        public DbSet<BanPhimKeyCaps> banPhimKeyCaps { get; set; }
         public DbSet<Laptop> laptops { get; set; }
         public DbSet<Chuot> chuots { get; set; }
 
@@ -102,52 +98,45 @@ namespace DAL.DatabaseContext
             #region BanPhim
             modelBuilder.Entity<BanPhim>().HasKey(bp => bp.MaSP);
             // tạo quan hệ 1 - n với bảng banphimsoluongswitch
-            modelBuilder.Entity<BanPhim>()
-                .HasMany(bp => bp.banPhimSoLuongSwitches)
-                .WithOne(bpsls => bpsls.banPhim)
-                .HasForeignKey(bpsls => bpsls.MaSP);
+            //modelBuilder.Entity<BanPhim>()
+            //    .HasMany(bp => bp.banPhimSoLuongSwitches)
+            //    .WithOne(bpsls => bpsls.banPhim)
+            //    .HasForeignKey(bpsls => bpsls.MaSP);
             // tạo quan hệ 1 -n với bảng sanphammausac
-            modelBuilder.Entity<BanPhim>()
-                .HasMany<SanPhamMauSac>(bp => bp.sanPhamMauSacs)
-                .WithOne(spms => spms.banphim)
-                .HasForeignKey(spms => spms.Masp);
+            //modelBuilder.Entity<BanPhim>()
+            //    .HasMany<SanPhamMauSac>(bp => bp.sanPhamMauSacs)
+            //    .WithOne(spms => spms.banphim)
+            //    .HasForeignKey(spms => spms.Masp);
             // tạo quan hệ 1 - n với bảng BanPhimKeyCaps
-            modelBuilder.Entity<BanPhim>()
-                .HasMany<BanPhimKeyCaps>(bp => bp.banPhimKeyCaps)
-                .WithOne(bpkcs => bpkcs.banPhim)
-                .HasForeignKey(bpkcs => bpkcs.MaSP);
+            //modelBuilder.Entity<BanPhim>()
+            //    .HasMany<BanPhimKeyCaps>(bp => bp.banPhimKeyCaps)
+            //    .WithOne(bpkcs => bpkcs.banPhim)
+            //    .HasForeignKey(bpkcs => bpkcs.MaSP);
             #endregion
 
-            #region banphimsoluongswitch
-            modelBuilder.Entity<BanPhimSoLuongSwitch>().HasKey(bpsls => bpsls.MaSP);
-            #endregion
+            //#region banphimsoluongswitch
+            //modelBuilder.Entity<BanPhimSoLuongSwitch>().HasKey(bpsls => bpsls.MaSP);
+            //#endregion
 
             #region MauSac
             modelBuilder.Entity<MauSac>().HasKey(ms => ms.Id);
             modelBuilder.Entity<MauSac>().Property(ms => ms.Id).UseIdentityColumn();
             // tạo quan hệ 1 - n với bảng sanphammausac
-            modelBuilder.Entity<MauSac>()
-                .HasMany<SanPhamMauSac>(ms => ms.sanPhamMauSacs)
-                .WithOne(spms => spms.mausac)
-                .HasForeignKey(spms => spms.Idmau);
+            //modelBuilder.Entity<MauSac>()
+            //    .HasMany<SanPhamMauSac>(ms => ms.sanPhamMauSacs)
+            //    .WithOne(spms => spms.mausac)
+            //    .HasForeignKey(spms => spms.Idmau);
             #endregion
 
-            #region keycaps
-            modelBuilder.Entity<KeyCaps>().HasKey(kcs => kcs.Id);
-            // tạo quan hệ 1 - n với bảng BanPhimKeyCaps
-            modelBuilder.Entity<KeyCaps>()
-                .HasMany<BanPhimKeyCaps>(kcs => kcs.banPhimKeyCaps)
-                .WithOne(bpkcs => bpkcs.keyCaps)
-                .HasForeignKey(bpkcs => bpkcs.IdKeyCaps);
-            #endregion
+  
 
-            #region banphimkeycaps
-            modelBuilder.Entity<BanPhimKeyCaps>().HasKey(bpkcs => new { bpkcs.IdKeyCaps, bpkcs.MaSP });
-            #endregion
+            //#region banphimkeycaps
+            //modelBuilder.Entity<BanPhimKeyCaps>().HasKey(bpkcs => new { bpkcs.IdKeyCaps, bpkcs.MaSP });
+            //#endregion
 
-            #region SanphamMauSac
-            modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.Masp, spms.Idmau });
-            #endregion
+            //#region SanphamMauSac
+            //modelBuilder.Entity<SanPhamMauSac>().HasKey(spms => new { spms.Masp, spms.Idmau });
+            //#endregion
 
             #region Laptop
             modelBuilder.Entity<Laptop>().HasKey(lp => lp.MaLaptop);

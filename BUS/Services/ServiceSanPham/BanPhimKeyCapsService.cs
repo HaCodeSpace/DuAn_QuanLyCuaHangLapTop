@@ -19,9 +19,9 @@ namespace BUS.Services.ServiceSanPham
             _service = new BanPhimKeyCapsRepository();
         }
 
-        public bool ThemBPKCS(BanPhimKeyCaps banPhimKeyCaps)
-        {
-            return _service.Add(banPhimKeyCaps);
-        }
+        //public bool ThemBPKCS(BanPhimKeyCaps banPhimKeyCaps)
+        //{
+        //    return _service.Add(banPhimKeyCaps);
+        //}
     }
 }

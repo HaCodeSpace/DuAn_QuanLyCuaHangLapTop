@@ -19,14 +19,14 @@ namespace BUS.Services.ServiceSanPham
             _service = new KeycapsRepository();
         }
 
-        public bool ThemKeycaps(KeyCaps keyCaps)
-        {
-            return _service.Add(keyCaps);
-        }
+        //public bool ThemKeycaps(KeyCaps keyCaps)
+        //{
+        //    return _service.Add(keyCaps);
+        //}
 
-        public int TimId(KeyCaps keyCaps)
-        {
-            return _service.FindId(keyCaps);
-        }
+        //public int TimId(KeyCaps keyCaps)
+        //{
+        //    return _service.FindId(keyCaps);
+        //}
     }
 }

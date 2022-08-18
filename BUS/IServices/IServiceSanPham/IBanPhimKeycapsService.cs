@@ -9,6 +9,6 @@ namespace BUS.IServices.IServiceSanPham
 {
     public interface IBanPhimKeycapsService
     {
-        Boolean ThemBPKCS(BanPhimKeyCaps banPhimKeyCaps);
+        //Boolean ThemBPKCS(BanPhimKeyCaps banPhimKeyCaps);
     }
 }
