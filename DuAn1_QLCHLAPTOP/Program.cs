@@ -14,6 +14,7 @@ namespace DuAn1_QLCHLAPTOP
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new DangNhap());
+
         }
     }
 }
